@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5e05bf38fbe689e521ffe80c6f58f3e",
+    "content-hash": "6f5431be4a95d1311d0281d9f7ae6a9f",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -17,7 +17,7 @@
                 "composer/installers": "^1.9",
                 "ffraenz/private-composer-installer": "^5.0.1"
             },
-            "type": "wordpress-muplugin"
+            "type": "wordpress-plugin"
         },
         {
             "name": "analogmemory/wp-sync-db",
