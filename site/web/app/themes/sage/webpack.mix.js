@@ -19,6 +19,9 @@ mix
 mix
   .sass('resources/styles/app.scss', 'styles')
   .sass('resources/styles/editor.scss', 'styles')
+  .webpackConfig({
+    devtool: 'source-map'
+  })
   .options({
     processCssUrls: false,
     postCss: [require('tailwindcss')],
