@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
-
+    <canvas class="fixed top-0 left-0 w-full h-screen webgl"></canvas>
 @endsection
 
 @section('sidebar')

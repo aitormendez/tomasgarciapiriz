@@ -19,6 +19,21 @@ mix
     browser: 'google chrome',
   } );
 
+mix
+  .webpackConfig({
+    module: {
+      rules: [
+        // Shaders
+        {
+          test: /\.(glsl|vs|fs|vert|frag)$/,
+          exclude: /node_modules/,
+          use: [
+            'raw-loader'
+          ]
+        }
+      ]
+    }
+  });
 
 mix
   .sass('resources/styles/app.scss', 'styles')
