@@ -42,5 +42,8 @@
   },
   "peerDependencies": {
     "jquery": "^3.5.1"
+  },
+  "dependencies": {
+    "three": "^0.133.1"
   }
 }

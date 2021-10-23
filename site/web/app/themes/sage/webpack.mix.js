@@ -14,7 +14,11 @@ require('@tinypixelco/laravel-mix-wp-blocks');
 
 mix
   .setPublicPath('./public')
-  .browserSync('sage.test');
+  .browserSync({
+    proxy: 'https://tomasgarciapiriz.test',
+    browser: 'google chrome',
+  } );
+
 
 mix
   .sass('resources/styles/app.scss', 'styles')
