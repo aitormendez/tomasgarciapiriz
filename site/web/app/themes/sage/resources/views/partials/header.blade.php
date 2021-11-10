@@ -1,4 +1,4 @@
-<header class="banner">
+<header class="fixed z-30 banner">
   <a class="brand" href="{{ home_url('/') }}">
     {{ $siteName }}
   </a>
