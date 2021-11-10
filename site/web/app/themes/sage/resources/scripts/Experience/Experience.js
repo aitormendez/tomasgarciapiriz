@@ -6,6 +6,7 @@ import Renderer from './Renderer.js'
 import World from './World/World.js'
 
 
+
 let instance = null
 
 export default class Experience {
