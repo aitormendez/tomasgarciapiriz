@@ -13,6 +13,8 @@ export default class MesaLoading
         this.resource = this.resources.items.mesaModel
 
         this.setModel()
+        this.setTextures()
+        this.setMaterial()
     }
 
     setModel()
@@ -30,4 +32,25 @@ export default class MesaLoading
             }
         })
     }
+
+    setTextures()
+    {
+        this.texture = this.resources.items.toonTexture
+        this.texture.magFilter = THREE.NearestFilter
+        
+    }
+
+    setMaterial()
+    {
+        this.material = new THREE.MeshToonMaterial({
+            color: '#00ff00',
+            gradientMap: this.texture
+        })
+
+        this.model.traverse((child) =>
+        {
+            child.material = this.material
+        })
+    }
 }
+
