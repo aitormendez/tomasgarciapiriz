@@ -25,7 +25,6 @@ export default class Floor
         this.material = new THREE.MeshStandardMaterial()
     }
 
-
     setMesh()
     {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
