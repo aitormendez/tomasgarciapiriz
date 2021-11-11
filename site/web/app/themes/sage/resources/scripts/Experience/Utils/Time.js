@@ -26,7 +26,7 @@ export default class Time extends EventEmitter
 
     tick()
     {
-        this.stats.begin()
+        if (this.stats) this.stats.begin()
         const currentTime = Date.now()
         this.delta = currentTime - this.current
         this.current = currentTime
@@ -38,6 +38,6 @@ export default class Time extends EventEmitter
         {
             this.tick()
         })
-        this.stats.end()
+        if (this.stats) this.stats.end()
     }
 }
