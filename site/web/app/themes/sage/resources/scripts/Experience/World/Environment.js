@@ -16,7 +16,7 @@ export default class Environment
 
     setSunLight()
     {
-        this.sunLight = new THREE.DirectionalLight('#ffffff', 1)
+        this.sunLight = new THREE.DirectionalLight('#ffffff', 1000)
         this.sunLight.castShadow = true
         this.sunLight.shadow.camera.far = 6
         this.sunLight.shadow.camera.near = 4
@@ -29,7 +29,7 @@ export default class Environment
         this.sunLight.position.set(0, 3, - 4)
         this.scene.add(this.sunLight)
 
-        const directionalLightCameraHelper = new THREE.CameraHelper(this.sunLight.shadow.camera)
-        this.scene.add(directionalLightCameraHelper)
+        // const directionalLightCameraHelper = new THREE.CameraHelper(this.sunLight.shadow.camera)
+        // this.scene.add(directionalLightCameraHelper)
     }
 }

@@ -14,14 +14,22 @@ export default class World
         this.resources = this.experience.resources
 
 
+
+
         this.resources.on('ready', () =>
         {
-            
             // Setup
             this.floor = new Floor()
             this.mesaLoading = new MesaLoading()
             this.environment = new Environment()
+
         })
 
+    }
+    
+    update()
+    {
+        if(this.mesaLoading)
+            this.mesaLoading.update()
     }
 }

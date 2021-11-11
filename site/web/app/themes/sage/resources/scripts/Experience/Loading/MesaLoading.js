@@ -15,6 +15,7 @@ export default class MesaLoading
         this.setModel()
         this.setTextures()
         this.setMaterial()
+
     }
 
     setModel()
@@ -43,7 +44,6 @@ export default class MesaLoading
     setMaterial()
     {
         this.material = new THREE.MeshToonMaterial({
-            color: '#00ff00',
             gradientMap: this.texture
         })
 
@@ -52,5 +52,12 @@ export default class MesaLoading
             child.material = this.material
         })
     }
+
+    update()
+    {
+        this.model.rotation.y += 0.01
+        
+    }
+
 }
 
