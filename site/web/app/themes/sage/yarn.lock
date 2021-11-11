@@ -5149,6 +5149,11 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+lil-gui@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/lil-gui/-/lil-gui-0.12.0.tgz#77bdb806384260f126ed284ea026eea2fc39b60b"
+  integrity sha512-jnzLWIpjK0A0c+LqWAkjle04pffghn+cpCyK0XUraFcs647SmqhAjsNtkvKctbeSMCEcMjHcf+jVGrxzDULH6A==
+
 limiter@^1.0.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/limiter/-/limiter-1.1.5.tgz#8f92a25b3b16c6131293a0cc834b4a838a2aa7c2"
@@ -7713,6 +7718,11 @@ static-extend@^0.1.1:
   dependencies:
     define-property "^0.2.5"
     object-copy "^0.1.0"
+
+stats.js@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/stats.js/-/stats.js-0.17.0.tgz#b1c3dc46d94498b578b7fd3985b81ace7131cc7d"
+  integrity sha1-scPcRtlEmLV4t/05hbgaznExzH0=
 
 "statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2", statuses@~1.5.0:
   version "1.5.0"

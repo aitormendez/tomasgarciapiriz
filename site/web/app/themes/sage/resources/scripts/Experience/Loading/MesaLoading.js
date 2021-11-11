@@ -8,6 +8,7 @@ export default class MesaLoading
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
+        this.debug = this.experience.debug
 
         // Setup
         this.resource = this.resources.items.mesaModel
@@ -15,6 +16,12 @@ export default class MesaLoading
         this.setModel()
         this.setTextures()
         this.setMaterial()
+
+        // Debug
+        if(this.debug.active)
+        {
+            this.debugFolder = this.debug.ui.addFolder('Loading scene')
+        }
 
     }
 

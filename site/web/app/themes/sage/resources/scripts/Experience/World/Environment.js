@@ -7,6 +7,13 @@ export default class Environment
     {
         this.experience = new Experience()
         this.scene = this.experience.scene
+        this.debug = this.experience.debug
+
+        // Debug
+        if(this.debug.active)
+        {
+            this.debugFolder = this.debug.ui.addFolder('environment')
+        }
 
 
         // Setup
@@ -16,7 +23,7 @@ export default class Environment
 
     setSunLight()
     {
-        this.sunLight = new THREE.DirectionalLight('#ffffff', 1000)
+        this.sunLight = new THREE.DirectionalLight('#ffffff', 2)
         this.sunLight.castShadow = true
         this.sunLight.shadow.camera.far = 6
         this.sunLight.shadow.camera.near = 4
@@ -31,5 +38,16 @@ export default class Environment
 
         // const directionalLightCameraHelper = new THREE.CameraHelper(this.sunLight.shadow.camera)
         // this.scene.add(directionalLightCameraHelper)
+
+        // Debug
+        if(this.debug.active)
+        {
+            this.debugFolder
+                .add(this.sunLight, 'intensity')
+                .name('Light intesity')
+                .min(0)
+                .max(2)
+                .step(0.001)
+        }
     }
 }

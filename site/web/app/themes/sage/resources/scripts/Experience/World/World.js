@@ -5,6 +5,7 @@ import Floor from '../Loading/Floor.js'
 import MesaLoading from '../Loading/MesaLoading.js'
 
 
+
 export default class World
 {
     constructor(canvas)
@@ -12,8 +13,14 @@ export default class World
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
+        this.debug = this.experience.debug
 
-
+        // Debug
+        if(this.debug.active)
+        {
+            this.debugFolder = this.debug.ui.addFolder('World')
+        }
+        
 
 
         this.resources.on('ready', () =>
@@ -26,7 +33,7 @@ export default class World
         })
 
     }
-    
+
     update()
     {
         if(this.mesaLoading)
