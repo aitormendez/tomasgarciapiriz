@@ -4,9 +4,9 @@
 wordpress_sites:
   stage-tomasgarciapiriz.com:
     site_hosts:
-    - canonical: tomasgarciapiriz.e451.net
+    - canonical: tgp.e451.net
     local_path: ../site
-    branch: master
+    branch: main
     repo: git@github.com:aitormendez/tomasgarciapiriz.git
     repo_subtree_path: site
     multisite:

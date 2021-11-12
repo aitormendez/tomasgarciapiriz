@@ -8,7 +8,7 @@ wordpress_sites:
       redirects:
       - www.tomasgarciapiriz.com
     local_path: ../site
-    branch: master
+    branch: main
     repo: git@github.com:aitormendez/tomasgarciapiriz.git
     repo_subtree_path: site
     multisite:
