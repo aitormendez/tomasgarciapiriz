@@ -17,7 +17,7 @@ export default class Floor
 
     setGeometry()
     {
-        this.geometry = new THREE.CircleGeometry(3, 64)
+        this.geometry = new THREE.CircleGeometry(50, 64)
     }
 
     setMaterial()

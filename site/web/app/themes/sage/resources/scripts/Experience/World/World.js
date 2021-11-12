@@ -20,8 +20,6 @@ export default class World
         {
             this.debugFolder = this.debug.ui.addFolder('World')
         }
-        
-
 
         this.resources.on('ready', () =>
         {

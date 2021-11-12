@@ -2,11 +2,12 @@
  * External Dependencies
  */
 import 'jquery';
-// import './frontPage.js';
 import Experience from './Experience/Experience.js'
-
-const experience = new Experience(document.querySelector('canvas.webgl'))
+let w = window.innerWidth
 
 $(() => {
-  // console.log('Hello world');
+  if (document.body.classList.contains('home') && w > 791) {
+  const experience = new Experience(document.querySelector('canvas.webgl'))
+}
+
 });

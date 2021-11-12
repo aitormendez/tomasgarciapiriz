@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import Debug from './Utils/Debug.js'
+import ManageLoading from './Loading/Loading.js'
 import Sizes from './Utils/Sizes.js'
 import Time from './Utils/Time.js'
 import Camera from './Camera.js'
@@ -29,6 +30,7 @@ export default class Experience {
 
         // Setup
         this.debug = new Debug()
+        this.loadingManager = new ManageLoading()
         this.sizes = new Sizes()
         this.time = new Time()
         this.scene = new THREE.Scene()
