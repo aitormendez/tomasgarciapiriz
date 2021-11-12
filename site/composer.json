@@ -33,7 +33,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.10.2",
+        "version": "5.11",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -77,7 +77,7 @@
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
     "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "5.8.1",
+    "roots/wordpress": "5.8.2",
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "wp-sync-db/wp-sync-db-media-files": "dev-master",
@@ -89,8 +89,9 @@
     "wpackagist-plugin/favicon-by-realfavicongenerator": "*",
     "wpackagist-plugin/query-monitor": "*",
     "wpackagist-plugin/gdpr-settings-for-wc": "*",
+    "wpackagist-plugin/fakerpress": "*",
     "wpackagist-plugin/complianz-gdpr": "*",
-    "soberwp/intervention": "dev-master"
+    "soberwp/intervention": "dev-main"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
