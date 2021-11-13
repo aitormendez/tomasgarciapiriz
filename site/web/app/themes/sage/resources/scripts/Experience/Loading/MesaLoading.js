@@ -63,8 +63,5 @@ export default class MesaLoading
     update()
     {
         this.model.rotation.y += 0.01
-        
     }
-
 }
-

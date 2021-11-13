@@ -36,7 +36,7 @@ export default class Resources extends EventEmitter
         this.loaders.dracoLoader.setDecoderPath('./Utils/draco/')
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader)
 
-        // Loading loaders
+        // WorldLoading loaders
         this.loaders.preGltfLoader = new GLTFLoader()
         this.loaders.preTextureLoader = new THREE.TextureLoader()
     }

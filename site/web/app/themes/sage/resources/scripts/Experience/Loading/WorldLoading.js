@@ -29,7 +29,6 @@ export default class WorldLoading
             this.environmentLoading = new EnvironmentLoading()
 
         })
-
     }
 
     update()
