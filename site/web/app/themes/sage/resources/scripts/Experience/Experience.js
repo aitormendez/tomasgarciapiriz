@@ -45,7 +45,7 @@ export default class Experience {
         this.sceneLoading = new THREE.Scene()
         this.scene = new THREE.Scene()
 
-        this.resources = new Resources(sources)
+        this.resources = new Resources(sources, sourcesLoading)
 
         this.cameraLoading = new CameraLoading()
         this.camera = new Camera()

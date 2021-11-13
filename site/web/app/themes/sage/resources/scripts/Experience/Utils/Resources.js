@@ -6,7 +6,7 @@ import EventEmitter from './EventEmitter.js'
 
 export default class Resources extends EventEmitter
 {
-    constructor(sources)
+    constructor(sources, sourcesLoading)
     {
         super()
 
@@ -15,13 +15,20 @@ export default class Resources extends EventEmitter
 
         // Setup
         this.sources = sources
+        this.sourcesLoading = sourcesLoading
+
         this.items = {}
         this.toLoad = this.sources.length
         this.loaded = 0
 
+        this.itemsPre = {}
+        this.toLoadPre = this.sourcesLoading.length
+        this.loadedPre = 0
+        
+
         this.setLoaders()
         this.addSourcesFromPosts()
-        this.startLoading(this.sources)
+        this.startLoadingLoadingScene(this.sourcesLoading)
     }
 
     setLoaders()
@@ -36,7 +43,7 @@ export default class Resources extends EventEmitter
         this.loaders.dracoLoader.setDecoderPath('./Utils/draco/')
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader)
 
-        // WorldLoading loaders
+        // WorldLoading loaders (sin loadingManager)
         this.loaders.preGltfLoader = new GLTFLoader()
         this.loaders.preTextureLoader = new THREE.TextureLoader()
     }
@@ -62,7 +69,34 @@ export default class Resources extends EventEmitter
         }
     }
 
-    startLoading(sources)
+    startLoadingLoadingScene(sources) // load loading scene resources (WorldLoading)
+    {
+        for(const source of sources)
+        {
+            if(source.type === 'preGltfModel')
+            {
+                this.loaders.preGltfLoader.load(
+                    source.path,
+                    (file) =>
+                    {
+                        this.sourceLoadedLoadingScene(source, file)
+                    }
+                )
+            }
+            else if(source.type === 'preTexture')
+            {
+                this.loaders.preTextureLoader.load(
+                    source.path,
+                    (file) =>
+                    {
+                        this.sourceLoadedLoadingScene(source, file)
+                    }
+                )
+            }
+        }
+    }
+
+    startLoading(sources)  // load main scene resources (World)
     {
         // Load each source
         for(const source of sources)
@@ -70,26 +104,6 @@ export default class Resources extends EventEmitter
             if(source.type === 'gltfModel')
             {
                 this.loaders.gltfLoader.load(
-                    source.path,
-                    (file) =>
-                    {
-                        this.sourceLoaded(source, file)
-                    }
-                )
-            }
-            else if(source.type === 'preGltfModel')
-            {
-                this.loaders.preGltfLoader.load(
-                    source.path,
-                    (file) =>
-                    {
-                        this.sourceLoaded(source, file)
-                    }
-                )
-            }
-            else if(source.type === 'preTexture')
-            {
-                this.loaders.preTextureLoader.load(
                     source.path,
                     (file) =>
                     {
@@ -117,6 +131,19 @@ export default class Resources extends EventEmitter
                     }
                 )
             }
+        }
+    }
+
+    sourceLoadedLoadingScene(source, file)
+    {
+        this.itemsPre[source.name] = file
+
+        this.loadedPre++
+
+        if(this.loadedPre === this.toLoadPre)
+        {
+            this.trigger('readyLoadingScene')
+            this.startLoading(this.sources)        
         }
     }
 

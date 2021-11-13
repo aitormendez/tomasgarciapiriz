@@ -7,11 +7,12 @@ export default class MesaLoading
     {
         this.experience = new Experience()
         this.sceneLoading = this.experience.sceneLoading
-        this.resourcesLoading = this.experience.resourcesLoading
+        this.resources = this.experience.resources
         this.debug = this.experience.debug
 
         // Setup
-        this.resource = this.resourcesLoading.items.mesaModel
+        this.resource = this.resources.itemsPre.mesaModel
+        console.log(this.resources);
 
         this.setModel()
         this.setTextures()
@@ -43,7 +44,7 @@ export default class MesaLoading
 
     setTextures()
     {
-        this.texture = this.resourcesLoading.items.toonTexture
+        this.texture = this.resources.itemsPre.toonTexture
         this.texture.magFilter = THREE.NearestFilter
         
     }

@@ -21,15 +21,13 @@ export default class WorldLoading
             this.debugFolder = this.debug.ui.addFolder('Loading scene')
         }
 
-        this.resources.on('ready', () =>
+        this.resources.on('readyLoadingScene', () =>
         {
             // Setup
             this.floorLoading = new FloorLoading()
             this.mesaLoading = new MesaLoading()
             this.environmentLoading = new EnvironmentLoading()
-
         })
-
     }
 
     update()

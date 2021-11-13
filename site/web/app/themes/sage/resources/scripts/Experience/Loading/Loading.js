@@ -16,7 +16,6 @@ export default class ManageLoading
             // Progress
             (itemUrl, itemsLoaded, itemsTotal) =>
             {
-                console.log('WorldLoading progress', itemUrl, itemsLoaded, itemsTotal)
                 this.progressRatio = itemsLoaded / itemsTotal
                 this.loadingBarFillElement.style.transform = `scaleX(${this.progressRatio})`
             }
