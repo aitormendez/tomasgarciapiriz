@@ -24,8 +24,8 @@ add_action(
     function($query) {
         if ( !is_admin() && $query->is_main_query() && is_front_page() ) 
         {
-            $query->set( 'post_type', ['post', 'project', 'story'] );
-            $query->set( 'posts_per_page', 50 );
+            $query->set( 'post_type', ['project', 'story'] );
+            $query->set( 'posts_per_page', 30 );
         }
         
     }

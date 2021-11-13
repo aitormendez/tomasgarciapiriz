@@ -1,13 +1,20 @@
 import * as THREE from 'three'
 import Debug from './Utils/Debug.js'
-import ManageLoading from './Loading/Loading.js'
 import Sizes from './Utils/Sizes.js'
 import Time from './Utils/Time.js'
+
+import ManageLoading from './Loading/Loading.js'
+import WorldLoading from './Loading/WorldLoading.js'
+import ResourcesLoading from './Loading/ResourcesLoading.js'
+import CameraLoading from './Loading/CameraLoading.js'
+import sourcesLoading from './Loading/sourcesLoading.js'
+
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
 import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 import sources from './sources.js'
+
 
 
 let instance = null
@@ -27,17 +34,25 @@ export default class Experience {
 
         // Options
         this.canvas = canvas
+        this.scene = 'WorldLoading'
 
-        // Setup
+        // Setup WorldLoading
         this.debug = new Debug()
         this.loadingManager = new ManageLoading()
         this.sizes = new Sizes()
         this.time = new Time()
+        this.sceneLoading = new THREE.Scene()
+        this.resourcesLoading = new ResourcesLoading(sourcesLoading)
+        this.cameraLoading = new CameraLoading()
+        this.worldLoading = new WorldLoading()
+
+        // Setup World
         this.scene = new THREE.Scene()
         this.resources = new Resources(sources)
         this.camera = new Camera()
+
+        // Render
         this.renderer = new Renderer()
-        this.world = new World()
         
         // Resize event
         this.sizes.on('resize', () =>
@@ -61,7 +76,7 @@ export default class Experience {
     update()
     {
         this.camera.update()
-        this.world.update()
+        this.worldLoading.update()
         this.renderer.update()
     }
 }

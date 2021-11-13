@@ -11,6 +11,8 @@
     {!! get_search_form(false) !!}
   @endif
 
+  @dump($GLOBALS['wp_query'])
+
   @while(have_posts()) @php(the_post())
     @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
   @endwhile

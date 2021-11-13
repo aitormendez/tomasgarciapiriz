@@ -6,12 +6,12 @@ export default class MesaLoading
     constructor()
     {
         this.experience = new Experience()
-        this.scene = this.experience.scene
-        this.resources = this.experience.resources
+        this.sceneLoading = this.experience.sceneLoading
+        this.resourcesLoading = this.experience.resourcesLoading
         this.debug = this.experience.debug
 
         // Setup
-        this.resource = this.resources.items.mesaModel
+        this.resource = this.resourcesLoading.items.mesaModel
 
         this.setModel()
         this.setTextures()
@@ -30,7 +30,7 @@ export default class MesaLoading
         this.model = this.resource.scene
         this.model.scale.set(0.2, 0.2, 0.2)
         this.model.rotateY(1)
-        this.scene.add(this.model)
+        this.sceneLoading.add(this.model)
 
         this.model.traverse((child) =>
         {
@@ -43,7 +43,7 @@ export default class MesaLoading
 
     setTextures()
     {
-        this.texture = this.resources.items.toonTexture
+        this.texture = this.resourcesLoading.items.toonTexture
         this.texture.magFilter = THREE.NearestFilter
         
     }

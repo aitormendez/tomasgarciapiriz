@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import Experience from '../Experience.js'
-import EventEmitter from './EventEmitter.js'
+import EventEmitter from '../Utils/EventEmitter.js'
 
 export default class Resources extends EventEmitter
 {
@@ -14,14 +14,13 @@ export default class Resources extends EventEmitter
         this.loadingManager = this.experience.loadingManager.loadingManager
 
         // Setup
-        this.sources = sources
+        this.sourcesLoading = sources
         this.items = {}
-        this.toLoad = this.sources.length
+        this.toLoad = this.sourcesLoading.length
         this.loaded = 0
 
         this.setLoaders()
-        this.addSourcesFromPosts()
-        this.startLoading(this.sources)
+        this.startLoading(this.sourcesLoading)
     }
 
     setLoaders()
@@ -39,27 +38,6 @@ export default class Resources extends EventEmitter
         // Loading loaders
         this.loaders.preGltfLoader = new GLTFLoader()
         this.loaders.preTextureLoader = new THREE.TextureLoader()
-    }
-
-    addSourcesFromPosts()
-    {
-        this.posts =  document.getElementsByClassName('post')
-
-        for (const post of this.posts) {
-            
-            let thumbnailURL = post.getElementsByTagName('img')[0].src
-
-            if (thumbnailURL) {
-                let thumbnailPath = thumbnailURL.match('\/app(.*).jpg')[0]    
-                let resourceObject = {
-                    name: post.id,
-                    type: 'texture',
-                    path: thumbnailPath
-                }
-
-                this.sources.push(resourceObject)
-            }
-        }
     }
 
     startLoading(sources)
