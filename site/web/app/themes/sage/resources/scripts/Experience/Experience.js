@@ -5,7 +5,7 @@ import Time from './Utils/Time.js'
 
 import ManageLoading from './Loading/Loading.js'
 import WorldLoading from './Loading/WorldLoading.js'
-import ResourcesLoading from './Loading/ResourcesLoading.js'
+// import ResourcesLoading from './Loading/ResourcesLoading.js'
 import CameraLoading from './Loading/CameraLoading.js'
 import sourcesLoading from './Loading/sourcesLoading.js'
 
@@ -36,20 +36,25 @@ export default class Experience {
         this.canvas = canvas
         this.scene = 'WorldLoading'
 
-        // Setup WorldLoading
+        // Setup
         this.debug = new Debug()
         this.loadingManager = new ManageLoading()
         this.sizes = new Sizes()
         this.time = new Time()
+
         this.sceneLoading = new THREE.Scene()
-        this.resourcesLoading = new ResourcesLoading(sourcesLoading)
+        this.scene = new THREE.Scene()
+
+        this.resources = new Resources(sources)
+
         this.cameraLoading = new CameraLoading()
+        this.camera = new Camera()
+
         this.worldLoading = new WorldLoading()
 
-        // Setup World
-        this.scene = new THREE.Scene()
-        this.resources = new Resources(sources)
-        this.camera = new Camera()
+
+        
+        
 
         // Render
         this.renderer = new Renderer()

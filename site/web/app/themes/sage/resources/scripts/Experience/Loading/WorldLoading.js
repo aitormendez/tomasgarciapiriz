@@ -12,7 +12,7 @@ export default class WorldLoading
     {
         this.experience = new Experience()
         this.sceneLoading = this.experience.scene
-        this.resourcesLoading = this.experience.resourcesLoading
+        this.resources = this.experience.resources
         this.debug = this.experience.debug
 
         // Debug
@@ -21,7 +21,7 @@ export default class WorldLoading
             this.debugFolder = this.debug.ui.addFolder('Loading scene')
         }
 
-        this.resourcesLoading.on('ready', () =>
+        this.resources.on('ready', () =>
         {
             // Setup
             this.floorLoading = new FloorLoading()
@@ -29,6 +29,7 @@ export default class WorldLoading
             this.environmentLoading = new EnvironmentLoading()
 
         })
+
     }
 
     update()
