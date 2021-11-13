@@ -1,9 +1,11 @@
 import * as THREE from 'three'
+import EventEmitter from '../Utils/EventEmitter.js'
 
 export default class ManageLoading
 {
     constructor()
     {
+        this.loadingBarFillElement = document.querySelector('.loading-bar .fill')
         this.loadingManager = new THREE.LoadingManager(
             // Loaded
             () =>
@@ -12,11 +14,11 @@ export default class ManageLoading
             },
 
             // Progress
-            () =>
+            (itemUrl, itemsLoaded, itemsTotal) =>
             {
-                console.log('progress')
+                this.progressRatio = itemsLoaded / itemsTotal
+                this.loadingBarFillElement.style.transform = `scaleX(${this.progressRatio})`
             }
-        )       
+        )
     }
-
 }
