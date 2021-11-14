@@ -12,7 +12,6 @@ export default class MesaLoading
 
         // Setup
         this.resource = this.resources.itemsPre.mesaModel
-        console.log(this.resources);
 
         this.setModel()
         this.setTextures()

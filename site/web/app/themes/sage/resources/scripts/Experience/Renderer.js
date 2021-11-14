@@ -5,14 +5,21 @@ export default class Renderer
 {
     constructor(canvas)
     {
+        
         this.experience = new Experience()
+        this.resources = this.experience.resources
         this.canvas = this.experience.canvas
         this.sizes = this.experience.sizes
-        this.scene = this.experience.scene
-        this.sceneLoading = this.experience.sceneLoading
-        this.camera = this.experience.camera
+        this.scene = this.experience.sceneLoading
+        this.camera = this.experience.cameraLoading
+        
 
         this.setInstance()
+
+        this.resources.on('ready', () =>
+        {
+            this.changeScene()
+        })
     }
 
     setInstance()
@@ -22,10 +29,7 @@ export default class Renderer
             antialias: true,
             alpha: true
         })
-        // this.instance.physicallyCorrectLights = true
         this.instance.outputEncoding = THREE.sRGBEncoding
-        // this.instance.toneMapping = THREE.CineonToneMapping
-        // this.instance.toneMappingExposure = 1.75
         this.instance.shadowMap.enabled = true
         this.instance.shadowMap.type = THREE.PCFSoftShadowMap
         this.instance.setSize(this.sizes.width, this.sizes.height)
@@ -39,8 +43,15 @@ export default class Renderer
         this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2))
     }
 
+    changeScene()
+    {
+        this.scene = this.experience.scene
+        this.camera = this.experience.camera
+        console.log('scene change');
+    }
+
     update()
     {
-        this.instance.render(this.sceneLoading, this.camera.instance)
+        this.instance.render(this.scene, this.camera.instance)
     }
 }

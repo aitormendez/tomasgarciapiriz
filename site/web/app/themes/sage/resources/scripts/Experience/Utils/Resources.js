@@ -67,6 +67,7 @@ export default class Resources extends EventEmitter
                 this.sources.push(resourceObject)
             }
         }
+        this.toLoad = this.sources.length
     }
 
     startLoadingLoadingScene(sources) // load loading scene resources (WorldLoading)
@@ -143,7 +144,7 @@ export default class Resources extends EventEmitter
         if(this.loadedPre === this.toLoadPre)
         {
             this.trigger('readyLoadingScene')
-            this.startLoading(this.sources)        
+            this.startLoading(this.sources)    
         }
     }
 
@@ -153,9 +154,12 @@ export default class Resources extends EventEmitter
 
         this.loaded++
 
+        console.log(this.loaded, this.toLoad);
+
         if(this.loaded === this.toLoad)
         {
             this.trigger('ready')
+            
         }
     }
 }

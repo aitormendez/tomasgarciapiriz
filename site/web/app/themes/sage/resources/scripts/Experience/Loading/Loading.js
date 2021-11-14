@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import EventEmitter from '../Utils/EventEmitter.js'
 
 export default class ManageLoading
 {
@@ -10,7 +9,7 @@ export default class ManageLoading
             // Loaded
             () =>
             {
-                console.log('WorldLoading loaded')
+                
             },
 
             // Progress
