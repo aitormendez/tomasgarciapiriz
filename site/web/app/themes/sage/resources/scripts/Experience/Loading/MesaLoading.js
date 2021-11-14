@@ -17,11 +17,6 @@ export default class MesaLoading
         this.setTextures()
         this.setMaterial()
 
-        // Debug
-        if(this.debug.active)
-        {
-            this.debugFolder = this.debug.ui.addFolder('Loading scene')
-        }
 
     }
 
