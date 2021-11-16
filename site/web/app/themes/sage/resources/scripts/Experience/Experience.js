@@ -80,6 +80,7 @@ export default class Experience {
     {
         this.camera.update()
         this.worldLoading.update()
+        this.world.update()
         this.renderer.update()
     }
 }

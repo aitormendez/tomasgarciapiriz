@@ -47,7 +47,8 @@ export default class Renderer
     {
         this.scene = this.experience.scene
         this.camera = this.experience.camera
-        console.log('scene change');
+        this.camera.instance.position.set(0,40,0)
+        // this.camera.controls.enabled = false
     }
 
     update()

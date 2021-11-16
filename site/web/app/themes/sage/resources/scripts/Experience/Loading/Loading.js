@@ -5,11 +5,13 @@ export default class ManageLoading
     constructor()
     {
         this.loadingBarFillElement = document.querySelector('.loading-bar .fill')
+        this.loadingBarElement = document.querySelector('.loading-bar')
+
         this.loadingManager = new THREE.LoadingManager(
             // Loaded
             () =>
             {
-                
+                this.loadingBarElement.classList.add('hidden')
             },
 
             // Progress

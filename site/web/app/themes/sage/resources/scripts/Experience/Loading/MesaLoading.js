@@ -10,14 +10,16 @@ export default class MesaLoading
         this.resources = this.experience.resources
         this.debug = this.experience.debug
 
+        this.texturei = this.experience.resources.items
+        // console.log(this.texturei);
+        // console.log(Object.keys(this.texturei));
+
         // Setup
         this.resource = this.resources.itemsPre.mesaModel
 
         this.setModel()
-        this.setTextures()
+        // this.setTextures()
         this.setMaterial()
-
-
     }
 
     setModel()
@@ -49,6 +51,10 @@ export default class MesaLoading
             gradientMap: this.texture
         })
 
+        this.material = new THREE.MeshStandardMaterial({
+            map: this.texture
+        })
+
         this.model.traverse((child) =>
         {
             child.material = this.material
@@ -57,6 +63,6 @@ export default class MesaLoading
 
     update()
     {
-        this.model.rotation.y += 0.01
+        // this.model.rotation.y += 0.01
     }
 }

@@ -57,9 +57,10 @@ export default class Resources extends EventEmitter
             let thumbnailURL = post.getElementsByTagName('img')[0].src
 
             if (thumbnailURL) {
-                let thumbnailPath = thumbnailURL.match('\/app(.*).jpg')[0]    
+                let thumbnailPath = thumbnailURL.match('\/app(.*).jpg')[0]
+                let name = 'image' + post.id.replace(/-/g, "")
                 let resourceObject = {
-                    name: post.id,
+                    name: name,
                     type: 'texture',
                     path: thumbnailPath
                 }
@@ -154,7 +155,7 @@ export default class Resources extends EventEmitter
 
         this.loaded++
 
-        console.log(this.loaded, this.toLoad);
+        console.log(source.name);
 
         if(this.loaded === this.toLoad)
         {
