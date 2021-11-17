@@ -33,7 +33,7 @@ export default class Resources extends EventEmitter
 
     setLoaders()
     {
-        // World loaders
+        // World loaders (escena principal)
         this.loaders = {}
         this.loaders.gltfLoader = new GLTFLoader(this.loadingManager)
         this.loaders.textureLoader = new THREE.TextureLoader(this.loadingManager)
@@ -43,7 +43,7 @@ export default class Resources extends EventEmitter
         this.loaders.dracoLoader.setDecoderPath('./Utils/draco/')
         this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader)
 
-        // WorldLoading loaders (sin loadingManager)
+        // WorldLoading loaders (Escena de loading, sin loadingManager)
         this.loaders.preGltfLoader = new GLTFLoader()
         this.loaders.preTextureLoader = new THREE.TextureLoader()
     }
@@ -62,7 +62,9 @@ export default class Resources extends EventEmitter
                 let resourceObject = {
                     name: name,
                     type: 'texture',
-                    path: thumbnailPath
+                    path: thumbnailPath,
+                    post: true,
+                    imgSrc: thumbnailURL
                 }
 
                 this.sources.push(resourceObject)
@@ -154,8 +156,6 @@ export default class Resources extends EventEmitter
         this.items[source.name] = file
 
         this.loaded++
-
-        console.log(source.name);
 
         if(this.loaded === this.toLoad)
         {

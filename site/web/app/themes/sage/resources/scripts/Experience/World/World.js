@@ -3,6 +3,7 @@ import Experience from '../Experience.js'
 import Environment from './Environment.js'
 import Floor from './Floor.js'
 import PostCubes from './PostCubes.js'
+import TestCube from './TestCube.js'
 
 
 export default class World
@@ -13,9 +14,6 @@ export default class World
         this.scene = this.experience.scene
         this.resources = this.experience.resources
         this.debug = this.experience.debug
-
-        this.axesHelper = new THREE.AxesHelper( 5 );
-    this.scene.add( this.axesHelper );
 
         // Debug
         if(this.debug.active)
