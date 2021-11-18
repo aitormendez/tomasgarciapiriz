@@ -18,7 +18,7 @@ export default class Renderer
 
         this.resources.on('ready', () =>
         {
-            this.changeScene()
+            this.changeScene(this.experience.scene, this.experience.camera)
         })
     }
 
@@ -43,11 +43,10 @@ export default class Renderer
         this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2))
     }
 
-    changeScene()
+    changeScene(chooseScene, chooseCamera)
     {
-        this.scene = this.experience.scene
-        this.camera = this.experience.camera
-        this.camera.instance.position.set(0,40,0)
+        this.scene = chooseScene
+        this.camera = chooseCamera
         // this.camera.controls.enabled = false
     }
 

@@ -8,19 +8,11 @@ export default class TestCube
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
-        this.texture = this.experience.resources.items.imagepost104
 
         // Setup
         this.setMaterial()
-        this.setGeometry()
         this.setModel()
         this.setMesh()
-    }
-
-    setGeometry()
-    {
-        // cubo generado
-        this.geometry = new THREE.BoxGeometry(2, 2, 0.5)
     }
 
     setMaterial()
@@ -34,8 +26,6 @@ export default class TestCube
     {
         // cubePost2 modelo
         this.cubePost2Model = this.resources.items.cubePost2.scene.children[0]
-        console.log('model', this.cubePost2Model);
-
         this.scene.add(this.cubePost2Model)
 
         this.cubePost2Model.traverse((child) =>
@@ -59,7 +49,6 @@ export default class TestCube
         this.cuboGenerado.castShadow = true
         // this.cuboGenerado.geometry.attributes = this.cubePost2Model.geometry.attributes
         this.scene.add(this.cuboGenerado)
-        console.log('generado', this.cuboGenerado);
     }
 
     update()
