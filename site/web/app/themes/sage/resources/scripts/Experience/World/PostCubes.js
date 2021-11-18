@@ -50,11 +50,10 @@ export default class PostCubes
         this.scene.add(mesh)
 
         // Cannon.js body
-        const shape = new CANNON.Box(new CANNON.Vec3(1, 0.5, 1))
+        const shape = new CANNON.Box(new CANNON.Vec3( 1, 0.25, 1))
 
         const body = new CANNON.Body({
             mass: 1,
-            position: new CANNON.Vec3(0, 3, 0),
             shape: shape,
             material: this.physicsWorld.defaultMaterial
         })
@@ -70,6 +69,7 @@ export default class PostCubes
         for(const object of this.objectsToUpdate)
         {
             object.mesh.position.copy(object.body.position)
+            object.mesh.quaternion.copy(object.body.quaternion)
         }
     }
 }
