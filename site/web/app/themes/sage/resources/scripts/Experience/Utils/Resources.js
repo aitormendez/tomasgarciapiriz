@@ -58,13 +58,15 @@ export default class Resources extends EventEmitter
 
             if (thumbnailURL) {
                 let thumbnailPath = thumbnailURL.match('\/app(.*).jpg')[0]
-                let name = 'image' + post.id.replace(/-/g, "")
+                let postName = post.id.replace(/-/g, "")
+                let textureName = 'image' + postName
                 let resourceObject = {
-                    name: name,
+                    name: textureName,
                     type: 'texture',
                     path: thumbnailPath,
                     post: true,
-                    imgSrc: thumbnailURL
+                    imgSrc: thumbnailURL,
+                    postName: postName
                 }
 
                 this.sources.push(resourceObject)

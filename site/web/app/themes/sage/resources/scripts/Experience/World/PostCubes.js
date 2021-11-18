@@ -11,72 +11,65 @@ export default class PostCubes
         this.resources = this.experience.resources
         this.physicsWorld = this.experience.world.physicsWorld
         this.geometry = this.resources.items.cubePost2.scene.children[0].geometry
-        console.log(this.experience );
+        this.objectsToUpdate = []
 
         // Setup
         this.setCubes()
     }
 
-
     setCubes()
     {
-        this.index = 0
-        this.cubePosts = {}
+        for (const source of this.resources.sources)
+        {
+            if (source.post)
+            {
+                let position = {
+                    x: (Math.random() - 0.5) * 20,
+                    z: (Math.random() - 0.5) * 20,
+                    y: Math.random() * 40
+                }
+                let texture = this.experience.resources.items[source.name]
+                texture.encoding = THREE.sRGBEncoding
 
-        for (const source of this.resources.sources) {
-            if (source.post) {
+                this.createCube(texture, position)
 
-                this.cubePosts[source.postName] = {}
-
-                // texture
-                this.cubePosts[source.postName].texture = this.experience.resources.items[source.name]
-                this.cubePosts[source.postName].texture.encoding = THREE.sRGBEncoding
-
-                // Material
-                this.cubePosts[source.postName].material = new THREE.MeshStandardMaterial({
-                    map: this.cubePosts[source.postName].texture
-                })
-
-                // Mesh
-                this.cubePosts[source.postName].mesh = new THREE.Mesh(this.geometry, this.cubePosts[source.postName].material)
-
-                // Scene
-                this.scene.add(this.cubePosts[source.postName].mesh)
-                
-                this.cubePosts[source.postName].mesh.position.x = (Math.random() - 0.5) * 50
-                this.cubePosts[source.postName].mesh.position.z = (Math.random() - 0.5) * 50
-                this.cubePosts[source.postName].mesh.position.y = Math.random() * 20
-
-                // Cannon.js (physics)
-                this.cubePosts[source.postName].shape = new CANNON.Box(new CANNON.Vec3(1, 0.5, 1))
-
-                this.cubePosts[source.postName].body = new CANNON.Body({
-                    mass: 1,
-                    position: new CANNON.Vec3(
-                        this.cubePosts[source.postName].mesh.position.x,
-                        this.cubePosts[source.postName].mesh.position.z,
-                        this.cubePosts[source.postName].mesh.position.y),
-                    shape: this.cubePosts[source.postName].shape,
-                    material: this.physicsWorld.defaultMaterial
-                })
-                
-
-                this.physicsWorld.addBody(this.cubePosts[source.postName].body)
-
-                this.index++
             }
         }
+    }
 
-        
-        
-        
+    createCube(texture, position)
+    {
+        // Threejs mesh
+        const mesh = new THREE.Mesh(
+            this.geometry,
+            new THREE.MeshStandardMaterial({
+                map: texture,
+            })
+        )
+        mesh.position.copy(position)
+        this.scene.add(mesh)
 
+        // Cannon.js body
+        const shape = new CANNON.Box(new CANNON.Vec3(1, 0.5, 1))
+
+        const body = new CANNON.Body({
+            mass: 1,
+            position: new CANNON.Vec3(0, 3, 0),
+            shape: shape,
+            material: this.physicsWorld.defaultMaterial
+        })
+        body.position.copy(position)
+        this.physicsWorld.addBody(body)
+
+        // Save in objects to update
+        this.objectsToUpdate.push({ mesh, body })
     }
 
     update()
     {
-        // console.log(this.experience.time.delta);
-        this.physicsWorld.step(1 / 60, this.experience.time.delta, 3)
-        // console.log(this.cubePosts.imagePost22.body.position.y)
+        for(const object of this.objectsToUpdate)
+        {
+            object.mesh.position.copy(object.body.position)
+        }
     }
 }

@@ -51,8 +51,7 @@ export default class Experience {
         this.camera = new Camera()
 
         this.worldLoading = new WorldLoading()
-        this.world = new World()
-        
+        this.world = new World()        
 
         // Render
         this.renderer = new Renderer()

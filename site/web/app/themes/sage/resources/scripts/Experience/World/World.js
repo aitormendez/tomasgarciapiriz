@@ -41,6 +41,7 @@ export default class World
     {
         this.physicsWorld = new CANNON.World()
         this.physicsWorld.gravity.set(0, - 9.82, 0)
+        this.physicsWorld.allowSleep = true
 
         this.defaultMaterial = new CANNON.Material('default')
 
@@ -58,7 +59,7 @@ export default class World
 
     update()
     {
-        if(this.postCubes)
-            this.postCubes.update()
+        this.physicsWorld.step(1 / 60, this.experience.time.delta, 3)
+        if(this.postCubes) this.postCubes.update()
     }
 }

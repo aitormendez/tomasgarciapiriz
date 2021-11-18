@@ -49,7 +49,6 @@ export default class Floor
         this.floorBody.addShape(this.floorShape)
         this.floorBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)
         this.experience.world.physicsWorld.addBody(this.floorBody)
-        console.log(this.experience.world.physicsWorld);
     }
 
 

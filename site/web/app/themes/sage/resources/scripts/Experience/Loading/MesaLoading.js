@@ -11,8 +11,6 @@ export default class MesaLoading
         this.debug = this.experience.debug
 
         this.texturei = this.experience.resources.items
-        // console.log(this.texturei);
-        // console.log(Object.keys(this.texturei));
 
         // Setup
         this.resource = this.resources.itemsPre.mesaModel
