@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import * as CANNON from 'cannon-es'
+import gsap from 'gsap'
 import Experience from '../Experience.js'
 
 export default class PostCubes
@@ -12,6 +13,7 @@ export default class PostCubes
         this.physicsWorld = this.experience.world.physicsWorld
         this.geometry = this.resources.items.cubePost2.scene.children[0].geometry
         this.objectsToUpdate = []
+        this.objectsWithNames = {}
 
         // Setup
         this.setCubes()
@@ -19,6 +21,7 @@ export default class PostCubes
 
     setCubes()
     {
+
         for (const source of this.resources.sources)
         {
             if (source.post)
@@ -31,13 +34,46 @@ export default class PostCubes
                 let texture = this.experience.resources.items[source.name]
                 texture.encoding = THREE.sRGBEncoding
 
-                this.createCube(texture, position)
-
+                this.createCube(texture, position, source.postName)
             }
         }
     }
 
-    createCube(texture, position)
+    rotate(body)
+    {
+        let rotation = { 
+            val: 0,
+            qx: Math.random() -0.5,
+            qy: Math.random() -0.5,
+            qz: Math.random() -0.5,
+        }
+
+        gsap.to( 
+            rotation, 
+            { 
+                duration: 2,
+                val: 3, 
+                ease: "power1.inOut",
+                onUpdate: updateRotation
+            })
+
+        function updateRotation() {
+            body.quaternion.setFromAxisAngle(
+                new CANNON.Vec3(rotation.qx, rotation.qy, rotation.qz),
+                Math.PI * rotation.val
+            )
+        }
+
+        gsap.to(
+            body.position, 
+            {
+                duration:1, 
+                y: body.position.y + 10
+            }
+        )
+    }
+
+    createCube(texture, position, name)
     {
         // Threejs mesh
         const mesh = new THREE.Mesh(
@@ -47,6 +83,7 @@ export default class PostCubes
             })
         )
         mesh.position.copy(position)
+        mesh.name = name
         this.scene.add(mesh)
 
         // Cannon.js body
@@ -62,6 +99,11 @@ export default class PostCubes
 
         // Save in objects to update
         this.objectsToUpdate.push({ mesh, body })
+
+        // Save in ordered list with cube names
+        this.objectsWithNames[name] = { mesh, body }
+
+        this.rotate(body)
     }
 
     update()
