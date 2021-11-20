@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import CANNON from 'cannon'
+import * as CANNON from 'cannon-es'
 import Experience from '../Experience.js'
 
 export default class Floor
@@ -50,6 +50,4 @@ export default class Floor
         this.floorBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)
         this.experience.world.physicsWorld.addBody(this.floorBody)
     }
-
-
 }
