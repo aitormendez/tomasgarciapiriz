@@ -18,6 +18,7 @@ export default class World
         this.camera = this.experience.camera
         this.resources = this.experience.resources
         this.debug = this.experience.debug
+        this.htmlPostsElement = document.getElementById('posts')
 
         // Debug
         if(this.debug.active)
@@ -33,6 +34,7 @@ export default class World
             this.floor = new Floor()
             this.postCubes = new PostCubes()
             this.environment = new Environment()
+            this.setHtml()
         })
 
     }
@@ -40,7 +42,7 @@ export default class World
     physics()
     {
         this.physicsWorld = new CANNON.World()
-        this.physicsWorld.gravity.set(0, - 9.82, 0)
+        this.physicsWorld.gravity.set(0, - 2, 0)
         this.physicsWorld.allowSleep = true
         this.physicsWorld.broadphase = new CANNON.SAPBroadphase(this.physicsWorld)
 
@@ -56,6 +58,12 @@ export default class World
         )
         
         this.physicsWorld.addContactMaterial(this.defaultContactMaterial)
+    }
+
+    setHtml()
+    {
+        this.htmlPostsElement.classList.remove('hidden')
+        this.htmlPostsElement.style.opacity = '1';
     }
 
     update()

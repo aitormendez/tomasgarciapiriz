@@ -4,7 +4,7 @@
 
 @include('partials.header')
 
-  <main id="main" class="py-8 prose main">
+  <main id="main" class="main">
     @yield('content')
   </main>
 
