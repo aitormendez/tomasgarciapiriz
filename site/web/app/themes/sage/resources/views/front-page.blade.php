@@ -7,7 +7,8 @@
       <div class="h-2 bg-black fill"></div>
     </div>
 
-    <section id="posts" class="absolute right-0 z-30 hidden transition-opacity bg-white opacity-0 top-3/4 loading-bar">
+    <section id="posts" class="absolute right-0 z-30 hidden loading-bar">
+      <div id="posts-bg" class="absolute inset-0 transition-opacity bg-white opacity-0"></div>
       @while(have_posts()) @php(the_post())
         @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
       @endwhile

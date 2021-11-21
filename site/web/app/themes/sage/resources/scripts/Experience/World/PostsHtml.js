@@ -5,9 +5,9 @@ gsap.registerPlugin(ScrollTrigger)
 export default class PostsHtml {
     constructor()
     {
-        const posts = gsap.utils.toArray('.post');
+        this.posts = gsap.utils.toArray('.post');
 
-        posts.forEach(post => {
+        this.posts.forEach(post => {
 
             let postName = post.id.replace(/-/g, "")
 

@@ -2,13 +2,9 @@ import * as THREE from 'three'
 import Debug from './Utils/Debug.js'
 import Sizes from './Utils/Sizes.js'
 import Time from './Utils/Time.js'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 
-import PostsHtml from './World/PostsHtml.js'
 import ManageLoading from './Loading/Loading.js'
 import WorldLoading from './Loading/WorldLoading.js'
-// import ResourcesLoading from './Loading/ResourcesLoading.js'
 import CameraLoading from './Loading/CameraLoading.js'
 import sourcesLoading from './Loading/sourcesLoading.js'
 
@@ -17,6 +13,7 @@ import Renderer from './Renderer.js'
 import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 import sources from './sources.js'
+import PostsHtml from './World/PostsHtml.js'
 
 
 
@@ -40,11 +37,11 @@ export default class Experience {
         this.scene = 'WorldLoading'
 
         // Setup
-        this.postHtml = new PostsHtml()
         this.debug = new Debug()
         this.loadingManager = new ManageLoading()
         this.sizes = new Sizes()
         this.time = new Time()
+        this.postHtml = new PostsHtml()
 
         this.sceneLoading = new THREE.Scene()
         this.scene = new THREE.Scene()

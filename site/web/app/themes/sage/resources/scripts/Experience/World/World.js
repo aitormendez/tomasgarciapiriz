@@ -19,6 +19,7 @@ export default class World
         this.resources = this.experience.resources
         this.debug = this.experience.debug
         this.htmlPostsElement = document.getElementById('posts')
+        this.htmlPostsBgElement = document.getElementById('posts-bg')
 
         // Debug
         if(this.debug.active)
@@ -63,7 +64,7 @@ export default class World
     setHtml()
     {
         this.htmlPostsElement.classList.remove('hidden')
-        this.htmlPostsElement.style.opacity = '1';
+        this.htmlPostsBgElement.style.opacity = '0.8';
     }
 
     update()

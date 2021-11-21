@@ -5,14 +5,12 @@ export default class Renderer
 {
     constructor(canvas)
     {
-        
         this.experience = new Experience()
         this.resources = this.experience.resources
         this.canvas = this.experience.canvas
         this.sizes = this.experience.sizes
         this.scene = this.experience.sceneLoading
         this.camera = this.experience.cameraLoading
-        
 
         this.setInstance()
 
@@ -29,6 +27,7 @@ export default class Renderer
             antialias: true,
             alpha: true
         })
+        
         this.instance.outputEncoding = THREE.sRGBEncoding
         this.instance.shadowMap.enabled = true
         this.instance.shadowMap.type = THREE.PCFSoftShadowMap
@@ -47,7 +46,7 @@ export default class Renderer
     {
         this.scene = chooseScene
         this.camera = chooseCamera
-        // this.camera.controls.enabled = false
+        this.camera.controls.enabled = false
     }
 
     update()

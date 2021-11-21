@@ -1,0 +1,10 @@
+#posts {
+    article {
+        &:last-child {
+            margin-bottom: 75vh;
+        }
+        &:first-of-type {
+            margin-top: 75vh;
+        }
+    }
+}
