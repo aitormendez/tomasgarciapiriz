@@ -25,6 +25,7 @@ export default class PostCubes
     postsHtml()
     {
         const posts = gsap.utils.toArray('.post');
+        
         posts.forEach(post => {
 
             let postName = post.id.replace(/-/g, "")
