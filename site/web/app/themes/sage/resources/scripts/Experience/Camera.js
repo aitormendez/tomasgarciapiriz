@@ -13,7 +13,7 @@ export default class Camera
         this.canvas = this.experience.canvas
 
         this.setInstance()
-        this.setControls()
+        // this.setControls()
     }
 
     setInstance()
@@ -23,9 +23,6 @@ export default class Camera
         this.instance.rotation.x = - 90 * Math.PI / 180
         this.scene.add(this.instance)
         this.sceneLoading.add(this.instance)
-        
-
-        console.log(this.instance);
     }
 
     setControls()

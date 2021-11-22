@@ -92,8 +92,9 @@ export default class PostCubes
         const body = new CANNON.Body({
             mass: 1,
             shape: shape,
-            material: this.physicsWorld.defaultMaterial
+            material: this.physicsWorld.defaultMaterial,
         })
+        body.name = name
         body.position.copy(position)
         this.physicsWorld.addBody(body)
 

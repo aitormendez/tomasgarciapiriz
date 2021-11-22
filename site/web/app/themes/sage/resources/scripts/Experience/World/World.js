@@ -42,7 +42,7 @@ export default class World
     {
         this.physicsWorld = new CANNON.World()
         this.physicsWorld.gravity.set(0, - 2, 0)
-        this.physicsWorld.allowSleep = true
+        this.physicsWorld.allowSleep = false
         this.physicsWorld.broadphase = new CANNON.SAPBroadphase(this.physicsWorld)
 
         this.defaultMaterial = new CANNON.Material('default')

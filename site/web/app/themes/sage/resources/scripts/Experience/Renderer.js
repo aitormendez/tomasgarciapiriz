@@ -46,7 +46,7 @@ export default class Renderer
     {
         this.scene = chooseScene
         this.camera = chooseCamera
-        this.camera.controls.enabled = false
+        // this.camera.controls.enabled = false
     }
 
     update()
