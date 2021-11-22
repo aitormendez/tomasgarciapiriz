@@ -13,7 +13,7 @@ import Renderer from './Renderer.js'
 import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 import sources from './sources.js'
-import PostsHtml from './World/PostsHtml.js'
+
 
 
 
@@ -41,7 +41,6 @@ export default class Experience {
         this.loadingManager = new ManageLoading()
         this.sizes = new Sizes()
         this.time = new Time()
-        this.postHtml = new PostsHtml()
 
         this.sceneLoading = new THREE.Scene()
         this.scene = new THREE.Scene()
@@ -52,7 +51,7 @@ export default class Experience {
         this.camera = new Camera()
 
         this.worldLoading = new WorldLoading()
-        this.world = new World()        
+        this.world = new World()
 
         // Render
         this.renderer = new Renderer()

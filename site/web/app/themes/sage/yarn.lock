@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@ashthornton/asscroll@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@ashthornton/asscroll/-/asscroll-2.0.2.tgz#f3f246effe6af849114f5b3934aa265e61dfce9b"
+  integrity sha512-+FXJJI2UZqxWOvug7220x0DgBDW59MogCJeYm+OFcVDMVumY+D1pFDwfpNIA74RHPPdctAjWpR5lB+rm6HEzJA==
+  dependencies:
+    "@unseenco/e" "^1.8.2"
+
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
@@ -1250,6 +1257,13 @@
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
+
+"@unseenco/e@^1.8.2":
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/@unseenco/e/-/e-1.10.1.tgz#8bcef4e72e51ca8901cf6b48b3e8575ccc74c967"
+  integrity sha512-ydu7mdmDG4aHuI9HpWPa6MV61h5c7RoSAPp4FCUKCgK2YvwWr0BTpEnFmrhUgz8yJ22UMSAfI3qOxoQlv1TnWg==
+  dependencies:
+    selector-set "^1.1.5"
 
 "@webassemblyjs/ast@1.11.0":
   version "1.11.0"
@@ -7309,6 +7323,11 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
+
+selector-set@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/selector-set/-/selector-set-1.1.5.tgz#60c135aea482b6f46a2d95ad72058927690a8634"
+  integrity sha512-6SQw6yMew5iOZ8/cDHDEnJWRM4ot2mxP6szZyF5ptrBogw4AcS4EXRj/8BUfgAMwVfdL84qpModlBMOl2NVrsQ==
 
 selfsigned@^1.10.8:
   version "1.10.11"

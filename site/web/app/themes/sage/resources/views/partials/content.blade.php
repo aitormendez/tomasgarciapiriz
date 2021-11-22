@@ -1,4 +1,4 @@
-<article id="post-{{ get_the_ID() }}" @php(post_class('post border-b py-4'))>
+<article id="post-{{ get_the_ID() }}" @php(post_class('relative post border-b p-4'))>
 
   <header>
     <h2 class="entry-title">

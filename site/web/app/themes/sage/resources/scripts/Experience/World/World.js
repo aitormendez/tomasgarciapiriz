@@ -5,9 +5,7 @@ import Environment from './Environment.js'
 import Floor from './Floor.js'
 import PostCubes from './PostCubes.js'
 // import TestCube from './TestCube.js'
-
-
-
+import PostsHtml from './PostsHtml.js'
 
 export default class World
 {
@@ -65,6 +63,7 @@ export default class World
     {
         this.htmlPostsElement.classList.remove('hidden')
         this.htmlPostsBgElement.style.opacity = '0.8';
+        this.postHtml = new PostsHtml()
     }
 
     update()

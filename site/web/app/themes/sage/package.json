@@ -45,6 +45,7 @@
     "jquery": "^3.5.1"
   },
   "dependencies": {
+    "@ashthornton/asscroll": "^2.0.2",
     "cannon": "^0.6.2",
     "cannon-es": "^0.18.0",
     "dat.gui": "^0.7.7",
