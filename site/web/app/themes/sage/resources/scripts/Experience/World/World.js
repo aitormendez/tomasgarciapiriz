@@ -70,5 +70,6 @@ export default class World
     {
         this.physicsWorld.step(1 / 60, this.experience.time.delta, 3)
         if(this.postCubes) this.postCubes.update()
+        if(this.postHtml) this.postHtml.update()
     }
 }

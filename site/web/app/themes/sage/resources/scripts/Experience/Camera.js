@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import gsap from 'gsap'
 import Experience from './Experience.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
@@ -14,7 +15,6 @@ export default class Camera
 
         this.setInstance()
         // this.setControls()
-        // this.testCameraPosition()
     }
 
     setInstance()
@@ -23,7 +23,6 @@ export default class Camera
         this.instance.position.set(0,40,0)
         this.instance.rotation.x = - 90 * Math.PI / 180
         this.scene.add(this.instance)
-        this.sceneLoading.add(this.instance)
     }
 
     setControls()
@@ -36,13 +35,6 @@ export default class Camera
     {
         this.instance.aspect = this.sizes.width / this.sizes.height
         this.instance.updateProjectionMatrix()
-    }
-
-    testCameraPosition()
-    {
-        this.instance.position.set(0, 80, 0)
-        this.instance.updateProjectionMatrix()
-        console.log('lkjlj');
     }
 
     update()

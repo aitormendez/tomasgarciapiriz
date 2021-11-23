@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 import Experience from '../Experience.js'
+import { rotate } from '../Utils/rotate.js'
 
 export default class PostsHtml {
 
@@ -41,7 +42,17 @@ export default class PostsHtml {
         let cubeUp = (postName) =>
         {
             let body = this.getBodyByName(postName)
-            body.sleep()
+
+            rotate(
+                body,
+                {
+                    val: 0,
+                    qx: 0,
+                    qy: 1,
+                    qz: 0
+                },
+                1
+            )
 
             gsap.to(
                 body.position,
@@ -51,19 +62,16 @@ export default class PostsHtml {
                 }
             )
 
-            this.camera.position.x = body.position.x
-
-            // gsap.to(
-            //     this.camera.position,
-            //     {
-            //         duration: 1,
-            //         x: body.position.x,
-            //         z: body.position.y
-            //     }
-            // )
-
-            console.log(this.camera.position);
-            console.log(this.experience.camera.instance.position);
+            gsap.to(
+                this.camera.position,
+                {
+                    duration: 1,
+                    x: body.position.x + 0.5,
+                    z: body.position.z,
+                    ease: 'Power1.easeInOut',
+                }
+            )
+            body.sleep()
         }
 
         let cubeDown = (postName) =>
@@ -101,6 +109,10 @@ export default class PostsHtml {
                 }
             })
         })
+    }
+
+    update()
+    {
 
     }
 }
