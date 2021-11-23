@@ -52,7 +52,6 @@ export default class PostsHtml {
             )
 
             this.camera.position.x = body.position.x
-            this.experience.camera.testCameraPosition()
 
             // gsap.to(
             //     this.camera.position,
