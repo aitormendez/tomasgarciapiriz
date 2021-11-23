@@ -38,7 +38,7 @@ export default class PostsHtml {
 
     postElements()
     {
-        let doOnEnter = (postName) =>
+        let cubeUp = (postName) =>
         {
             let body = this.getBodyByName(postName)
             body.sleep()
@@ -66,6 +66,12 @@ export default class PostsHtml {
             console.log(this.experience.camera.instance.position);
         }
 
+        let cubeDown = (postName) =>
+        {
+            let body = this.getBodyByName(postName)
+            body.wakeUp()
+        }
+
         this.posts = gsap.utils.toArray('.post');
 
         this.posts.forEach(post => {
@@ -81,12 +87,17 @@ export default class PostsHtml {
                     end: 'bottom center',
                     toggleActions: 'play reverse play reverse',
                     onEnter: () => {
-                        doOnEnter(postName)
+                        cubeUp(postName)
                     },
-                    // onLeave: () => console.log('leave: ' + postName),
-                    // onEnterBack: () => console.log('enter back: ' + postName),
-                    // onLeaveBack: () => console.log('leave back: ' + postName),
-                    markers: false
+                    onLeave: () => {
+                        cubeDown(postName)
+                    },
+                    onEnterBack: () => {
+                        cubeUp(postName)
+                    },
+                    onLeaveBack: () => {
+                        cubeDown(postName)
+                    },
                 }
             })
         })
