@@ -51,16 +51,20 @@ export default class PostsHtml {
                 }
             )
 
-            gsap.to(
-                this.camera.position,
-                {
-                    duration: 1,
-                    x: body.position.x,
-                    z: body.position.y
-                }
-            )
+            this.camera.position.x = body.position.x
+            this.experience.camera.testCameraPosition()
+
+            // gsap.to(
+            //     this.camera.position,
+            //     {
+            //         duration: 1,
+            //         x: body.position.x,
+            //         z: body.position.y
+            //     }
+            // )
 
             console.log(this.camera.position);
+            console.log(this.experience.camera.instance.position);
         }
 
         this.posts = gsap.utils.toArray('.post');

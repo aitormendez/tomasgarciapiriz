@@ -14,6 +14,7 @@ export default class Camera
 
         this.setInstance()
         // this.setControls()
+        // this.testCameraPosition()
     }
 
     setInstance()
@@ -35,6 +36,13 @@ export default class Camera
     {
         this.instance.aspect = this.sizes.width / this.sizes.height
         this.instance.updateProjectionMatrix()
+    }
+
+    testCameraPosition()
+    {
+        this.instance.position.set(0, 80, 0)
+        this.instance.updateProjectionMatrix()
+        console.log('lkjlj');
     }
 
     update()
