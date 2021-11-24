@@ -70,6 +70,8 @@ export default class PostCubes
             })
         )
         mesh.position.copy(position)
+        mesh.castShadow = true
+        mesh.receiveShadow = true
         mesh.name = name
         this.scene.add(mesh)
 

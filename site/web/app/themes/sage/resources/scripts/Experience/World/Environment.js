@@ -23,18 +23,20 @@ export default class Environment
 
     setSunLight()
     {
+        this.ambientLight = new THREE.AmbientLight(0xffffff, 0.2)
         this.sunLight = new THREE.DirectionalLight('#ffffff', 1)
-        // this.sunLight.castShadow = true
-        // this.sunLight.shadow.camera.far = 34
-        // this.sunLight.shadow.camera.near = 4
-        // this.sunLight.shadow.camera.top = 20
-        // this.sunLight.shadow.camera.right = 20
-        // this.sunLight.shadow.camera.bottom = - 20
-        // this.sunLight.shadow.camera.left = - 20
-        // this.sunLight.shadow.mapSize.set(1024, 1024)
-        // this.sunLight.shadow.normalBias = 0.05
-        this.sunLight.position.set(-8, 30, - 8)
+        this.sunLight.castShadow = true
+        this.sunLight.shadow.camera.far = 53
+        this.sunLight.shadow.camera.near = 4
+        this.sunLight.shadow.camera.top = 20
+        this.sunLight.shadow.camera.right = 20
+        this.sunLight.shadow.camera.bottom = - 20
+        this.sunLight.shadow.camera.left = - 20
+        this.sunLight.shadow.mapSize.set(2048, 2048)
+        this.sunLight.shadow.normalBias = 0.05
+        this.sunLight.position.set(-8, 45, - 8)
         this.scene.add(this.sunLight)
+        this.scene.add(this.ambientLight)
 
         // const directionalLightCameraHelper = new THREE.CameraHelper(this.sunLight.shadow.camera)
         // this.scene.add(directionalLightCameraHelper)
@@ -44,7 +46,13 @@ export default class Environment
         {
             this.debugFolder
                 .add(this.sunLight, 'intensity')
-                .name('Light intesity')
+                .name('Sun light intesity')
+                .min(0)
+                .max(2)
+                .step(0.001)
+            this.debugFolder
+                .add(this.ambientLight, 'intensity')
+                .name('Ambient light intesity')
                 .min(0)
                 .max(2)
                 .step(0.001)
