@@ -44,7 +44,10 @@ export default class Floor
 
     setBody()
     {
-        this.floorBody = new CANNON.Body()
+        this.floorBody = new CANNON.Body({
+            collisionFilterGroup: 1,
+            collisionFilterMask: 1
+        })
         this.floorBody.mass = 0
         this.floorBody.addShape(this.floorShape)
         this.floorBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)

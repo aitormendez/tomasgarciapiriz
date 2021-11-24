@@ -6,7 +6,6 @@ export function rotate(body, rotation, duration, valTo)
     // rotation.val = valFrom
 
     gsap.to(
-
         rotation, 
         {
             val: valTo,
@@ -21,4 +20,18 @@ export function rotate(body, rotation, duration, valTo)
             Math.PI * rotation.val
         )
     }
+}
+
+export function flotar(body)
+{
+    gsap.to( 
+        body.position, 
+        { 
+            z: body.position += 0.5,
+            duration: 1, 
+            repeat: -1, 
+            yoyo: true, 
+            ease: "power1.easeInOut", 
+            // onUpdate: updateRotation 
+        })
 }

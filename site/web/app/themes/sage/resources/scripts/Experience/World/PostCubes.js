@@ -82,6 +82,8 @@ export default class PostCubes
             mass: 1,
             shape: shape,
             material: this.physicsWorld.defaultMaterial,
+            collisionFilterGroup: 1,
+            collisionFilterMask: 1
         })
         body.name = name
         body.position.copy(position)

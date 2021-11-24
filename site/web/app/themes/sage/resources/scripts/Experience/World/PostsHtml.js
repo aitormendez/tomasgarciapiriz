@@ -40,7 +40,7 @@ export default class PostsHtml {
         let cubeUp = (postName) =>
         {
             let body = this.getBodyByName(postName)
-            body.collisionResponse = 0
+            body.collisionFilterMask = 2
 
             rotate(
                 body,
@@ -58,7 +58,8 @@ export default class PostsHtml {
                 body.position,
                 {
                     duration: 1,
-                    y: 35
+                    y: 35,
+                    onComplete: body.sleep()
                 }
             )
 
@@ -71,14 +72,12 @@ export default class PostsHtml {
                     ease: 'Power1.easeInOut',
                 }
             )
-            body.sleep()
-            
         }
 
         let cubeDown = (postName) =>
         {
             let body = this.getBodyByName(postName)
-            body.collisionResponse = 1
+            body.collisionFilterMask = 1
             body.wakeUp()
             body.rotation = {
                 val: 2,
