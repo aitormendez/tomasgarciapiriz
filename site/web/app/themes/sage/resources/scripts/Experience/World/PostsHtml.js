@@ -40,6 +40,7 @@ export default class PostsHtml {
         let cubeUp = (postName) =>
         {
             let body = this.getBodyByName(postName)
+            body.collisionResponse = 0
 
             rotate(
                 body,
@@ -77,6 +78,7 @@ export default class PostsHtml {
         let cubeDown = (postName) =>
         {
             let body = this.getBodyByName(postName)
+            body.collisionResponse = 1
             body.wakeUp()
             body.rotation = {
                 val: 2,
