@@ -12,8 +12,6 @@ export default class PostsHtml {
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.camera = this.experience.camera.instance
-        console.log(this.camera.position);
-        console.log(this.experience);
         this.bodies = this.experience.world.physicsWorld.bodies
 
         // setup
@@ -46,12 +44,13 @@ export default class PostsHtml {
             rotate(
                 body,
                 {
-                    val: 0,
-                    qx: 0,
-                    qy: 1,
-                    qz: 0
+                    val: body.rotation.val, // valFrom
+                    x: 0,
+                    y: 1,
+                    z: 0
                 },
-                1
+                1, // duration
+                2  // valTo
             )
 
             gsap.to(
@@ -72,12 +71,21 @@ export default class PostsHtml {
                 }
             )
             body.sleep()
+            
         }
 
         let cubeDown = (postName) =>
         {
             let body = this.getBodyByName(postName)
             body.wakeUp()
+            body.rotation = {
+                val: 2,
+                x: Math.random() - 0.5,
+                y: Math.random() - 0.5,
+                z: Math.random() - 0.5,
+            }
+    
+            rotate(body, body.rotation, 2, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
         }
 
         this.posts = gsap.utils.toArray('.post');

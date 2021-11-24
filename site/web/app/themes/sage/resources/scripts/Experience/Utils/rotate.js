@@ -1,29 +1,24 @@
 import * as CANNON from 'cannon-es'
 import gsap from 'gsap'
 
-export function rotate(body, rotation, duration)
+export function rotate(body, rotation, duration, valTo)
 {
-    gsap.to( 
+    // rotation.val = valFrom
+
+    gsap.to(
+
         rotation, 
-        { 
+        {
+            val: valTo,
             duration: duration,
-            val: (Math.random() -0.5) * 5,
             ease: "power1.easeOut",
             onUpdate: updateRotation
         })
 
     function updateRotation() {
         body.quaternion.setFromAxisAngle(
-            new CANNON.Vec3(rotation.qx, rotation.qy, rotation.qz),
+            new CANNON.Vec3(rotation.x, rotation.y, rotation.z),
             Math.PI * rotation.val
         )
     }
-
-    gsap.to(
-        body.position, 
-        {
-            duration:1, 
-            y: body.position.y + 10
-        }
-    )
 }

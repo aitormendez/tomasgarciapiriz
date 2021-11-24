@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import * as CANNON from 'cannon-es'
 import gsap from 'gsap'
 import Experience from '../Experience.js'
+import { rotate } from '../Utils/rotate.js'
 
 export default class PostCubes
 {
@@ -39,30 +40,16 @@ export default class PostCubes
         }
     }
 
-    rotate(body)
+    rotateInitial(body)
     {
-        let rotation = { 
-            val: 0,
-            qx: Math.random() -0.5,
-            qy: Math.random() -0.5,
-            qz: Math.random() -0.5,
+        body.rotation = {
+            val: 2,
+            x: Math.random() - 0.5,
+            y: Math.random() - 0.5,
+            z: Math.random() - 0.5,
         }
 
-        gsap.to( 
-            rotation, 
-            { 
-                duration: 2,
-                val: (Math.random() -0.5) * 5,
-                ease: "power1.easeOut",
-                onUpdate: updateRotation
-            })
-
-        function updateRotation() {
-            body.quaternion.setFromAxisAngle(
-                new CANNON.Vec3(rotation.qx, rotation.qy, rotation.qz),
-                Math.PI * rotation.val
-            )
-        }
+        rotate(body, body.rotation, 2, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
 
         gsap.to(
             body.position, 
@@ -104,7 +91,7 @@ export default class PostCubes
         // Save in ordered list with cube names
         this.objectsWithNames[name] = { mesh, body }
 
-        this.rotate(body)
+        this.rotateInitial(body)
     }
 
     update()
