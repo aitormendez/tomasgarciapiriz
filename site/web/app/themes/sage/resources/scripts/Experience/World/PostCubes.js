@@ -28,8 +28,8 @@ export default class PostCubes
             if (source.post)
             {
                 let position = {
-                    x: (Math.random() - 0.5) * 20,
-                    z: (Math.random() - 0.5) * 20,
+                    x: (Math.random() - 0.5) * 10,
+                    z: (Math.random() - 0.5) * 10,
                     y: Math.random() * 40
                 }
                 let texture = this.experience.resources.items[source.name]
