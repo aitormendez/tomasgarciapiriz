@@ -2,8 +2,9 @@ import * as THREE from 'three'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
+import * as CANNON from 'cannon-es'
 import Experience from '../Experience.js'
-import { rotate } from '../Utils/rotate.js'
+import { rotate, flotar } from '../Utils/rotate.js'
 
 export default class PostsHtml {
 
@@ -39,8 +40,11 @@ export default class PostsHtml {
     {
         let cubeUp = (postName) =>
         {
+            this.float = gsap.timeline();
             let body = this.getBodyByName(postName)
             body.collisionFilterMask = 2
+
+            console.log(body);
 
             rotate(
                 body,
@@ -62,8 +66,8 @@ export default class PostsHtml {
                     onComplete: body.sleep()
                 }
             )
-
-            gsap.to(
+            
+            this.float.to(
                 this.camera.position,
                 {
                     duration: 1,
@@ -72,11 +76,42 @@ export default class PostsHtml {
                     ease: 'Power1.easeInOut',
                 }
             )
+            .to( 
+                body.position, 
+                { 
+                    y: 35.2,
+                    duration: 3, 
+                    repeat: -1, 
+                    yoyo: true, 
+                    ease: "power1.inOut", 
+                    // onUpdate: updateRotation 
+                }
+            )
+            // .to(
+            //     body.rotation, 
+            //     {
+            //         val: body.rotation.val + 0.1,
+            //         duration: 10,
+            //         ease: "power1.easeInOut",
+            //         yoyo: true,
+            //         repeat: -1, 
+            //         onUpdate: updateRotation,
+            //         repeatRefresh: true
+            //     }, 2)
+                
+            //     function updateRotation() {
+            //         body.quaternion.setFromAxisAngle(
+            //             body.w,
+            //             Math.PI * body.rotation.val
+            //         )
+            //         body.quaternion.normalize()
+            //     }
         }
 
         let cubeDown = (postName) =>
         {
             let body = this.getBodyByName(postName)
+            this.float.kill()
             body.collisionFilterMask = 1
             body.wakeUp()
             body.rotation = {

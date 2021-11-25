@@ -1,9 +1,12 @@
 import * as CANNON from 'cannon-es'
 import gsap from 'gsap'
+import { PolyhedronBufferGeometry } from 'three'
 
 export function rotate(body, rotation, duration, valTo)
 {
-    // rotation.val = valFrom
+
+    body.w = new CANNON.Vec3(rotation.x, rotation.y, rotation.z)
+    body.w.normalize()
 
     gsap.to(
         rotation, 
@@ -16,22 +19,9 @@ export function rotate(body, rotation, duration, valTo)
 
     function updateRotation() {
         body.quaternion.setFromAxisAngle(
-            new CANNON.Vec3(rotation.x, rotation.y, rotation.z),
+            body.w,
             Math.PI * rotation.val
         )
+        body.quaternion.normalize()
     }
-}
-
-export function flotar(body)
-{
-    gsap.to( 
-        body.position, 
-        { 
-            z: body.position += 0.5,
-            duration: 1, 
-            repeat: -1, 
-            yoyo: true, 
-            ease: "power1.easeInOut", 
-            // onUpdate: updateRotation 
-        })
 }
