@@ -14,6 +14,7 @@ export default class Camera
         this.canvas = this.experience.canvas
 
         this.setInstance()
+        this.parallax()
         // this.setControls()
     }
 
@@ -37,8 +38,30 @@ export default class Camera
         this.instance.updateProjectionMatrix()
     }
 
+    parallax()
+    {
+        this.cursor = {
+            x: 0,
+            y: 0
+        }
+
+        window.addEventListener('mousemove', (event) =>
+        {
+            this.cursor.x = event.clientX / this.sizes.width - 0.5
+            this.cursor.y = event.clientY / this.sizes.height - 0.5
+        })
+
+        this.cameraGroup = new THREE.Group()
+        this.scene.add(this.cameraGroup)
+        this.cameraGroup.add(this.instance)
+    }
+
     update()
     {
         // this.controls.update()
+        this.parallaxX = this.cursor.x
+        this.parallaxZ = this.cursor.y
+        this.cameraGroup.position.x += (this.parallaxX - this.cameraGroup.position.x) * 0.1
+        this.cameraGroup.position.z += (this.parallaxZ - this.cameraGroup.position.z) * 0.1
     }
 }
