@@ -9,13 +9,16 @@ export function rotate(body, rotation, duration, valTo)
     body.w.normalize()
 
     gsap.to(
-        rotation, 
+        rotation,
         {
             val: valTo,
             duration: duration,
             ease: "power1.easeOut",
-            onUpdate: updateRotation
+            onUpdate: updateRotation,
+            onStart: () => body.rotation.val = valTo
         })
+
+    
 
     function updateRotation() {
         body.quaternion.setFromAxisAngle(

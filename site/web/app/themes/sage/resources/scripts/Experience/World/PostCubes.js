@@ -43,13 +43,13 @@ export default class PostCubes
     rotateInitial(body)
     {
         body.rotation = {
-            val: 2,
+            val: 1,
             x: Math.random() - 0.5,
             y: Math.random() - 0.5,
             z: Math.random() - 0.5,
         }
 
-        rotate(body, body.rotation, 2, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
+        rotate(body, body.rotation, body.rotation.val, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
 
         gsap.to(
             body.position, 

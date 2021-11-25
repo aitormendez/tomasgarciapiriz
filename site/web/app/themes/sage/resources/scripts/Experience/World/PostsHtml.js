@@ -5,6 +5,7 @@ gsap.registerPlugin(ScrollTrigger)
 import * as CANNON from 'cannon-es'
 import Experience from '../Experience.js'
 import { rotate, flotar } from '../Utils/rotate.js'
+import { random } from 'gsap/all'
 
 export default class PostsHtml {
 
@@ -44,8 +45,6 @@ export default class PostsHtml {
             let body = this.getBodyByName(postName)
             body.collisionFilterMask = 2
 
-            console.log(body);
-
             rotate(
                 body,
                 {
@@ -59,15 +58,6 @@ export default class PostsHtml {
             )
 
             gsap.to(
-                body.position,
-                {
-                    duration: 1,
-                    y: 35,
-                    onComplete: body.sleep()
-                }
-            )
-            
-            this.float.to(
                 this.camera.position,
                 {
                     duration: 1,
@@ -76,7 +66,17 @@ export default class PostsHtml {
                     ease: 'Power1.easeInOut',
                 }
             )
-            .to( 
+
+            this.float.to(
+                body.position,
+                {
+                    duration: 2,
+                    y: 35,
+                    ease: 'Elastic.easeOut',
+                    onComplete: body.sleep()
+                }
+            )
+            .to(
                 body.position, 
                 { 
                     y: 35.2,
@@ -90,18 +90,18 @@ export default class PostsHtml {
             // .to(
             //     body.rotation, 
             //     {
-            //         val: body.rotation.val + 0.1,
-            //         duration: 10,
-            //         ease: "power1.easeInOut",
+            //         val: random(0, 0.1),
+            //         duration: 1,
+            //         ease: "power1.inOut",
             //         yoyo: true,
             //         repeat: -1, 
             //         onUpdate: updateRotation,
             //         repeatRefresh: true
-            //     }, 2)
+            //     }, 1)
                 
             //     function updateRotation() {
             //         body.quaternion.setFromAxisAngle(
-            //             body.w,
+            //             new CANNON.Vec3(1, 0, 0),
             //             Math.PI * body.rotation.val
             //         )
             //         body.quaternion.normalize()
@@ -121,7 +121,7 @@ export default class PostsHtml {
                 z: Math.random() - 0.5,
             }
     
-            rotate(body, body.rotation, 2, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
+            // rotate(body, body.rotation, 2, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
         }
 
         this.posts = gsap.utils.toArray('.post');

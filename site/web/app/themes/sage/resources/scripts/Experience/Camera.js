@@ -61,7 +61,7 @@ export default class Camera
         // this.controls.update()
         this.parallaxX = this.cursor.x
         this.parallaxZ = this.cursor.y
-        this.cameraGroup.position.x += (this.parallaxX - this.cameraGroup.position.x) * 0.1
-        this.cameraGroup.position.z += (this.parallaxZ - this.cameraGroup.position.z) * 0.1
+        this.cameraGroup.position.x += (this.parallaxX - this.cameraGroup.position.x) * 0.01
+        this.cameraGroup.position.z += (this.parallaxZ - this.cameraGroup.position.z) * 0.01
     }
 }
