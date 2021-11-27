@@ -18,6 +18,7 @@ export default class PostsHtml {
 
         // setup
         this.postElements()
+        // this.raycaster()
     }
 
     getBodyByName(name)
@@ -154,6 +155,15 @@ export default class PostsHtml {
             })
         })
     }
+
+    // raycaster()
+    // {
+    //     this.raycaster = new THREE.Raycaster()
+    //     this.rayOrigin = this.camera.position
+    //     this.rayDirection = new THREE.Vector3(10, 0, 0)
+    //     this.rayDirection.normalize()
+    //     this.raycaster.set(this.rayOrigin, this.rayDirection)
+    // }
 
     update()
     {
