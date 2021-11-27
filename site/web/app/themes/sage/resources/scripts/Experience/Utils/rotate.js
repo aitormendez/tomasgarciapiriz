@@ -18,13 +18,10 @@ export function rotate(body, rotation, duration, valTo)
             onStart: () => body.rotation.val = valTo
         })
 
-    
-
     function updateRotation() {
         body.quaternion.setFromAxisAngle(
             body.w,
             Math.PI * rotation.val
         )
-        body.quaternion.normalize()
     }
 }

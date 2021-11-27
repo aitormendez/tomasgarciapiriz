@@ -49,7 +49,7 @@ export default class PostCubes
             z: Math.random() - 0.5,
         }
 
-        rotate(body, body.rotation, body.rotation.val, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
+        rotate(body, body.rotation, body.rotation.val, (Math.random() - 0.5) * 5)
 
         gsap.to(
             body.position, 

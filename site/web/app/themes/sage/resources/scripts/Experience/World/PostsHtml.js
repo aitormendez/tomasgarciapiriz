@@ -6,6 +6,7 @@ import * as CANNON from 'cannon-es'
 import Experience from '../Experience.js'
 import { rotate, flotar } from '../Utils/rotate.js'
 import { random } from 'gsap/all'
+import { Vec3 } from 'cannon-es'
 
 export default class PostsHtml {
 
@@ -45,6 +46,13 @@ export default class PostsHtml {
             this.float = gsap.timeline();
             let body = this.getBodyByName(postName)
             body.collisionFilterMask = 2
+            body.rotation.floatVal = 0
+            body.rotation.floatVector = new CANNON.Vec3(
+                Math.random() - 0.5,
+                Math.random() - 0.5,
+                Math.random() - 0.5
+            )
+            console.log(body.rotation.floatVector);
 
             rotate(
                 body,
@@ -57,7 +65,6 @@ export default class PostsHtml {
                 1, // duration
                 2  // valTo
             )
-
             gsap.to(
                 this.camera.position,
                 {
@@ -73,7 +80,7 @@ export default class PostsHtml {
                 {
                     duration: 2,
                     y: 35,
-                    ease: 'Elastic.easeOut',
+                    ease: 'elastic.out(0.5, 0.4)',
                     onComplete: body.sleep()
                 }
             )
@@ -84,29 +91,27 @@ export default class PostsHtml {
                     duration: 3, 
                     repeat: -1, 
                     yoyo: true, 
-                    ease: "power1.inOut", 
-                    // onUpdate: updateRotation 
+                    ease: "power1.inOut",
                 }
             )
-            // .to(
-            //     body.rotation, 
-            //     {
-            //         val: random(0, 0.1),
-            //         duration: 1,
-            //         ease: "power1.inOut",
-            //         yoyo: true,
-            //         repeat: -1, 
-            //         onUpdate: updateRotation,
-            //         repeatRefresh: true
-            //     }, 1)
+            .to(
+                body.rotation, 
+                {
+                    floatVal: 0.3,
+                    duration: 10,
+                    ease: "power1.inOut",
+                    yoyo: true,
+                    repeat: -1, 
+                    onUpdate: updateRotation,
+                    // onRepeat: () => console.log(body.rotation.val),
+                }, 1)
                 
-            //     function updateRotation() {
-            //         body.quaternion.setFromAxisAngle(
-            //             new CANNON.Vec3(1, 0, 0),
-            //             Math.PI * body.rotation.val
-            //         )
-            //         body.quaternion.normalize()
-            //     }
+                function updateRotation() {
+                    body.quaternion.setFromAxisAngle(
+                        body.rotation.floatVector,
+                        Math.PI * body.rotation.floatVal
+                    )
+                }
         }
 
         let cubeDown = (postName) =>
@@ -122,7 +127,7 @@ export default class PostsHtml {
                 z: Math.random() - 0.5,
             }
     
-            // rotate(body, body.rotation, 2, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
+            rotate(body, body.rotation, 2, (Math.random() - 0.5) * 5)
         }
 
         this.posts = gsap.utils.toArray('.post');
