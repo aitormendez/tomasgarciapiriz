@@ -1,7 +1,8 @@
 body {
   @apply font-sans;
+  font-variation-settings: 'wght' 750;
 }
 
 .brand {
-  @apply text-3xl font-medium text-indigo-500;
+  @apply text-3xl;
 }

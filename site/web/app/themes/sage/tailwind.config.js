@@ -10,6 +10,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {},
+      fontFamily: {
+        sans: ['Libre Franklin', 'sans-serif'],
+      },
     },
   },
   variants: {
