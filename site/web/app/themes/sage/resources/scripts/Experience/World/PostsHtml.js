@@ -80,6 +80,18 @@ export default class PostsHtml {
                 }
             )
 
+            gsap.to(
+                body.position, 
+                { 
+                    y: 37,
+                    delay: 1,
+                    duration: 7,
+                    repeat: -1, 
+                    yoyo: true, 
+                    ease: "power1.inOut",
+                }
+            )
+
             this.float.to(
                 body.position,
                 {
