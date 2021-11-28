@@ -80,17 +80,17 @@ export default class PostsHtml {
                 }
             )
 
-            gsap.to(
+            this.respiracion = gsap.to(
                 body.position, 
                 { 
                     y: 37,
                     delay: 1,
-                    duration: 7,
+                    duration: 11,
                     repeat: -1, 
                     yoyo: true, 
                     ease: "power1.inOut",
                 }
-            )
+            ) 
 
             this.float.to(
                 body.position,
@@ -105,7 +105,7 @@ export default class PostsHtml {
                 body.rotacion, 
                 {
                     floatVal: 0.2,
-                    duration: 8,
+                    duration: 21,
                     ease: "power1.inOut",
                     onUpdate: updateRotation,
                 }
@@ -114,7 +114,7 @@ export default class PostsHtml {
                 body.rotacion, 
                 {
                     floatVal: -0.2,
-                    duration: 16,
+                    duration: 42,
                     ease: "power1.inOut",
                     yoyo: true,
                     repeat: -1,
@@ -134,6 +134,7 @@ export default class PostsHtml {
         {
             let body = this.getBodyByName(postName)
             this.float.kill()
+            this.respiracion.kill()
             body.collisionFilterMask = 1
             body.wakeUp()
             body.rotacion = {
