@@ -39,6 +39,8 @@ export default class PostsHtml {
 		return undefined;
     }
 
+    // OJO body.rotacion es una propiedad que añado yo a body, no pertenece a CANNON
+
     postElements()
     {
         let cubeUp = (postName) =>
@@ -46,25 +48,28 @@ export default class PostsHtml {
             this.float = gsap.timeline();
             let body = this.getBodyByName(postName)
             body.collisionFilterMask = 2
-            body.rotation.floatVal = 0
-            body.rotation.floatVector = new CANNON.Vec3(
+            body.rotacion.floatVal = 0
+            body.rotacion.floatVector = new CANNON.Vec3(
                 Math.random() - 0.5,
                 Math.random() - 0.5,
                 Math.random() - 0.5
             )
-            console.log(body.rotation.floatVector);
+            body.rotacion.floatVector.normalize()
 
             rotate(
                 body,
                 {
-                    val: body.rotation.val, // valFrom
-                    x: 0,
-                    y: 1,
-                    z: 0
+                    val: body.rotacion.val, // valFrom
+                    vector: new CANNON.Vec3(
+                        0,
+                        1,
+                        0,
+                    )
                 },
                 1, // duration
                 2  // valTo
             )
+
             gsap.to(
                 this.camera.position,
                 {
@@ -85,33 +90,32 @@ export default class PostsHtml {
                 }
             )
             .to(
-                body.position, 
-                { 
-                    y: 35.2,
-                    duration: 3, 
-                    repeat: -1, 
-                    yoyo: true, 
+                body.rotacion, 
+                {
+                    floatVal: 0.2,
+                    duration: 8,
                     ease: "power1.inOut",
+                    onUpdate: updateRotation,
                 }
             )
             .to(
-                body.rotation, 
+                body.rotacion, 
                 {
-                    floatVal: 0.3,
-                    duration: 10,
+                    floatVal: -0.2,
+                    duration: 16,
                     ease: "power1.inOut",
                     yoyo: true,
-                    repeat: -1, 
+                    repeat: -1,
                     onUpdate: updateRotation,
-                    // onRepeat: () => console.log(body.rotation.val),
-                }, 1)
-                
-                function updateRotation() {
-                    body.quaternion.setFromAxisAngle(
-                        body.rotation.floatVector,
-                        Math.PI * body.rotation.floatVal
-                    )
                 }
+            )
+
+            function updateRotation() {
+                body.quaternion.setFromAxisAngle(
+                    body.rotacion.floatVector,
+                    Math.PI * body.rotacion.floatVal
+                )
+            }
         }
 
         let cubeDown = (postName) =>
@@ -120,14 +124,16 @@ export default class PostsHtml {
             this.float.kill()
             body.collisionFilterMask = 1
             body.wakeUp()
-            body.rotation = {
+            body.rotacion = {
                 val: 2,
-                x: Math.random() - 0.5,
-                y: Math.random() - 0.5,
-                z: Math.random() - 0.5,
+                vector: new CANNON.Vec3(
+                    Math.random() - 0.5,
+                    Math.random() - 0.5,
+                    Math.random() - 0.5,
+                )
             }
     
-            rotate(body, body.rotation, 2, (Math.random() - 0.5) * 5)
+            // rotate(body, body.rotacion, 2, (Math.random() - 0.5) * 5)
         }
 
         this.posts = gsap.utils.toArray('.post');

@@ -42,14 +42,16 @@ export default class PostCubes
 
     rotateInitial(body)
     {
-        body.rotation = {
+        body.rotacion = {
             val: 1,
-            x: Math.random() - 0.5,
-            y: Math.random() - 0.5,
-            z: Math.random() - 0.5,
+            vector: new CANNON.Vec3(
+                Math.random() - 0.5,
+                Math.random() - 0.5,
+                Math.random() - 0.5,
+            )
         }
 
-        rotate(body, body.rotation, body.rotation.val, (Math.random() - 0.5) * 5)
+        rotate(body, body.rotacion, body.rotacion.val, (Math.random() - 0.5) * 5)
 
         gsap.to(
             body.position, 
