@@ -14,6 +14,7 @@ export default class PostCubes
         this.physicsWorld = this.experience.world.physicsWorld
         this.geometry = this.resources.items.cubePost2.scene.children[0].geometry
         this.objectsToUpdate = []
+        this.MeshObjectsToRaycast = []
         this.objectsWithNames = {}
 
         // Setup
@@ -93,6 +94,9 @@ export default class PostCubes
 
         // Save in objects to update
         this.objectsToUpdate.push({ mesh, body })
+
+        // Save in objects to raycast (postsHtml.js)
+        this.MeshObjectsToRaycast.push(mesh)
 
         // Save in ordered list with cube names
         this.objectsWithNames[name] = { mesh, body }

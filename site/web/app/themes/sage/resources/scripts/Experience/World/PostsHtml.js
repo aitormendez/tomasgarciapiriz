@@ -16,10 +16,13 @@ export default class PostsHtml {
         this.scene = this.experience.scene
         this.camera = this.experience.camera.instance
         this.bodies = this.experience.world.physicsWorld.bodies
+        this.MeshObjectsToRaycast = this.experience.world.postCubes.MeshObjectsToRaycast
+        
 
         // setup
         this.postElements()
-        // this.raycaster()
+        this.raycaster = new THREE.Raycaster()
+        this.rays()
     }
 
     getBodyByName(name)
@@ -146,7 +149,7 @@ export default class PostsHtml {
                 )
             }
     
-            // rotate(body, body.rotacion, 2, (Math.random() - 0.5) * 5)
+            rotate(body, body.rotacion, 2, (Math.random() - 0.5) * 5)
         }
 
         this.posts = gsap.utils.toArray('.post');
@@ -180,17 +183,23 @@ export default class PostsHtml {
         })
     }
 
-    // raycaster()
-    // {
-    //     this.raycaster = new THREE.Raycaster()
-    //     this.rayOrigin = this.camera.position
-    //     this.rayDirection = new THREE.Vector3(10, 0, 0)
-    //     this.rayDirection.normalize()
-    //     this.raycaster.set(this.rayOrigin, this.rayDirection)
-    // }
+    rays()
+    {
+        this.mouse = new THREE.Vector2()
+    }
 
     update()
     {
+        // this.mouse.x = this.experience.camera.cursor.xMdn
+        // this.mouse.y = this.experience.camera.cursor.yMdn
+        // this.raycaster.setFromCamera(this.mouse, this.camera)
 
+        // this.intersects = this.raycaster.intersectObjects(this.MeshObjectsToRaycast)
+
+        // for(const intersect of this.intersects)
+        // {
+        //     // console.log(intersect);
+        //     intersect.object.material.color.set('#0000ff')
+        // }
     }
 }
