@@ -51,8 +51,6 @@ export default class Camera
         {
             this.cursor.x = event.clientX / this.sizes.width - 0.5
             this.cursor.y = event.clientY / this.sizes.height - 0.5
-            this.cursor.xMdn = event.clientX / this.sizes.width * 2 - 1      // normalized device coordinates (NDC)
-            this.cursor.yMdn = - (event.clientY / this.sizes.height) * 2 + 1 // normalized device coordinates (NDC)
         })
 
         this.cameraGroup = new THREE.Group()

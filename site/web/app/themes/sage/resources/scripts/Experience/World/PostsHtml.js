@@ -1,7 +1,8 @@
 import * as THREE from 'three'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
+import ScrollToPlugin from 'gsap/ScrollToPlugin'
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 import * as CANNON from 'cannon-es'
 import Experience from '../Experience.js'
 import { rotate, flotar } from '../Utils/rotate.js'
@@ -16,13 +17,18 @@ export default class PostsHtml {
         this.scene = this.experience.scene
         this.camera = this.experience.camera.instance
         this.bodies = this.experience.world.physicsWorld.bodies
+        this.sizes = this.experience.sizes
         this.MeshObjectsToRaycast = this.experience.world.postCubes.MeshObjectsToRaycast
-        
+
+        // raycast
+        this.emisorRayos()
 
         // setup
         this.postElements()
-        this.raycaster = new THREE.Raycaster()
-        this.rays()
+
+        // scrollTo post
+        this.scrollToPost()
+
     }
 
     getBodyByName(name)
@@ -183,23 +189,64 @@ export default class PostsHtml {
         })
     }
 
-    rays()
+    emisorRayos()
     {
+        window.addEventListener('mousemove', (event) =>
+        {
+            this.mouse.x = event.clientX / this.sizes.width * 2 - 1
+            this.mouse.y = - (event.clientY / this.sizes.height) * 2 + 1
+        })
+        
         this.mouse = new THREE.Vector2()
+        this.raycaster = new THREE.Raycaster()
+    }
+
+    scrollToPost()
+    {
+        this.currentIntersect = null
+
+        window.addEventListener('click', () =>
+        {
+
+            if(this.currentIntersect)
+            {
+                const postElement = document.getElementById(this.currentIntersect)
+
+                gsap.to(
+                    window, 
+                    {
+                        duration: 1, 
+                        scrollTo: {
+                            y: `#${this.currentIntersect}`,
+                            offsetY: window.innerHeight / 2 - postElement.offsetHeight / 2
+                        }
+                    }
+                );    
+            }
+        })
+        
     }
 
     update()
     {
-        // this.mouse.x = this.experience.camera.cursor.xMdn
-        // this.mouse.y = this.experience.camera.cursor.yMdn
-        // this.raycaster.setFromCamera(this.mouse, this.camera)
+        this.raycaster.setFromCamera(this.mouse, this.camera)
 
-        // this.intersects = this.raycaster.intersectObjects(this.MeshObjectsToRaycast)
+        this.intersects = this.raycaster.intersectObjects(this.MeshObjectsToRaycast)
 
-        // for(const intersect of this.intersects)
+        // for(const mesh of this.MeshObjectsToRaycast)
         // {
-        //     // console.log(intersect);
-        //     intersect.object.material.color.set('#0000ff')
+        //     mesh.material.color.set('#ffffff')
         // }
+
+        // if (this.intersects[0]) this.intersects[0].object.material.color.set('#0000ff')
+
+        if(this.intersects.length)
+        {
+            this.currentIntersect = this.intersects[0].object.postId
+        }
+        else
+        {
+            this.currentIntersect = null
+        }
     }
 }

@@ -12,7 +12,7 @@ export default class PostCubes
         this.scene = this.experience.scene
         this.resources = this.experience.resources
         this.physicsWorld = this.experience.world.physicsWorld
-        this.geometry = this.resources.items.cubePost2.scene.children[0].geometry
+        this.geometry = this.resources.items.cubePost1.scene.children[0].geometry
         this.objectsToUpdate = []
         this.MeshObjectsToRaycast = []
         this.objectsWithNames = {}
@@ -36,7 +36,7 @@ export default class PostCubes
                 let texture = this.experience.resources.items[source.name]
                 texture.encoding = THREE.sRGBEncoding
 
-                this.createCube(texture, position, source.postName)
+                this.createCube(texture, position, source.postName, source.postId)
             }
         }
     }
@@ -63,7 +63,7 @@ export default class PostCubes
         )
     }
 
-    createCube(texture, position, name)
+    createCube(texture, position, name, postId)
     {
         // Threejs mesh
         const mesh = new THREE.Mesh(
@@ -76,6 +76,7 @@ export default class PostCubes
         mesh.castShadow = true
         mesh.receiveShadow = true
         mesh.name = name
+        mesh.postId = postId
         this.scene.add(mesh)
 
         // Cannon.js body

@@ -66,7 +66,8 @@ export default class Resources extends EventEmitter
                     path: thumbnailPath,
                     post: true,
                     imgSrc: thumbnailURL,
-                    postName: postName
+                    postName: postName,
+                    postId: post.id
                 }
 
                 this.sources.push(resourceObject)
