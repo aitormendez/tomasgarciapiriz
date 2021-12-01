@@ -247,6 +247,7 @@ export default class PostsHtml {
 
             if(this.currentIntersect)
             {
+                console.log(this.currentIntersect);
                 const postElement = document.getElementById(this.currentIntersect)
 
                 gsap.to(

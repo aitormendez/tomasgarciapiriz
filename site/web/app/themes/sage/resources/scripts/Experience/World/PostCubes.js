@@ -102,6 +102,8 @@ export default class PostCubes
         // Save in ordered list with cube names
         this.objectsWithNames[name] = { mesh, body }
 
+        console.log(body.name, body.collisionFilterGroup, body.collisionFilterMask);
+
         this.rotateInitial(body)
     }
 
