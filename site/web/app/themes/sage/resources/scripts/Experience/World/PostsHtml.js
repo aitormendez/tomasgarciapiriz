@@ -98,7 +98,7 @@ export default class PostsHtml {
             rotate(
                 body,
                 {
-                    val: body.rotacion.val, // valFrom
+                    val: body.rotacion.floatVal, // valFrom
                     vector: new CANNON.Vec3(
                         0,
                         1,
@@ -134,10 +134,10 @@ export default class PostsHtml {
             this.float.to(
                 body.position,
                 {
-                    duration: 0.3,
+                    duration: 2,
                     y: 35,
                     ease: 'elastic.out(0.5, 0.4)',
-                    onComplete: () => {
+                    onStart: () => {
                         body.sleep()
                     }
                 }

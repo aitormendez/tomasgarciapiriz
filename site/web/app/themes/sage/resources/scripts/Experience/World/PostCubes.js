@@ -58,7 +58,7 @@ export default class PostCubes
             body.position, 
             {
                 duration:1, 
-                y: body.position.y + 10
+                y: body.position.y + 5
             }
         )
     }
