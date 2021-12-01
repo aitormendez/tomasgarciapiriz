@@ -19,6 +19,7 @@ export default class PostsHtml {
         this.bodies = this.experience.world.physicsWorld.bodies
         this.sizes = this.experience.sizes
         this.MeshObjectsToRaycast = this.experience.world.postCubes.MeshObjectsToRaycast
+        this.fotatingObject = undefined
 
         // raycast
         this.emisorRayos()
@@ -52,9 +53,38 @@ export default class PostsHtml {
 
     postElements()
     {
+        // retrasar cubeUp para que no se dispare todo el rato al hacer scroll
+
+        let fireCubeUp = (postName) =>
+        {
+            this.readyToFloat = postName
+
+            setTimeout(() => 
+            {
+                this.updatedReadyToFloat = postName
+                
+                if (this.readyToFloat === this.updatedReadyToFloat)
+                {
+                    cubeUp(this.updatedReadyToFloat)
+                    this.floatedObject = this.updatedReadyToFloat
+                }
+            }, 300);
+        }
+
+        let fireCubeDown = () =>
+        {
+            setTimeout(() => 
+            {
+                if (this.floatedObject)
+                {
+                    cubeDown(this.floatedObject)
+                }
+            }, 300);
+        }
+
         let cubeUp = (postName) =>
         {
-            this.float = gsap.timeline();
+            this.float = gsap.timeline()
             let body = this.getBodyByName(postName)
             body.collisionFilterMask = 2
             body.rotacion.floatVal = 0
@@ -99,15 +129,17 @@ export default class PostsHtml {
                     yoyo: true, 
                     ease: "power1.inOut",
                 }
-            ) 
+            )
 
             this.float.to(
                 body.position,
                 {
-                    duration: 2,
+                    duration: 0.3,
                     y: 35,
                     ease: 'elastic.out(0.5, 0.4)',
-                    onComplete: body.sleep()
+                    onComplete: () => {
+                        body.sleep()
+                    }
                 }
             )
             .to(
@@ -139,11 +171,13 @@ export default class PostsHtml {
             }
         }
 
-        let cubeDown = (postName) =>
+        let cubeDown = () =>
         {
-            let body = this.getBodyByName(postName)
             this.float.kill()
             this.respiracion.kill()
+            
+            let body = this.getBodyByName(this.floatedObject)
+
             body.collisionFilterMask = 1
             body.wakeUp()
             body.rotacion = {
@@ -156,6 +190,9 @@ export default class PostsHtml {
             }
     
             rotate(body, body.rotacion, 2, (Math.random() - 0.5) * 5)
+
+            this.floatedObject = undefined
+
         }
 
         this.posts = gsap.utils.toArray('.post');
@@ -173,16 +210,16 @@ export default class PostsHtml {
                     end: 'bottom center',
                     toggleActions: 'play reverse play reverse',
                     onEnter: () => {
-                        cubeUp(postName)
+                        fireCubeUp(postName)
                     },
                     onLeave: () => {
-                        cubeDown(postName)
+                        fireCubeDown()
                     },
                     onEnterBack: () => {
-                        cubeUp(postName)
+                        fireCubeUp(postName)
                     },
                     onLeaveBack: () => {
-                        cubeDown(postName)
+                        fireCubeDown()
                     },
                 }
             })
