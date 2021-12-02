@@ -112,7 +112,7 @@ export default class PostsHtml {
             gsap.to(
                 this.camera.position,
                 {
-                    duration: 1,
+                    duration: 0.5,
                     x: body.position.x + 0.5,
                     z: body.position.z,
                     ease: 'Power1.easeInOut',

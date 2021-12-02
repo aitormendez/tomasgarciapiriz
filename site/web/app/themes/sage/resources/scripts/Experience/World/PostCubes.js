@@ -93,7 +93,7 @@ export default class PostCubes
         this.scene.add(mesh)
 
         // Cannon.js body
-        const shape = new CANNON.Box(new CANNON.Vec3( 1, 0.25, 1))
+        const shape = new CANNON.Box(new CANNON.Vec3( 1, 0.5, 1))
 
         const body = new CANNON.Body({
             mass: 1,
