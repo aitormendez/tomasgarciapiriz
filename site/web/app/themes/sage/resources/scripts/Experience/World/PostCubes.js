@@ -3,6 +3,8 @@ import * as CANNON from 'cannon-es'
 import gsap from 'gsap'
 import Experience from '../Experience.js'
 import { rotate } from '../Utils/rotate.js'
+import vertexShader from '../shaders/vertex.glsl'
+import fragmentShader from '../shaders/fragment.glsl'
 
 export default class PostCubes
 {
@@ -68,8 +70,14 @@ export default class PostCubes
         // Threejs mesh
         const mesh = new THREE.Mesh(
             this.geometry,
-            new THREE.MeshStandardMaterial({
-                map: texture,
+            new THREE.ShaderMaterial({
+                vertexShader: vertexShader,
+                fragmentShader: fragmentShader,
+                wireframe: false,
+                uniforms:
+                {
+                    uTexture: { value: texture }
+                }
             })
         )
         mesh.position.copy(position)
@@ -101,8 +109,6 @@ export default class PostCubes
 
         // Save in ordered list with cube names
         this.objectsWithNames[name] = { mesh, body }
-
-        console.log(body.name, body.collisionFilterGroup, body.collisionFilterMask);
 
         this.rotateInitial(body)
     }

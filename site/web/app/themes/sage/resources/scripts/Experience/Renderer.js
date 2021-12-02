@@ -29,6 +29,7 @@ export default class Renderer
         })
         
         this.instance.outputEncoding = THREE.sRGBEncoding
+        this.instance.toneMapping = THREE.CineonToneMapping
         this.instance.shadowMap.enabled = true
         this.instance.shadowMap.type = THREE.PCFSoftShadowMap
         this.instance.setSize(this.sizes.width, this.sizes.height)
