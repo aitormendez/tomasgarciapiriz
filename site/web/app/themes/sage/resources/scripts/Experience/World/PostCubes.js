@@ -25,20 +25,24 @@ export default class PostCubes
 
     setCubes()
     {
+        let index = 0
 
         for (const source of this.resources.sources)
         {
             if (source.post)
             {
+                
                 let position = {
                     x: (Math.random() - 0.5) * 10,
                     z: (Math.random() - 0.5) * 10,
-                    y: Math.random() * 40
+                    y: index
                 }
                 let texture = this.experience.resources.items[source.name]
                 texture.encoding = THREE.sRGBEncoding
 
                 this.createCube(texture, position, source.postName, source.postId)
+
+                index++
             }
         }
     }
@@ -76,11 +80,12 @@ export default class PostCubes
                 wireframe: false,
                 uniforms:
                 {
-                    uTexture: { value: texture }
+                    uTexture: { value: texture },
+                    uHeight: { value: 0 }
                 }
             })
         )
-        mesh.position.copy(position)
+        // mesh.position.copy(position)
         mesh.castShadow = true
         mesh.receiveShadow = true
         mesh.name = name
@@ -119,6 +124,7 @@ export default class PostCubes
         {
             object.mesh.position.copy(object.body.position)
             object.mesh.quaternion.copy(object.body.quaternion)
+            object.mesh.material.uniforms.uHeight = object.mesh.position.y
         }
     }
 }
