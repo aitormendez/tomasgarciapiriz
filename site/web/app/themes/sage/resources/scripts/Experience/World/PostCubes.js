@@ -77,11 +77,10 @@ export default class PostCubes
             new THREE.ShaderMaterial({
                 vertexShader: vertexShader,
                 fragmentShader: fragmentShader,
-                wireframe: false,
                 uniforms:
                 {
                     uTexture: { value: texture },
-                    uHeight: { value: 0 }
+                    uPosY: { value: 0.5 }
                 }
             })
         )
@@ -91,6 +90,7 @@ export default class PostCubes
         mesh.name = name
         mesh.postId = postId
         this.scene.add(mesh)
+        
 
         // Cannon.js body
         const shape = new CANNON.Box(new CANNON.Vec3( 1, 0.5, 1))
@@ -124,7 +124,7 @@ export default class PostCubes
         {
             object.mesh.position.copy(object.body.position)
             object.mesh.quaternion.copy(object.body.quaternion)
-            object.mesh.material.uniforms.uHeight = object.mesh.position.y
+            object.mesh.material.uniforms.uPosY.value = object.mesh.position.y
         }
     }
 }
