@@ -54,10 +54,12 @@ export default class Resources extends EventEmitter
 
         for (const post of this.posts) {
             
-            let thumbnailURL = post.getElementsByTagName('img')[0].src
+            // let thumbnailURL = post.getElementsByTagName('img')[0].src
+            let thumbnailURL = post.getElementsByClassName('thumb-path');
+            console.log(thumbnailURL[0].dataset.path);
 
             if (thumbnailURL) {
-                let thumbnailPath = thumbnailURL.match('\/app(.*).jpg')[0]
+                let thumbnailPath = thumbnailURL[0].dataset.path.match('\/app(.*).jpg')[0]
                 let postName = post.id.replace(/-/g, "")
                 let textureName = 'image' + postName
                 let resourceObject = {

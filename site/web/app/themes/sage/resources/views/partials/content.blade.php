@@ -8,9 +8,10 @@
     </h2>
     @include('partials/entry-meta')
   </header>
-  <div class="hidden thumb">
-    @thumbnail('large')
-  </div>
+
+  @if (has_post_thumbnail())
+    <div class="hidden thumb thumb-path" data-path="@thumbnail('large', false)" ></div>      
+  @endif
 
     @if (!is_home())
       <div class="entry-summary">
