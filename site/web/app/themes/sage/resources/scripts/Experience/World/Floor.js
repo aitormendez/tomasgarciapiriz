@@ -28,7 +28,7 @@ export default class Floor
         this.geometryWhiteRectangle = new THREE.PlaneGeometry( 48, 28 )
 
         // //paredes visibles para testar las paredes invisibles
-        this.geometryWall = new THREE.BoxGeometry( 50, 40, 0.2 )
+        // this.geometryWall = new THREE.BoxGeometry( 50, 40, 0.2 )
     }
 
     setMaterial()
@@ -57,9 +57,9 @@ export default class Floor
         this.scene.add(this.meshRectangleWhite)
 
         // // paredes visibles
-        this.meshWall = new THREE.Mesh(this.geometryWall, this.materialBlack)
+        // this.meshWall = new THREE.Mesh(this.geometryWall, this.materialBlack)
         // this.meshWall.rotation.y = Math.PI * 0.5
-        this.scene.add(this.meshWall)
+        // this.scene.add(this.meshWall)
 
 
     }
