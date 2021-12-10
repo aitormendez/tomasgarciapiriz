@@ -57,9 +57,9 @@ export default class Floor
         this.scene.add(this.meshRectangleWhite)
 
         // // paredes visibles
-        // this.meshWall = new THREE.Mesh(this.geometryWall, this.materialBlack)
+        this.meshWall = new THREE.Mesh(this.geometryWall, this.materialBlack)
         // this.meshWall.rotation.y = Math.PI * 0.5
-        // this.scene.add(this.meshWall)
+        this.scene.add(this.meshWall)
 
 
     }
@@ -92,9 +92,9 @@ export default class Floor
         })
         this.wallNBody.mass = 0
         this.wallNBody.addShape(this.floorShape)
-        this.wallNBody.position.z = - 13
-        // this.meshWall.position.copy(this.wallNBody.position)
-        this.wallNBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)
+        this.wallNBody.position.z = - 1
+        this.meshWall.position.copy(this.wallNBody.position)
+        // this.wallNBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)
 
         // sur
         this.wallSBody = new CANNON.Body({
