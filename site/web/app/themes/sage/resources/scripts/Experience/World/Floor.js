@@ -92,7 +92,7 @@ export default class Floor
         })
         this.wallNBody.mass = 0
         this.wallNBody.addShape(this.floorShape)
-        this.wallNBody.position.z = - 1
+        this.wallNBody.position.z = - 13
         this.meshWall.position.copy(this.wallNBody.position)
         // this.wallNBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)
 
