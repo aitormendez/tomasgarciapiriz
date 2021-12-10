@@ -106,6 +106,11 @@ export default class PostCubes
         body.position.copy(position)
         this.physicsWorld.addBody(body)
 
+        // listener for sleep event
+        // body.addEventListener("sleep",function(event){
+        //     console.log(body);
+        // });
+
         // Save in objects to update
         this.objectsToUpdate.push({ mesh, body })
 

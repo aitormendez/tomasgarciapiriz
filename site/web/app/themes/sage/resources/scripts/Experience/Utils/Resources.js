@@ -56,7 +56,6 @@ export default class Resources extends EventEmitter
             
             // let thumbnailURL = post.getElementsByTagName('img')[0].src
             let thumbnailURL = post.getElementsByClassName('thumb-path');
-            console.log(thumbnailURL[0].dataset.path);
 
             if (thumbnailURL) {
                 let thumbnailPath = thumbnailURL[0].dataset.path.match('\/app(.*).jpg')[0]

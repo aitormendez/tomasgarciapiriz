@@ -77,7 +77,6 @@ export default class Camera
             else if (event.code === "KeyS") {
                 this.keyboardIncrementZ = this.keyboardIncrementZ + 0.02
             }
-            console.log(event);
         })
 
     }

@@ -28,8 +28,7 @@ export default class Floor
         this.geometryWhiteRectangle = new THREE.PlaneGeometry( 48, 28 )
 
         // //paredes visibles para testar las paredes invisibles
-        // this.geometryWallNCube = new THREE.BoxGeometry( 50, 40, 0.2 )
-        // console.log(this.geometryWallNCube);
+        this.geometryWall = new THREE.BoxGeometry( 50, 40, 0.2 )
     }
 
     setMaterial()
@@ -58,30 +57,22 @@ export default class Floor
         this.scene.add(this.meshRectangleWhite)
 
         // // paredes visibles
-        // this.meshWallN = new THREE.Mesh(this.geometryWallNCube, this.materialBlack)
-        // this.meshWallN.position.z = - 16
-        // this.scene.add(this.meshWallN)
-        // console.log(this.meshWallN);
+        // this.meshWall = new THREE.Mesh(this.geometryWall, this.materialBlack)
+        // this.meshWall.rotation.y = Math.PI * 0.5
+        // this.scene.add(this.meshWall)
 
-        // this.meshWallS = new THREE.Mesh(this.geometryWallNCube, this.materialBlack)
-        // this.meshWallS.position.z = 16
-        // this.scene.add(this.meshWallS)
-        // console.log(this.meshWallS);
+
     }
 
     setShape()
     {
         this.floorShape = new CANNON.Plane()
-        this.ivisibleWallN = new CANNON.Box(new CANNON.Vec3(200, 200, 0.1))
-        // this.ivisibleWallS = new CANNON.Plane()
-        // this.ivisibleWallE = new CANNON.Plane()
-        // this.ivisibleWallW = new CANNON.Plane()
     }
 
     setBody()
     {
 
-        // suelo físico visible
+        // suelo físico invisible
         this.floorBody = new CANNON.Body({
             collisionFilterGroup: 1,
             collisionFilterMask: 1
@@ -94,28 +85,57 @@ export default class Floor
          * paredes invisibles
          */
 
-        //norte
-        this.ivisibleWallNBody = new CANNON.Body({
+        // norte
+        this.wallNBody = new CANNON.Body({
             collisionFilterGroup: 1,
-            collisionFilterMask: 1,
-            mass: 0,
-            shape: this.ivisibleWallN
+            collisionFilterMask: 1
         })
-        this.ivisibleWallNBody.position.z = - 16
+        this.wallNBody.mass = 0
+        this.wallNBody.addShape(this.floorShape)
+        this.wallNBody.position.z = - 13
+        // this.meshWall.position.copy(this.wallNBody.position)
+        this.wallNBody.quaternion.setFromAxisAngle(new CANNON.Vec3(- 1, 0, 0), Math.PI * 0.5)
 
         // sur
-        this.ivisibleWallSBody = new CANNON.Body({
+        this.wallSBody = new CANNON.Body({
             collisionFilterGroup: 1,
-            collisionFilterMask: 1,
-            mass: 0,
-            shape: this.ivisibleWallN
+            collisionFilterMask: 1
         })
-        this.ivisibleWallSBody.position.z = 16
+        this.wallSBody.mass = 0
+        this.wallSBody.addShape(this.floorShape)
+        this.wallSBody.position.z = 13
+        // this.meshWall.position.copy(this.wallSBody.position)
+        this.wallSBody.quaternion.setFromAxisAngle(new CANNON.Vec3( 0, 1, 0), Math.PI * 1)
+
+        // este
+        this.wallEBody = new CANNON.Body({
+            collisionFilterGroup: 1,
+            collisionFilterMask: 1
+        })
+        this.wallEBody.mass = 0
+        this.wallEBody.addShape(this.floorShape)
+        this.wallEBody.position.x = 25
+        // this.meshWall.position.copy(this.wallEBody.position)
+        this.wallEBody.quaternion.setFromAxisAngle(new CANNON.Vec3( 0, 1, 0), - Math.PI * 0.5)
+        
+        // oeste
+        this.wallOBody = new CANNON.Body({
+            collisionFilterGroup: 1,
+            collisionFilterMask: 1
+        })
+        this.wallOBody.mass = 0
+        this.wallOBody.addShape(this.floorShape)
+        this.wallOBody.position.x = - 25
+        // this.meshWall.position.copy(this.wallEBody.position)
+        this.wallOBody.quaternion.setFromAxisAngle(new CANNON.Vec3( 0, 1, 0), Math.PI * 0.5)
+
 
 
         this.experience.world.physicsWorld.addBody(this.floorBody)
-
-        // this.meshWallN.position.copy(this.ivisibleWallNBody.position)
+        this.experience.world.physicsWorld.addBody(this.wallNBody)
+        this.experience.world.physicsWorld.addBody(this.wallSBody)
+        this.experience.world.physicsWorld.addBody(this.wallEBody)
+        this.experience.world.physicsWorld.addBody(this.wallOBody)
 
     }
 }
