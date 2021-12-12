@@ -23,13 +23,17 @@
     "issues": "https://github.com/roots/bedrock/issues",
     "forum": "https://discourse.roots.io/category/bedrock"
   },
-  "repositories": [
-    {
+  "repositories": {
+    "satispress": {
+      "type": "composer",
+      "url": "https://plugins.e451.net/satispress/"
+    },
+    "0": {
       "type": "composer",
       "url": "https://wpackagist.org",
       "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
     },
-    {
+    "1": {
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -45,7 +49,7 @@
         }
       }
     },
-    {
+    "2": {
       "type": "package",
       "package": {
           "name": "analogmemory/wp-sync-db",
@@ -57,7 +61,7 @@
           }
       }
     },
-    {
+    "3": {
       "type": "package",
       "package": {
           "name": "wp-sync-db/wp-sync-db-media-files",
@@ -68,8 +72,32 @@
               "url": "https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip"
           }
       }
+    },
+    "4": {
+      "type": "vcs",
+      "url": "git@github.com:aitormendez/sitepress-multilingual-cms.git"
+    },
+    "5": {
+        "type": "vcs",
+        "url": "git@github.com:aitormendez/wpml-media-translation.git"
+    },
+    "6": {
+        "type": "vcs",
+        "url": "git@github.com:aitormendez/wpml-string-translation.git"
+    },
+    "7": {
+        "type": "vcs",
+        "url": "git@github.com:aitormendez/wpml-translation-management.git"
+    },
+    "8": {
+        "type": "vcs",
+        "url": "git@github.com:aitormendez/acfml.git"
+    },
+    "9": {
+        "type": "vcs",
+        "url": "git@github.com:aitormendez/wpml-wpforms.git"
     }
-  ],
+  },
   "require": {
     "php": ">=7.1",
     "composer/installers": "^1.12",
@@ -91,7 +119,13 @@
     "wpackagist-plugin/gdpr-settings-for-wc": "*",
     "wpackagist-plugin/fakerpress": "*",
     "wpackagist-plugin/complianz-gdpr": "*",
-    "soberwp/intervention": "dev-main"
+    "soberwp/intervention": "dev-main",
+    "satispress/sitepress-multilingual-cms": "*",
+    "satispress/wpml-media-translation": "*",
+    "satispress/wpml-string-translation": "*",
+    "satispress/wpml-translation-management": "*",
+    "satispress/wpml-wpforms": "*",
+    "satispress/acfml": "*"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
