@@ -124,7 +124,6 @@
     "satispress/sitepress-multilingual-cms": "*",
     "satispress/wpml-media-translation": "*",
     "satispress/wpml-string-translation": "*",
-    "satispress/wpml-translation-management": "*",
     "satispress/wpml-wpforms": "*",
     "satispress/acfml": "*"
   },
