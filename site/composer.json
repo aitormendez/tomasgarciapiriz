@@ -119,6 +119,7 @@
     "wpackagist-plugin/gdpr-settings-for-wc": "*",
     "wpackagist-plugin/fakerpress": "*",
     "wpackagist-plugin/complianz-gdpr": "*",
+    "wpackagist-plugin/file-upload-types": "*",
     "soberwp/intervention": "dev-main",
     "satispress/sitepress-multilingual-cms": "*",
     "satispress/wpml-media-translation": "*",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "967a1932e4d32308feaf3ab601d31af0",
+    "content-hash": "17782267df54e246e82b68ca3c666ae2",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -1153,11 +1153,11 @@
         },
         {
             "name": "satispress/acfml",
-            "version": "1.9.1",
+            "version": "1.9.5",
             "dist": {
                 "type": "zip",
-                "url": "https://plugins.e451.net/satispress/acfml/1.9.1",
-                "shasum": "c4dd1f497378405059583fd121847fc0a698fbcd"
+                "url": "https://plugins.e451.net/satispress/acfml/1.9.5",
+                "shasum": "d9462a8ea86f40393ceac70bf47dbc64eb7c9a6e"
             },
             "require": {
                 "composer/installers": "^1.0"
@@ -1172,11 +1172,11 @@
         },
         {
             "name": "satispress/sitepress-multilingual-cms",
-            "version": "4.4.12",
+            "version": "4.5.2",
             "dist": {
                 "type": "zip",
-                "url": "https://plugins.e451.net/satispress/sitepress-multilingual-cms/4.4.12",
-                "shasum": "f5a515fd1a4dee269f58f4c59b48acca73cf33f8"
+                "url": "https://plugins.e451.net/satispress/sitepress-multilingual-cms/4.5.2",
+                "shasum": "4e24f049ad3fb6369567000260d2cfa51ed87b6e"
             },
             "require": {
                 "composer/installers": "^1.0"
@@ -1191,11 +1191,11 @@
         },
         {
             "name": "satispress/wpml-media-translation",
-            "version": "2.6.5",
+            "version": "2.7.0",
             "dist": {
                 "type": "zip",
-                "url": "https://plugins.e451.net/satispress/wpml-media-translation/2.6.5",
-                "shasum": "5d625aaab0a1faa4da142ce31c5d8e73c3b80538"
+                "url": "https://plugins.e451.net/satispress/wpml-media-translation/2.7.0",
+                "shasum": "6956225a2b44232d2473b86941ca1bd67e56f126"
             },
             "require": {
                 "composer/installers": "^1.0"
@@ -1210,11 +1210,11 @@
         },
         {
             "name": "satispress/wpml-string-translation",
-            "version": "3.1.10",
+            "version": "3.2.0",
             "dist": {
                 "type": "zip",
-                "url": "https://plugins.e451.net/satispress/wpml-string-translation/3.1.10",
-                "shasum": "f8909e6b1df14a60828f51b3be41b39888f580d9"
+                "url": "https://plugins.e451.net/satispress/wpml-string-translation/3.2.0",
+                "shasum": "b131b6274e6ba4f0afe3378757525cebf032524d"
             },
             "require": {
                 "composer/installers": "^1.0"
@@ -1718,6 +1718,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/favicon-by-realfavicongenerator/"
+        },
+        {
+            "name": "wpackagist-plugin/file-upload-types",
+            "version": "1.2.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/file-upload-types/",
+                "reference": "tags/1.2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/file-upload-types.1.2.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/file-upload-types/"
         },
         {
             "name": "wpackagist-plugin/gdpr-settings-for-wc",
