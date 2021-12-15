@@ -1,5 +1,16 @@
 <?php
 
+$post_columns = [
+    'featured_image' => [
+        'title'          => __('Featured img', 'sage'),
+        'featured_image' => 'thumbnail'
+    ],
+    'featured_post' => [
+        'title'       => __('Featured post', 'sage'),
+        'meta_key'    => 'destacados_destacar',
+    ],
+];
+
 return [
 
     /*
@@ -14,7 +25,7 @@ return [
 
     'post' => [
         'story' => [
-            'enter_title_here' => 'Título de la noticia',
+            'enter_title_here' => __('Story title', 'sage'),
             'menu_icon' => 'dashicons-megaphone',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'has_archive' => true,
@@ -23,9 +34,10 @@ return [
                 'singular' => __('Story', 'sage'),
                 'plural' => __('Stories', 'sage'),
             ],
+            'admin_cols' => $post_columns,
         ],
         'project' => [
-            'enter_title_here' => 'Título del proyecto',
+            'enter_title_here' => __('Project title', 'sage'),
             'menu_icon' => 'dashicons-portfolio',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'has_archive' => true,
@@ -34,6 +46,19 @@ return [
                 'singular' => __('Project', 'sage'),
                 'plural' => __('Projects', 'sage'),
             ],
+            'admin_cols' => $post_columns,
+        ],
+        'reference' => [
+            'enter_title_here' => __('Reference title', 'sage'),
+            'menu_icon' => 'dashicons-admin-site-alt',
+            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
+            'has_archive' => true,
+            'show_in_rest' => true,
+            'labels' => [
+                'singular' => __('Reference', 'sage'),
+                'plural' => __('References', 'sage'),
+            ],
+            'admin_cols' => $post_columns,
         ],
     ],
 

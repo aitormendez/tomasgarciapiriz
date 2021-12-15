@@ -29,6 +29,62 @@ class Post extends Composer
         ];
     }
 
+    public function with()
+    {
+        return [
+            'feat_content' => function() {
+                {
+                    /**
+                     * Returns the url and format of image for 3D cube in featured posts.
+                     *
+                     * @return array
+                     */
+
+                    $output = [
+                        'tipo' => null,
+                        'img_format' => null,
+                        'url' => null,
+                    ];
+            
+                    if (get_field('destacados_destacar')) {
+                        $tipo = get_field('destacados_tipo');
+
+                        $output['tipo'] = $tipo;
+
+                        if ($tipo === 'image') 
+                        {
+                            $formato = get_field('destacados_formato_imagen');
+                            $output['img_format'] = $formato;
+            
+                            if ($formato === 'horizontal') 
+                            {
+                                $img = get_field('destacados_formato_imagen_horizontal');
+                                $output['url'] = $url['url'];
+                            } 
+                            elseif ($formato === 'vertical') 
+                            {
+                                $img = get_field('destacados_formato_imagen_vertical');
+                                $output['url'] = $url['url'];
+                            }
+                            elseif ($formato === 'cuadrado')
+                            {
+                                $img = get_field('destacados_formato_imagen_cuadrado');
+                                $output['url'] = $img['url'];
+                            }
+                        } 
+                        elseif ($tipo === 'model')
+                        {
+                            $model = get_field('destacados_modelo');
+                            $output['url'] = $model['url'];
+                        }
+                    }
+
+                    return $output;
+                }
+            }
+        ];
+    }
+
     /**
      * Returns the post title.
      *
@@ -66,4 +122,5 @@ class Post extends Composer
 
         return get_the_title();
     }
+
 }

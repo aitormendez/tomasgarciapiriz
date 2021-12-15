@@ -45,10 +45,10 @@ export default class Renderer
         this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2))
     }
 
-    changeScene(chooseScene, chooseCamera)
+    changeScene(choosenScene, choosenCamera)
     {
-        this.scene = chooseScene
-        this.camera = chooseCamera
+        this.scene = choosenScene
+        this.camera = choosenCamera
         // this.camera.controls.enabled = false
     }
 

@@ -270,10 +270,10 @@ export default class PostsHtml {
 
         this.intersects = this.raycaster.intersectObjects(this.MeshObjectsToRaycast)
 
-        for(const mesh of this.MeshObjectsToRaycast)
-        {
-            mesh.material.uniforms.uColor = '#ffffff'
-        }
+        // for(const mesh of this.MeshObjectsToRaycast)
+        // {
+        //     mesh.material.uniforms.uColor = '#ffffff'
+        // }
 
         // if (this.intersects[0]) this.intersects[0].object.material.color.set('#a5ff00')
 

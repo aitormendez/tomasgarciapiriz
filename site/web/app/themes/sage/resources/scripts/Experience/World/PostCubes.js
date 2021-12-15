@@ -18,6 +18,7 @@ export default class PostCubes
         this.objectsToUpdate = []
         this.MeshObjectsToRaycast = []
         this.objectsWithNames = {}
+        this.modelMaterial = new THREE.MeshBasicMaterial({color: 0xff0000})
 
         // Setup
         this.setCubes()
@@ -31,16 +32,26 @@ export default class PostCubes
         {
             if (source.post)
             {
-                
                 let position = {
                     x: (Math.random() - 0.5) * 10,
                     z: (Math.random() - 0.5) * 10,
                     y: index
                 }
-                let texture = this.experience.resources.items[source.name]
-                texture.encoding = THREE.sRGBEncoding
 
-                this.createCube(texture, position, source.postName, source.postId)
+                if (source.type === 'texture') {
+
+                    let texture = this.experience.resources.items[source.name]
+                    texture.encoding = THREE.sRGBEncoding
+    
+                    this.createCube(texture, position, source.postName, source.postId)
+                }
+
+                if (source.type === 'gltfModel') {
+
+                    let model = this.experience.resources.items[source.name].scene
+
+                    this.createModel(model, position, source.postName, source.postId, this.modelMaterial)
+                }
 
                 index++
             }
@@ -67,6 +78,56 @@ export default class PostCubes
                 y: body.position.y + 5
             }
         )
+    }
+
+    createModel(model, position, name, postId, material)
+    {
+        // Threejs mesh
+        // OJO no hace falta crear un mesh porque el loaded gltf ya es una instancia de mesh
+        const mesh = model
+        console.log(model);
+
+        mesh.traverse(function(child) {
+            if (child instanceof THREE.Mesh) {
+                child.material = material
+            }
+        });
+
+
+
+        mesh.position.copy(position)
+        mesh.castShadow = true
+        mesh.receiveShadow = true
+        mesh.name = name
+        mesh.postId = postId
+        this.scene.add(mesh)
+
+        
+
+        // Cannon.js body
+        const shape = new CANNON.Box(new CANNON.Vec3( 1, 1, 1))
+
+        const body = new CANNON.Body({
+            mass: 1,
+            shape: shape,
+            material: this.physicsWorld.defaultMaterial,
+            collisionFilterGroup: 1,
+            collisionFilterMask: 1
+        })
+        body.name = name
+        body.position.copy(position)
+        this.physicsWorld.addBody(body)
+
+        // Save in objects to update
+        this.objectsToUpdate.push({ mesh, body })
+
+        // Save in objects to raycast (postsHtml.js)
+        this.MeshObjectsToRaycast.push(mesh)
+
+        // Save in ordered list with cube names
+        this.objectsWithNames[name] = { mesh, body }
+
+        this.rotateInitial(body)
     }
 
     createCube(texture, position, name, postId)
@@ -129,7 +190,7 @@ export default class PostCubes
         {
             object.mesh.position.copy(object.body.position)
             object.mesh.quaternion.copy(object.body.quaternion)
-            object.mesh.material.uniforms.uPosY.value = object.mesh.position.y
+            // object.mesh.material.uniforms.uPosY.value = object.mesh.position.y
         }
     }
 }

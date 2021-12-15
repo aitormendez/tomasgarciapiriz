@@ -53,25 +53,35 @@ export default class Resources extends EventEmitter
         this.posts =  document.getElementsByClassName('post')
 
         for (const post of this.posts) {
-            
-            // let thumbnailURL = post.getElementsByTagName('img')[0].src
-            let thumbnailURL = post.getElementsByClassName('thumb-path');
+            let type
+            let hiddenElement = post.getElementsByClassName('thumb-path');
 
-            if (thumbnailURL) {
-                let thumbnailPath = thumbnailURL[0].dataset.path.match('\/app(.*).jpg')[0]
+            if (hiddenElement) {
+                let path = hiddenElement[0].dataset.path.match('\/app(.*)')[0]
                 let postName = post.id.replace(/-/g, "")
-                let textureName = 'image' + postName
+                let sourceName = 'image' + postName
                 let resourceObject = {
-                    name: textureName,
-                    type: 'texture',
-                    path: thumbnailPath,
+                    name: '',
+                    type: '',
+                    path: path,
                     post: true,
-                    imgSrc: thumbnailURL,
+                    imgSrc: hiddenElement,
                     postName: postName,
                     postId: post.id
                 }
 
+                if (hiddenElement[0].dataset.type === 'image') {
+                    resourceObject['name'] = 'image' + postName
+                    resourceObject['type'] = 'texture'
+                } 
+                else if (hiddenElement[0].dataset.type === 'model')
+                {
+                    resourceObject['name'] = 'model' + postName
+                    resourceObject['type'] = 'gltfModel'
+                }
+
                 this.sources.push(resourceObject)
+
             }
         }
         this.toLoad = this.sources.length

@@ -1,3 +1,4 @@
+
 <article id="post-{{ get_the_ID() }}" @php(post_class('relative post border-b p-4'))>
 
   <header>
@@ -10,7 +11,7 @@
   </header>
 
   @if (has_post_thumbnail())
-    <div class="hidden thumb thumb-path" data-path="@thumbnail('large', false)" ></div>      
+    <div class="hidden thumb thumb-path" data-type="{{ $feat_content()['tipo'] }}" data-path="{{ $feat_content()['url'] }}"></div>      
   @endif
 
     @if (!is_home())

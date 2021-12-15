@@ -26,6 +26,13 @@ add_action(
         {
             $query->set( 'post_type', ['project', 'story'] );
             $query->set( 'posts_per_page', 30 );
+            $query->set( 'meta_query', [
+                [
+                    'key' => 'destacados_destacar',
+                    'compare' => '=',
+                    'value'   => 1,  
+                ]
+            ]);
         }
         
     }
