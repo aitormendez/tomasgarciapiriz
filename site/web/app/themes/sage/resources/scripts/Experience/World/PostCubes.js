@@ -18,7 +18,11 @@ export default class PostCubes
         this.objectsToUpdate = []
         this.MeshObjectsToRaycast = []
         this.objectsWithNames = {}
-        this.modelMaterial = new THREE.MeshBasicMaterial({color: 0xff0000})
+        this.modelMaterial = new THREE.MeshStandardMaterial({
+            color: '#ffffff',
+            receiveShadow: true,
+            castShadow: true
+        })
 
         // Setup
         this.setCubes()
@@ -98,9 +102,9 @@ export default class PostCubes
         mesh.castShadow = true
         mesh.receiveShadow = true
         mesh.name = name
+        mesh.tipo = 'model'
         mesh.postId = postId
         this.scene.add(mesh)
-        console.log(mesh);
         
 
         
@@ -126,6 +130,7 @@ export default class PostCubes
             collisionFilterMask: 1
         })
         body.name = name
+        body.tipo = 'model'
         body.position.copy(position)
         this.physicsWorld.addBody(body)
 
@@ -160,6 +165,7 @@ export default class PostCubes
         mesh.castShadow = true
         mesh.receiveShadow = true
         mesh.name = name
+        mesh.tipo = 'cube'
         mesh.postId = postId
         this.scene.add(mesh)
         
@@ -175,6 +181,7 @@ export default class PostCubes
             collisionFilterMask: 1
         })
         body.name = name
+        body.tipo = 'cube'
         body.position.copy(position)
         this.physicsWorld.addBody(body)
 
@@ -185,6 +192,8 @@ export default class PostCubes
 
         // Save in objects to update
         this.objectsToUpdate.push({ mesh, body })
+
+        console.log(this.objectsToUpdate);
 
         // Save in objects to raycast (postsHtml.js)
         this.MeshObjectsToRaycast.push(mesh)
@@ -201,7 +210,10 @@ export default class PostCubes
         {
             object.mesh.position.copy(object.body.position)
             object.mesh.quaternion.copy(object.body.quaternion)
-            // object.mesh.material.uniforms.uPosY.value = object.mesh.position.y
+
+            if (object.mesh.tipo === 'cube') {
+                object.mesh.material.uniforms.uPosY.value = object.mesh.position.y
+            }
         }
     }
 }
