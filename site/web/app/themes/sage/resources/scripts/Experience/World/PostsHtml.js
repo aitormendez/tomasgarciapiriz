@@ -268,7 +268,7 @@ export default class PostsHtml {
     {
         this.raycaster.setFromCamera(this.mouse, this.camera)
 
-        this.intersects = this.raycaster.intersectObjects(this.MeshObjectsToRaycast)
+        this.intersects = this.raycaster.intersectObjects(this.MeshObjectsToRaycast, false)
 
         // for(const mesh of this.MeshObjectsToRaycast)
         // {

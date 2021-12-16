@@ -84,8 +84,7 @@ export default class PostCubes
     {
         // Threejs mesh
         // OJO no hace falta crear un mesh porque el loaded gltf ya es una instancia de mesh
-        const mesh = model
-        console.log(model);
+        const mesh = model.children[0]
 
         mesh.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
@@ -101,14 +100,26 @@ export default class PostCubes
         mesh.name = name
         mesh.postId = postId
         this.scene.add(mesh)
+        console.log(mesh);
+        
 
         
 
         // Cannon.js body
-        const shape = new CANNON.Box(new CANNON.Vec3( 1, 1, 1))
+        const x = (mesh.geometry.boundingBox.max.x - mesh.geometry.boundingBox.min.x) * 0.1
+        const y = (mesh.geometry.boundingBox.max.y - mesh.geometry.boundingBox.min.y) * 0.1
+        const z = (mesh.geometry.boundingBox.max.z - mesh.geometry.boundingBox.min.z) * 0.1
+
+        console.log(`x: ${x}`, `y: ${y}`, `z: ${z}`,);
+
+        const shape = new CANNON.Box(new CANNON.Vec3( 
+            x,
+            z,
+            y,
+        ))
 
         const body = new CANNON.Body({
-            mass: 1,
+            mass: 10,
             shape: shape,
             material: this.physicsWorld.defaultMaterial,
             collisionFilterGroup: 1,
