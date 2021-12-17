@@ -72,30 +72,6 @@
               "url": "https://github.com/wp-sync-db/wp-sync-db-media-files/archive/master.zip"
           }
       }
-    },
-    "4": {
-      "type": "vcs",
-      "url": "git@github.com:aitormendez/sitepress-multilingual-cms.git"
-    },
-    "5": {
-        "type": "vcs",
-        "url": "git@github.com:aitormendez/wpml-media-translation.git"
-    },
-    "6": {
-        "type": "vcs",
-        "url": "git@github.com:aitormendez/wpml-string-translation.git"
-    },
-    "7": {
-        "type": "vcs",
-        "url": "git@github.com:aitormendez/wpml-translation-management.git"
-    },
-    "8": {
-        "type": "vcs",
-        "url": "git@github.com:aitormendez/acfml.git"
-    },
-    "9": {
-        "type": "vcs",
-        "url": "git@github.com:aitormendez/wpml-wpforms.git"
     }
   },
   "require": {
@@ -122,8 +98,6 @@
     "wpackagist-plugin/file-upload-types": "*",
     "soberwp/intervention": "dev-main",
     "satispress/sitepress-multilingual-cms": "*",
-    "satispress/wpml-media-translation": "*",
-    "satispress/wpml-string-translation": "*",
     "satispress/wpml-wpforms": "*",
     "satispress/acfml": "*"
   },
