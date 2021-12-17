@@ -7,6 +7,7 @@ import PostCubes from './PostCubes.js'
 // import TestCube from './TestCube.js'
 import PostsHtml from './PostsHtml.js'
 
+
 export default class World
 {
     constructor(canvas)
@@ -41,22 +42,22 @@ export default class World
     physics()
     {
         this.physicsWorld = new CANNON.World()
-        this.physicsWorld.gravity.set(0, - 2, 0)
+        this.physicsWorld.gravity.set(0, - 10, 0)
         this.physicsWorld.allowSleep = true
-        this.physicsWorld.broadphase = new CANNON.SAPBroadphase(this.physicsWorld)
+        this.physicsWorld.broadphase = new CANNON.NaiveBroadphase(this.physicsWorld)
 
-        this.defaultMaterial = new CANNON.Material('default')
+        this.defaultMaterial = new CANNON.Material()
 
         this.defaultContactMaterial = new CANNON.ContactMaterial(
             this.defaultMaterial,
             this.defaultMaterial,
             {
-                friction: 0.1,
-                restitution: 0.7
+                friction: 1,
+                restitution: 0
             }
         )
         
-        this.physicsWorld.addContactMaterial(this.defaultContactMaterial)
+        this.physicsWorld.defaultContactMaterial= this.defaultContactMaterial
     }
 
     setHtml()

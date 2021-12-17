@@ -1,6 +1,5 @@
 import * as CANNON from 'cannon-es'
 import gsap from 'gsap'
-import { PolyhedronBufferGeometry } from 'three'
 
 export function rotate(body, rotacion, duration, valTo)
 {

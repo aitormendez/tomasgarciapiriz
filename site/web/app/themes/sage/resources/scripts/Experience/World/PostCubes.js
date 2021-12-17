@@ -13,11 +13,11 @@ export default class PostCubes
         this.experience = new Experience()
         this.scene = this.experience.scene
         this.resources = this.experience.resources
-        this.physicsWorld = this.experience.world.physicsWorld
+        this.world = this.experience.world
         this.geometry = this.resources.items.cubePost1.scene.children[0].geometry
         this.objectsToUpdate = []
         this.MeshObjectsToRaycast = []
-        this.objectsWithNames = {}
+        // this.objectsWithNames = {}
         this.modelMaterial = new THREE.MeshStandardMaterial({
             color: '#ffffff',
             receiveShadow: true,
@@ -39,7 +39,7 @@ export default class PostCubes
                 let position = {
                     x: (Math.random() - 0.5) * 10,
                     z: (Math.random() - 0.5) * 10,
-                    y: index
+                    y: index + 10
                 }
 
                 if (source.type === 'texture') {
@@ -73,7 +73,10 @@ export default class PostCubes
             )
         }
 
-        rotate(body, body.rotacion, body.rotacion.val, (Math.random() - 0.5) * 5)
+        if (body.tipo === 'cube') {
+            rotate(body, body.rotacion, body.rotacion.val, (Math.random() - 0.5) * 5)
+        }
+        
 
         gsap.to(
             body.position, 
@@ -96,25 +99,17 @@ export default class PostCubes
             }
         });
 
-
-
-        mesh.position.copy(position)
         mesh.castShadow = true
-        mesh.receiveShadow = true
+        // mesh.receiveShadow = true
         mesh.name = name
         mesh.tipo = 'model'
         mesh.postId = postId
         this.scene.add(mesh)
-        
-
-        
 
         // Cannon.js body
-        const x = (mesh.geometry.boundingBox.max.x - mesh.geometry.boundingBox.min.x) * 0.1
-        const y = (mesh.geometry.boundingBox.max.y - mesh.geometry.boundingBox.min.y) * 0.1
-        const z = (mesh.geometry.boundingBox.max.z - mesh.geometry.boundingBox.min.z) * 0.1
-
-        console.log(`x: ${x}`, `y: ${y}`, `z: ${z}`,);
+        const x = (mesh.geometry.boundingBox.max.x - mesh.geometry.boundingBox.min.x) * 0.5
+        const y = (mesh.geometry.boundingBox.max.y - mesh.geometry.boundingBox.min.y) * 0.5
+        const z = (mesh.geometry.boundingBox.max.z - mesh.geometry.boundingBox.min.z) * 0.5
 
         const shape = new CANNON.Box(new CANNON.Vec3( 
             x,
@@ -123,16 +118,16 @@ export default class PostCubes
         ))
 
         const body = new CANNON.Body({
-            mass: 10,
+            mass: 1,
             shape: shape,
-            material: this.physicsWorld.defaultMaterial,
+            material: this.world.defaultMaterial,
             collisionFilterGroup: 1,
             collisionFilterMask: 1
         })
         body.name = name
         body.tipo = 'model'
         body.position.copy(position)
-        this.physicsWorld.addBody(body)
+        this.world.physicsWorld.addBody(body)
 
         // Save in objects to update
         this.objectsToUpdate.push({ mesh, body })
@@ -140,8 +135,8 @@ export default class PostCubes
         // Save in objects to raycast (postsHtml.js)
         this.MeshObjectsToRaycast.push(mesh)
 
-        // Save in ordered list with cube names
-        this.objectsWithNames[name] = { mesh, body }
+        // // Save in ordered list with cube names
+        // this.objectsWithNames[name] = { mesh, body }
 
         this.rotateInitial(body)
     }
@@ -161,14 +156,12 @@ export default class PostCubes
                 }
             })
         )
-        // mesh.position.copy(position)
         mesh.castShadow = true
         mesh.receiveShadow = true
         mesh.name = name
         mesh.tipo = 'cube'
         mesh.postId = postId
         this.scene.add(mesh)
-        
 
         // Cannon.js body
         const shape = new CANNON.Box(new CANNON.Vec3( 1, 0.5, 1))
@@ -176,30 +169,23 @@ export default class PostCubes
         const body = new CANNON.Body({
             mass: 1,
             shape: shape,
-            material: this.physicsWorld.defaultMaterial,
+            material: this.world.defaultMaterial,
             collisionFilterGroup: 1,
             collisionFilterMask: 1
         })
         body.name = name
         body.tipo = 'cube'
         body.position.copy(position)
-        this.physicsWorld.addBody(body)
-
-        // listener for sleep event
-        // body.addEventListener("sleep",function(event){
-        //     console.log(body);
-        // });
+        this.world.physicsWorld.addBody(body)
 
         // Save in objects to update
         this.objectsToUpdate.push({ mesh, body })
 
-        console.log(this.objectsToUpdate);
-
         // Save in objects to raycast (postsHtml.js)
         this.MeshObjectsToRaycast.push(mesh)
 
-        // Save in ordered list with cube names
-        this.objectsWithNames[name] = { mesh, body }
+        // // Save in ordered list with cube names
+        // this.objectsWithNames[name] = { mesh, body }
 
         this.rotateInitial(body)
     }

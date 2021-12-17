@@ -86,7 +86,7 @@ export default class PostsHtml {
         {
             this.float = gsap.timeline()
             let body = this.getBodyByName(postName)
-            let heightToUp = body.tipo === 'cube' ? 35 : 25
+            let heightToUp = body.tipo === 'cube' ? 35 : 30
             body.collisionFilterMask = 2
             body.rotacion.floatVal = 0
             body.rotacion.floatVector = new CANNON.Vec3(
@@ -178,22 +178,23 @@ export default class PostsHtml {
             this.respiracion.kill()
             
             let body = this.getBodyByName(this.floatedObject)
-            console.log(body);
 
             body.collisionFilterMask = 1
             body.wakeUp()
-            // if (body.tipo === 'cube') {
-            //     body.rotacion = {
-            //         val: 2,
-            //         vector: new CANNON.Vec3(
-            //             Math.random() - 0.5,
-            //             Math.random() - 0.5,
-            //             Math.random() - 0.5,
-            //         )
-            //     }
-            // }
+            if (body.tipo === 'cube') {
+                body.rotacion = {
+                    val: 2,
+                    vector: new CANNON.Vec3(
+                        Math.random() - 0.5,
+                        Math.random() - 0.5,
+                        Math.random() - 0.5,
+                    )
+                }
+
+                rotate(body, body.rotacion, 1, (Math.random() - 0.5) * 0.1  )
+            }
     
-            rotate(body, body.rotacion, 2, (Math.random() - 0.5) * 5)
+
 
             this.floatedObject = undefined
 
