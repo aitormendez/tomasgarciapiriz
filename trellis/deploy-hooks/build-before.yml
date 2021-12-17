@@ -13,6 +13,13 @@
   args:
     chdir: "{{ project_local_path }}/web/app/themes/sage"
 
+- name: Setup satispress auth
+  composer:
+    global_command: yes
+    command: config
+    arguments: https-basic.plugins.e451.net {{ vault_satispress_key }} "satispress"
+  when: vault_satispress_key is defined
+
 - name: Install Composer dependencies
   command: composer install --no-ansi --no-dev --no-interaction --no-progress --optimize-autoloader --no-scripts --classmap-authoritative
   args:
