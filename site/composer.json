@@ -120,12 +120,7 @@
     "wpackagist-plugin/fakerpress": "*",
     "wpackagist-plugin/complianz-gdpr": "*",
     "wpackagist-plugin/file-upload-types": "*",
-    "soberwp/intervention": "dev-main",
-    "satispress/sitepress-multilingual-cms": "*",
-    "satispress/wpml-media-translation": "*",
-    "satispress/wpml-string-translation": "*",
-    "satispress/wpml-wpforms": "*",
-    "satispress/acfml": "*"
+    "soberwp/intervention": "dev-main"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6.0",
