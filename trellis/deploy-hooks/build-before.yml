@@ -17,7 +17,7 @@
   composer:
     global_command: yes
     command: config
-    arguments: https-basic.plugins.e451.net {{ vault_satispress_key }} "satispress"
+    arguments: http-basic.plugins.e451.net {{ vault_satispress_key }} "satispress"
   when: vault_satispress_key is defined
 
 - name: Install Composer dependencies
