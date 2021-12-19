@@ -156,9 +156,6 @@ export default class PostCubes
             this.geometry = this.resources.items.cubeVertical.scene.children[0].geometry
         }
         
-
-        console.log(this.resources.items);
-
         const mesh = new THREE.Mesh(
             this.geometry,
             new THREE.ShaderMaterial({
