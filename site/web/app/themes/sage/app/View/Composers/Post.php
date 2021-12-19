@@ -51,20 +51,20 @@ class Post extends Composer
 
                         $output['tipo'] = $tipo;
 
-                        if ($tipo === 'image') 
+                        if ($tipo === 'image')
                         {
                             $formato = get_field('destacados_formato_imagen');
                             $output['img_format'] = $formato;
             
-                            if ($formato === 'horizontal') 
+                            if ($formato === 'horizontal')
                             {
                                 $img = get_field('destacados_formato_imagen_horizontal');
-                                $output['url'] = $url['url'];
+                                $output['url'] = $img['url'];
                             } 
-                            elseif ($formato === 'vertical') 
+                            elseif ($formato === 'vertical')
                             {
                                 $img = get_field('destacados_formato_imagen_vertical');
-                                $output['url'] = $url['url'];
+                                $output['url'] = $img['url'];
                             }
                             elseif ($formato === 'cuadrado')
                             {

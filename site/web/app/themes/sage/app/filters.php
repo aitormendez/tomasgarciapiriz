@@ -24,7 +24,7 @@ add_action(
     function($query) {
         if ( !is_admin() && $query->is_main_query() && is_front_page() ) 
         {
-            $query->set( 'post_type', ['project', 'story'] );
+            $query->set( 'post_type', ['project', 'story', 'reference'] );
             $query->set( 'posts_per_page', 30 );
             $query->set( 'meta_query', [
                 [

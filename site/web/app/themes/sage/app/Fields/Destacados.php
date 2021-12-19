@@ -17,7 +17,9 @@ class Destacados extends Field
         $destacados = new FieldsBuilder('destacados');
 
         $destacados
-            ->setLocation('post_type', '==', 'project');
+            ->setLocation('post_type', '==', 'project')
+                ->or('post_type', '==', 'story')
+                ->or('post_type', '==', 'reference');
 
         $destacados
             ->addTrueFalse('destacados_destacar', [
@@ -93,11 +95,11 @@ class Destacados extends Field
                 'return_format' => 'array',
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
-                'min_width' => '683',
-                'min_height' => '1024',
+                'min_width' => '1024',
+                'min_height' => '683',
                 'min_size' => '',
-                'max_width' => '683',
-                'max_height' => '1024',
+                'max_width' => '1024',
+                'max_height' => '683',
                 'max_size' => '',
                 'mime_types' => 'jpg',
             ])
@@ -109,11 +111,11 @@ class Destacados extends Field
                 'return_format' => 'array',
                 'preview_size' => 'thumbnail',
                 'library' => 'all',
-                'min_width' => '1024',
-                'min_height' => '683',
+                'max_width' => '683',
+                'max_height' => '1024',
                 'min_size' => '',
-                'max_width' => '1024',
-                'max_height' => '683',
+                'max_width' => '683',
+                'max_height' => '1024',
                 'max_size' => '',
                 'mime_types' => 'jpg',
             ])

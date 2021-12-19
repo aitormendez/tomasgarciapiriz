@@ -1,12 +1,17 @@
 export default [
     {
-        name: 'cubePost2',
+        name: 'cubeVertical',
         type: 'gltfModel',
-        path: '/app/themes/sage/resources/models/cubePost2.gltf'
+        path: '/app/themes/sage/resources/models/cubeVertical.gltf'
     },
     {
-        name: 'cubePost1',
+        name: 'cubeHorizontal',
         type: 'gltfModel',
-        path: '/app/themes/sage/resources/models/cubePost1.gltf'
+        path: '/app/themes/sage/resources/models/cubeHorizontal.gltf'
+    },
+    {
+        name: 'cubeCuadrado',
+        type: 'gltfModel',
+        path: '/app/themes/sage/resources/models/cubeCuadrado.gltf'
     }
 ]

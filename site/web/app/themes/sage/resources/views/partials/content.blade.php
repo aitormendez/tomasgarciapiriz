@@ -11,7 +11,7 @@
   </header>
 
   @if (has_post_thumbnail())
-    <div class="hidden thumb thumb-path" data-type="{{ $feat_content()['tipo'] }}" data-path="{{ $feat_content()['url'] }}"></div>      
+    <div class="hidden thumb thumb-path" data-format="{{ $feat_content()['img_format'] }}" data-type="{{ $feat_content()['tipo'] }}" data-path="{{ $feat_content()['url'] }}"></div>      
   @endif
 
     @if (!is_home())

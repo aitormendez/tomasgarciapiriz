@@ -55,11 +55,14 @@ export default class Resources extends EventEmitter
         for (const post of this.posts) {
             let type
             let hiddenElement = post.getElementsByClassName('thumb-path');
+            console.log(hiddenElement);
 
             if (hiddenElement) {
                 let path = hiddenElement[0].dataset.path.match('\/app(.*)')[0]
+                let format = hiddenElement[0].dataset.format
                 let postName = post.id.replace(/-/g, "")
                 let sourceName = 'image' + postName
+
                 let resourceObject = {
                     name: '',
                     type: '',
@@ -73,6 +76,7 @@ export default class Resources extends EventEmitter
                 if (hiddenElement[0].dataset.type === 'image') {
                     resourceObject['name'] = 'image' + postName
                     resourceObject['type'] = 'texture'
+                    resourceObject['format'] = format
                 } 
                 else if (hiddenElement[0].dataset.type === 'model')
                 {

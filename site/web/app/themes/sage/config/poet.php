@@ -3,7 +3,7 @@
 $post_columns = [
     'featured_image' => [
         'title'          => __('Featured img', 'sage'),
-        'featured_image' => 'thumbnail'
+        'featured_image' => 'medium'
     ],
     'featured_post' => [
         'title'       => __('Featured post', 'sage'),

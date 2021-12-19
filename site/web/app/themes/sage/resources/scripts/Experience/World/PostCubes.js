@@ -14,7 +14,6 @@ export default class PostCubes
         this.scene = this.experience.scene
         this.resources = this.experience.resources
         this.world = this.experience.world
-        this.geometry = this.resources.items.cubePost1.scene.children[0].geometry
         this.objectsToUpdate = []
         this.MeshObjectsToRaycast = []
         // this.objectsWithNames = {}
@@ -47,7 +46,7 @@ export default class PostCubes
                     let texture = this.experience.resources.items[source.name]
                     texture.encoding = THREE.sRGBEncoding
     
-                    this.createCube(texture, position, source.postName, source.postId)
+                    this.createCube(texture, position, source.postName, source.postId, source.format)
                 }
 
                 if (source.type === 'gltfModel') {
@@ -141,9 +140,25 @@ export default class PostCubes
         this.rotateInitial(body)
     }
 
-    createCube(texture, position, name, postId)
+    createCube(texture, position, name, postId, format)
     {
         // Threejs mesh
+
+        if (format === 'cuadrado') {
+            this.geometry = this.resources.items.cubeCuadrado.scene.children[0].geometry
+        }
+        else if (format === 'horizontal')
+        {
+            this.geometry = this.resources.items.cubeHorizontal.scene.children[0].geometry
+        }
+        else if (format === 'vertical')
+        {
+            this.geometry = this.resources.items.cubeVertical.scene.children[0].geometry
+        }
+        
+
+        console.log(this.resources.items);
+
         const mesh = new THREE.Mesh(
             this.geometry,
             new THREE.ShaderMaterial({
