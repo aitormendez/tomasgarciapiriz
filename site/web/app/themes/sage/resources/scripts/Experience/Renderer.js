@@ -50,7 +50,6 @@ export default class Renderer
         this.scene = choosenScene
         this.camera = choosenCamera
         // this.camera.controls.enabled = false
-        console.log(choosenCamera);
 
         if (choosenCamera.cameraGroup.children[0].name === 'camera') {
             this.disposeLoadingScene(this.experience.sceneLoading)
@@ -68,11 +67,10 @@ export default class Renderer
 
     disposeLoadingScene(scene)
     {
-        console.log('disposing');
         scene.traverse(object => {
             if (!object.isMesh) return
             
-            console.log('dispose geometry!')
+            // console.log('dispose geometry!')
             object.geometry.dispose()
         
             if (object.material.isMaterial) {
@@ -85,14 +83,14 @@ export default class Renderer
     }
 
     cleanMaterial = material => {
-        console.log('dispose material!')
+        // console.log('dispose material!')
         material.dispose()
     
         // dispose textures
         for (const key of Object.keys(material)) {
             const value = material[key]
             if (value && typeof value === 'object' && 'minFilter' in value) {
-                console.log('dispose texture!')
+                // console.log('dispose texture!')
                 value.dispose()
             }
         }

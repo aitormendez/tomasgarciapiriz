@@ -210,8 +210,17 @@ export default class PostCubes
             object.mesh.position.copy(object.body.position)
             object.mesh.quaternion.copy(object.body.quaternion)
 
+            
+
             if (object.mesh.tipo === 'cube') {
-                object.mesh.material.uniforms.uPosY.value = object.mesh.position.y
+                if (object.mesh === this.experience.world.postHtml.currentIntersectObject) {
+                    object.mesh.material.uniforms.uPosY.value = 35
+                }
+                else
+                {
+                    object.mesh.material.uniforms.uPosY.value = object.mesh.position.y
+                }
+                
             }
         }
     }

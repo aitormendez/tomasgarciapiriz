@@ -252,6 +252,7 @@ export default class PostsHtml {
 
             if(this.currentIntersect)
             {
+
                 const postElement = document.getElementById(this.currentIntersect)
 
                 gsap.to(
@@ -285,10 +286,12 @@ export default class PostsHtml {
         if(this.intersects.length)
         {
             this.currentIntersect = this.intersects[0].object.postId
+            this.currentIntersectObject = this.intersects[0].object
         }
         else
         {
             this.currentIntersect = null
+            this.currentIntersectObject = null
         }
     }
 }
