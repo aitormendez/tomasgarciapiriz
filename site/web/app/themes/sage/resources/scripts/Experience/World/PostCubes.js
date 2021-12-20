@@ -159,6 +159,7 @@ export default class PostCubes
         const mesh = new THREE.Mesh(
             this.geometry,
             new THREE.ShaderMaterial({
+                precision: 'lowp',
                 vertexShader: vertexShader,
                 fragmentShader: fragmentShader,
                 uniforms:
