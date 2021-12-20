@@ -220,7 +220,15 @@ export default class PostCubes
                 {
                     object.mesh.material.uniforms.uPosY.value = object.mesh.position.y
                 }
-                
+            }
+            else
+            {
+                if (object.mesh === this.experience.world.postHtml.currentIntersectObject && object.mesh.position.y < 5) {
+                    object.mesh.material.color.set('#000000')
+                }
+                else{
+                    object.mesh.material.color.set('#ffffff')
+                }
             }
         }
     }
