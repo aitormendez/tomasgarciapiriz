@@ -142,18 +142,22 @@ export default class PostCubes
 
     createCube(texture, position, name, postId, format)
     {
+        let shapeDimensions
         // Threejs mesh
 
         if (format === 'cuadrado') {
             this.geometry = this.resources.items.cubeCuadrado.scene.children[0].geometry
+            shapeDimensions = {x: 1, y: 0.5, z: 1}
         }
         else if (format === 'horizontal')
         {
             this.geometry = this.resources.items.cubeHorizontal.scene.children[0].geometry
+            shapeDimensions = {x: 2, y: 0.5, z: 1}
         }
         else if (format === 'vertical')
         {
             this.geometry = this.resources.items.cubeVertical.scene.children[0].geometry
+            shapeDimensions = {x: 1, y: 0.5, z: 2}
         }
         
         const mesh = new THREE.Mesh(
@@ -177,7 +181,7 @@ export default class PostCubes
         this.scene.add(mesh)
 
         // Cannon.js body
-        const shape = new CANNON.Box(new CANNON.Vec3( 1, 0.5, 1))
+        const shape = new CANNON.Box(new CANNON.Vec3( shapeDimensions.x, shapeDimensions.y, shapeDimensions.z))
 
         const body = new CANNON.Body({
             mass: 1,
