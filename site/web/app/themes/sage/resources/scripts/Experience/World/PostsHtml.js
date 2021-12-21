@@ -20,6 +20,7 @@ export default class PostsHtml {
         this.sizes = this.experience.sizes
         this.MeshObjectsToRaycast = this.experience.world.postCubes.MeshObjectsToRaycast
         this.fotatingObject = undefined
+        this.floatedObject = undefined
 
         // raycast
         this.emisorRayos()
@@ -77,7 +78,7 @@ export default class PostsHtml {
             {
                 if (this.floatedObject)
                 {
-                    cubeDown(this.floatedObject)
+                    this.cubeDown(this.floatedObject)
                 }
             }, 300);
         }
@@ -87,6 +88,7 @@ export default class PostsHtml {
             this.float = gsap.timeline()
             let body = this.getBodyByName(postName)
             let heightToUp = body.tipo === 'cube' ? 35 : 30
+            this.theBodyIsUp = body
             body.collisionFilterMask = 2
             body.rotacion.floatVal = 0
             body.rotacion.floatVector = new CANNON.Vec3(
@@ -172,34 +174,6 @@ export default class PostsHtml {
             }
         }
 
-        let cubeDown = () =>
-        {
-            this.float.kill()
-            this.respiracion.kill()
-            
-            let body = this.getBodyByName(this.floatedObject)
-
-            body.collisionFilterMask = 1
-            body.wakeUp()
-            if (body.tipo === 'cube') {
-                body.rotacion = {
-                    val: 2,
-                    vector: new CANNON.Vec3(
-                        Math.random() - 0.5,
-                        Math.random() - 0.5,
-                        Math.random() - 0.5,
-                    )
-                }
-
-                rotate(body, body.rotacion, 1, (Math.random() - 0.5) * 0.1  )
-            }
-    
-
-
-            this.floatedObject = undefined
-
-        }
-
         this.posts = gsap.utils.toArray('.post');
 
         this.posts.forEach(post => {
@@ -229,6 +203,32 @@ export default class PostsHtml {
                 }
             })
         })
+    }
+
+    cubeDown()
+    {
+        this.float.kill()
+        this.respiracion.kill()
+        
+        let body = this.getBodyByName(this.floatedObject)
+
+        body.collisionFilterMask = 1
+        body.wakeUp()
+        if (body.tipo === 'cube') {
+            body.rotacion = {
+                val: 2,
+                vector: new CANNON.Vec3(
+                    Math.random() - 0.5,
+                    Math.random() - 0.5,
+                    Math.random() - 0.5,
+                )
+            }
+
+            rotate(body, body.rotacion, 1, (Math.random() - 0.5) * 0.1  )
+        }
+
+        this.floatedObject = undefined
+
     }
 
     emisorRayos()
@@ -266,6 +266,11 @@ export default class PostsHtml {
                     }
                 );    
             }
+            else {
+                if (this.floatedObject) {
+                    this.cubeDown()
+                }
+            }
         })
         
     }
@@ -275,13 +280,6 @@ export default class PostsHtml {
         this.raycaster.setFromCamera(this.mouse, this.camera)
 
         this.intersects = this.raycaster.intersectObjects(this.MeshObjectsToRaycast, false)
-
-        // for(const mesh of this.MeshObjectsToRaycast)
-        // {
-        //     mesh.material.uniforms.uColor = '#ffffff'
-        // }
-
-        // if (this.intersects[0]) this.intersects[0].object.material.color.set('#a5ff00')
 
         if(this.intersects.length)
         {
