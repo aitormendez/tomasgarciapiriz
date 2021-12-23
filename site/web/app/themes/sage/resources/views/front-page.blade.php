@@ -7,11 +7,13 @@
       <div class="h-2 bg-black fill"></div>
     </div>
 
-    <section id="posts" class="absolute right-0 z-30 hidden loading-bar">
-      <div id="posts-bg" class="absolute inset-0 transition-opacity bg-white opacity-0"></div>
-      @while(have_posts()) @php(the_post())
-        @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
-      @endwhile
+    <section id="posts" class="relative inset-0 z-30 flex justify-end hidden loading-bar">
+      <div class="relative max-w-md columna">
+        <div id="posts-bg" class="absolute inset-0 transition-opacity bg-white opacity-0"></div>
+        @while(have_posts()) @php(the_post())
+          @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
+        @endwhile
+      </div>
     </section>
     <div class="navig">
       {!! get_the_posts_navigation() !!}
