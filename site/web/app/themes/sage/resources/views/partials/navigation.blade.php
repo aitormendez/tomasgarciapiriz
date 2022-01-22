@@ -3,20 +3,15 @@
     @foreach ($primary_navigation as $item)
       <li class="my-menu-item {{ $item->classes ?? '' }} {{ $item->active ? 'active' : '' }} lowercase">
 
-        
-
         <div class="flex justify-between">
           <a href="{{ $item->url }}">{!! $item->label !!}</a>
           @if ($item->children)
             <button>@svg('images/interface/flecha.svg', 'self-center', ['aria-label' => 'toggle-submenu-button'])</button>
           @endif
-        </div>
-
-
-        
+        </div>        
 
         @if ($item->children)
-          <ul class="px-6 py-2 my-child-menu">
+          <ul class="h-0 px-6 overflow-hidden my-child-menu">
             @foreach ($item->children as $child)
               <li class="my-child-item {{ $child->classes ?? '' }} {{ $child->active ? 'active' : '' }} mayusculas text-sm">
                 <a href="{{ $child->url }}" class="block py-0.5">

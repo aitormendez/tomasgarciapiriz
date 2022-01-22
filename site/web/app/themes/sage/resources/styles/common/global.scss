@@ -6,3 +6,12 @@ pre.sf.dump {
   // para que se active el z-index del @dump()
   position: relative;
 }
+
+#nav-principal .my-child-menu li {
+ &:first-child {
+   margin-top: 1rem;
+ }
+ &:last-child {
+   margin-bottom: 1rem;
+ }
+}
