@@ -8,6 +8,40 @@ export class Navegacion
     constructor()
     {
         this.createMenu()
+        this.solapa()
+    }
+
+    solapa()
+    {
+        let hamb = document.querySelector('#hamb'),
+            solapa = document.querySelector('#solapa'),
+            cerrar = document.querySelector('#cerrar'),
+            isOpen = false;
+
+            gsap.set(solapa, {x: - solapa.offsetWidth})
+
+        solapa.open = () => {
+            if (!isOpen) {
+                isOpen = true;
+                gsap.to(solapa, {
+                    x: 0,
+                    duration: 0.5,
+                });
+            }
+        }
+
+        solapa.close = () => {
+            if (isOpen) {
+                isOpen = false;
+                gsap.to(solapa, {
+                    x: - solapa.offsetWidth,
+                    duration: 0.5,
+                });
+            }
+        }
+
+        hamb.addEventListener("click", () => solapa.open())
+        cerrar.addEventListener("click", () => solapa.close())
     }
 
     createMenu()
