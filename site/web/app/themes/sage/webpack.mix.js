@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 require('@tinypixelco/laravel-mix-wp-blocks');
+require('palette-webpack-plugin/src/mix');
 
 /*
  |--------------------------------------------------------------------------

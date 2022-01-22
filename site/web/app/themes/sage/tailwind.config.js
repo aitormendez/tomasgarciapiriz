@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   mode: 'jit',
   purge: {
@@ -18,5 +20,17 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    plugin(function({ addComponents }) {
+      const mayusculas = {
+        '.mayusculas': {
+          textTransform: 'uppercase',
+          letterSpacing: '0.2em',
+          fontWeight: '700',
+        }
+      }
+      addComponents([mayusculas])
+    })
+  ],
 };

@@ -5,7 +5,7 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin'
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 import * as CANNON from 'cannon-es'
 import Experience from '../Experience.js'
-import { rotate, flotar } from '../Utils/rotate.js'
+import { rotate } from '../Utils/rotate.js'
 import { random } from 'gsap/all'
 import { Vec3 } from 'cannon-es'
 

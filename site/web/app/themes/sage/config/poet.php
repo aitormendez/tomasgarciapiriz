@@ -73,10 +73,11 @@ return [
     */
 
     'taxonomy' => [
-        // 'artist' => [
-        //     'links' => ['product'],
-        //     'meta_box' => 'dropdown',
-        // ],
+        'project_type' => [
+            'links' => ['project'],
+            'meta_box' => 'simple',
+            'hierarchical' => false, 
+        ],
     ],
 
     /*

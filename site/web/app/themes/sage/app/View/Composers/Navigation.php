@@ -24,7 +24,7 @@ class Navigation extends Composer
     public function with()
     {
         return [
-            'navigation' => $this->navigation(),
+            'primary_navigation' => $this->primaryNavigation(),
             'secondary_navigation' => $this->SecondaryNavigation(),
         ];
     }
@@ -34,9 +34,9 @@ class Navigation extends Composer
      *
      * @return array
      */
-    public function navigation()
+    public function primaryNavigation()
     {
-        if (Navi::build()->isEmpty()) {
+        if (Navi::build('primary_navigation')->isEmpty()) {
             return;
         }
 
@@ -48,7 +48,7 @@ class Navigation extends Composer
      *
      * @return array
      */
-    public function SecondaryNavigation()
+    public function secondaryNavigation()
     {
         if (Navi::build('secondary_navigation')->isEmpty()) {
             return;
