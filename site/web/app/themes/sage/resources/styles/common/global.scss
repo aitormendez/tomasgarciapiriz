@@ -24,13 +24,22 @@ pre.sf.dump {
 
 #solapa {
   min-width: 270px;
+
+  #cerrar,
+  .boton-flecha {
+    &:hover svg path {
+      fill: #DC2626;
+    }
+  }
+
+  #nav-principal .my-child-menu li {
+    &:first-child {
+      margin-top: 1rem;
+    }
+
+    &:last-child {
+      margin-bottom: 1rem;
+    }
+   }
 }
 
-#nav-principal .my-child-menu li {
- &:first-child {
-   margin-top: 1rem;
- }
- &:last-child {
-   margin-bottom: 1rem;
- }
-}

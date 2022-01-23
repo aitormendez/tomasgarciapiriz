@@ -1,47 +1,108 @@
 import gsap from 'gsap'
-// import { TextPlugin } from "gsap/dist/TextPlugin.min.js";
+import { TextPlugin } from "gsap/dist/TextPlugin.min.js";
+gsap.registerPlugin(TextPlugin);
 
-let instance = null
 
 export class Navegacion
 {
+    hamb = document.querySelector('#hamb')
+    solapaElement = document.querySelector('#solapa')
+    cerrar = document.querySelector('#cerrar')
+    equis = document.querySelector('#x')
+    nombre = document.querySelector('#logo')
+    // viewportWidth = document.documentElement.clientWidth
+
     constructor()
     {
+        this.nombre.desplegado = true
         this.createMenu()
         this.solapa()
+        this.scroll()
+    }
+
+    scroll()
+    {
+        // Dirección scroll
+        let
+        lastY = window.scrollY;
+        // console.log(this.viewportWidth)
+        this.cerrar.addEventListener("mouseenter", () => this.equis.classList.remove('hidden'))
+        console.log(this.nombre);
+        this.nombre.addEventListener('mouseenter', () => {
+            if (this.nombre.desplegado === false) {
+                console.log('mostrar');
+                this.mostrarLogo()
+            }
+        })
+
+        window.addEventListener("scroll", (event) => {
+            console.log(window.scrollY)
+            let currY = window.scrollY,
+                direction = (currY > lastY) ? 'down' : 'up'
+
+            if (direction === 'down' && this.solapaElement.isOpen === true) {
+                this.solapaElement.close()
+            }
+
+            if (window.scrollY > 1 && this.nombre.desplegado === true) {
+                this.esconderLogo()
+            } else if (window.scrollY < 2 && this.nombre.desplegado === false) {
+                this.mostrarLogo()    
+            }
+            lastY = currY;
+        })
+    }
+
+    esconderLogo()
+    {
+        gsap.to(logo, {
+            duration: 0.5, 
+            text: "T", 
+            ease: "none",
+        })
+        this.nombre.desplegado = false
+    }
+
+    mostrarLogo()
+    {
+        gsap.to(logo, {
+            duration: 0.5, 
+            text: "Tomás García Píriz", 
+            ease: "none",
+        })
+        this.nombre.desplegado = true
     }
 
     solapa()
     {
-        let hamb = document.querySelector('#hamb'),
-            solapa = document.querySelector('#solapa'),
-            cerrar = document.querySelector('#cerrar'),
-            isOpen = false;
+        this.solapaElement.isOpen = false;
 
-            gsap.set(solapa, {x: - solapa.offsetWidth})
+        gsap.set(this.solapaElement, {x: - this.solapaElement.offsetWidth})
 
-        solapa.open = () => {
-            if (!isOpen) {
-                isOpen = true;
-                gsap.to(solapa, {
+        this.solapaElement.open = () => {
+            if (!this.solapaElement.isOpen) {
+                this.solapaElement.isOpen = true;
+                gsap.to(this.solapaElement, {
                     x: 0,
                     duration: 0.5,
                 });
             }
         }
 
-        solapa.close = () => {
-            if (isOpen) {
-                isOpen = false;
-                gsap.to(solapa, {
-                    x: - solapa.offsetWidth,
+        this.solapaElement.close = () => {
+            if (this.solapaElement.isOpen) {
+                this.solapaElement.isOpen = false;
+                gsap.to(this.solapaElement, {
+                    x: - this.solapaElement.offsetWidth,
                     duration: 0.5,
                 });
             }
         }
 
-        hamb.addEventListener("click", () => solapa.open())
-        cerrar.addEventListener("click", () => solapa.close())
+        this.hamb.addEventListener("click", () => this.solapaElement.open())
+        this.cerrar.addEventListener("click", () => this.solapaElement.close())
+        this.cerrar.addEventListener("mouseenter", () => this.equis.classList.remove('hidden'))
+        this.cerrar.addEventListener("mouseleave", () => this.equis.classList.add('hidden'))
     }
 
     createMenu()
@@ -55,7 +116,6 @@ export class Navegacion
         for (const item of itemsMenu) {
 
             if (item.children[1]) {
-                console.log(item);
                 let isOpen = false,
                     box = item.querySelector('.my-child-menu'),
                     items = box.querySelectorAll("li"),
