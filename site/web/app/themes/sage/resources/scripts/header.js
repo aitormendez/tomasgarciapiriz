@@ -36,7 +36,6 @@ export class Navegacion
         })
 
         window.addEventListener("scroll", (event) => {
-            console.log(window.scrollY)
             let currY = window.scrollY,
                 direction = (currY > lastY) ? 'down' : 'up'
 

@@ -60,6 +60,18 @@ return [
             ],
             'admin_cols' => $post_columns,
         ],
+        'academic' => [
+            'enter_title_here' => __('Academic title', 'sage'),
+            'menu_icon' => 'dashicons-welcome-learn-more',
+            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
+            'has_archive' => true,
+            'show_in_rest' => true,
+            'labels' => [
+                'singular' => __('Academic post', 'sage'),
+                'plural' => __('Academic posts', 'sage'),
+            ],
+            'admin_cols' => $post_columns,
+        ],
     ],
 
     /*
