@@ -4,7 +4,7 @@
 
 @include('partials.header')
 
-  <main id="main" class="mt-48 main">
+  <main id="main" class="main">
     @yield('content')
   </main>
 

@@ -7,7 +7,7 @@
       <div class="h-2 bg-black fill"></div>
     </div>
 
-    <section id="posts" class="relative inset-0 z-30 flex justify-end hidden loading-bar">
+    <section id="posts" class="relative inset-0 z-30 justify-end hidden loading-bar">
       <div class="relative max-w-md columna">
         <div id="posts-bg" class="absolute inset-0 transition-opacity bg-white opacity-0"></div>
         @while(have_posts()) @php(the_post())

@@ -2,6 +2,14 @@ body {
   @apply font-sans bg-gray-200;
 }
 
+#main {
+  margin-top: 200px;
+
+  body.home & {
+    margin-top: 0;
+  }
+}
+
 pre.sf.dump {
   // para que se active el z-index del @dump()
   position: relative;

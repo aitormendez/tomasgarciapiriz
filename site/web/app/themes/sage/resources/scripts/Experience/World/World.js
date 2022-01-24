@@ -63,6 +63,7 @@ export default class World
     setHtml()
     {
         this.htmlPostsElement.classList.remove('hidden')
+        this.htmlPostsElement.classList.add('flex')
         this.htmlPostsBgElement.style.opacity = '0.8';
         this.postHtml = new PostsHtml()
     }
