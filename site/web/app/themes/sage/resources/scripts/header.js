@@ -24,13 +24,15 @@ export class Navegacion
     {
         // Dirección scroll
         let
-        lastY = window.scrollY;
+            lastY = window.scrollY,
+            body = document.querySelector('body'),
+            icnScroll = document.querySelector('#icn-scroll')
+            
+
         // console.log(this.viewportWidth)
         this.cerrar.addEventListener("mouseenter", () => this.equis.classList.remove('hidden'))
-        console.log(this.nombre);
         this.nombre.addEventListener('mouseenter', () => {
             if (this.nombre.desplegado === false) {
-                console.log('mostrar');
                 this.mostrarLogo()
             }
         })
@@ -49,6 +51,12 @@ export class Navegacion
                 this.mostrarLogo()    
             }
             lastY = currY;
+
+            if (body.classList.contains('home') && window.scrollY > 1) {
+                icnScroll.style.opacity = 0
+            } else {
+                icnScroll.style.opacity = 1
+            }
         })
     }
 
