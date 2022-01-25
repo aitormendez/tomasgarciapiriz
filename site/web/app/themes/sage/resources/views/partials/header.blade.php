@@ -5,7 +5,7 @@
       </a>
     </div>
 
-  <button id="hamb" class="fixed left-0 top-16">
+  <button id="hamb" class="fixed left-0 top-20">
     <i class="block bg-black"></i>
     <i class="block bg-black"></i>
     <i class="block bg-black"></i>

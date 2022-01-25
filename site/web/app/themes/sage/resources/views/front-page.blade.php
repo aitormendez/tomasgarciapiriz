@@ -19,8 +19,9 @@
     {!! get_the_posts_navigation() !!}
   </div>
 
-  <div id="icn-scroll" class="fixed z-50 hidden sm:block bottom-10">
-    @svg('images/interface/icn-scroll.svg', 'self-center', ['aria-label' => 'scroll-icon'])
+  <div id="icn-scroll" class="fixed z-50 flex-col items-center hidden p-4 ml-6 bg-white rounded-lg sm:flex bottom-10">
+    @svg('images/interface/icn-scroll.svg', 'mb-3', ['aria-label' => 'scroll-icon'])
+    <p class="">{{ __('Scroll or click on an object', 'sage') }}</p>
   </div>
     
 @endsection

@@ -26,7 +26,7 @@ module.exports = {
       const mayusculas = {
         '.mayusculas': {
           textTransform: 'uppercase',
-          letterSpacing: '0.2em',
+          letterSpacing: '0.1em',
           fontWeight: '700',
         }
       }
