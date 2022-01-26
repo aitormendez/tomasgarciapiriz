@@ -1,19 +1,14 @@
-<article @php(post_class())>
+<article @php(post_class('prose'))>
   <header>
-    <h1 class="entry-title">
+    <h1 class="p-6 lg:px-0 lg:mx-auto lg:max-w-3xl">
       {!! $title !!}
     </h1>
-
     @include('partials/entry-meta')
   </header>
 
-  <div class="entry-content">
+  <div class="p-6 lg:px-0 lg:mx-auto lg:max-w-3xl">
     @php(the_content())
   </div>
-
-  <footer>
-    {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
-  </footer>
 
   @php(comments_template())
 </article>

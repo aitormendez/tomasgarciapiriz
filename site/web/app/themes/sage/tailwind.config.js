@@ -15,6 +15,13 @@ module.exports = {
       fontFamily: {
         sans: ['Libre Franklin', 'sans-serif'],
       },
+      typography: {
+        DEFAULT: {
+            css: {
+            maxWidth: 'unset',
+            },
+        },
+      },
     },
   },
   variants: {

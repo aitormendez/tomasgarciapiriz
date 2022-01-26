@@ -52,6 +52,7 @@ export class Navegacion
             }
             lastY = currY;
 
+            // esconder icono scroll en front page
             if (body.classList.contains('home') && window.scrollY > 1) {
                 icnScroll.style.opacity = 0
             } else {
