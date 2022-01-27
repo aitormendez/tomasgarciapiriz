@@ -43,8 +43,11 @@ class Project extends Field
                 ])
                 ->endRepeater()
             ->addTab(__('Datos proyecto', 'sage'), ['placement' => 'left'])
-                ->addText('Cliente', [
+                ->addText('client', [
                     'label' => __('Cliente', 'sage')
+                ])
+                ->addText('prueba', [
+                    'label' => __('Prueba', 'sage')
                 ])
                 ->addNumber('superficie', [
                     'label' =>  __('Superficie', 'sage'),
@@ -65,9 +68,10 @@ class Project extends Field
                 ->addDateTimePicker('fecha', [
                     'label' => __('Fecha', 'sage'),
                     'instructions' => 'De momento, en el front se usa sólo el año, pero hay que indicar un día del año',
+                    'return_format' => 'Y'
                 ])
-            ->addTab(__('Imagen Hero', 'sage'), ['placement' => 'left'])
-            ->addFields($this->get(HeroImage::class))
+            ->addTab(__('Encabezado', 'sage'), ['placement' => 'left'])
+                ->addFields($this->get(HeroImage::class))
                     
         ;
     

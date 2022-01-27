@@ -12,6 +12,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {},
+      lineHeight: '1.0',
       fontFamily: {
         sans: ['Libre Franklin', 'sans-serif'],
       },
@@ -37,7 +38,17 @@ module.exports = {
           fontWeight: '700',
         }
       }
-      addComponents([mayusculas])
+      const boton = {
+        '.boton': {
+          borderWidth: '5px',
+          borderColor: '#000',
+          paddingTop: '0.5em',
+          paddingBottom: '0.5em',
+          paddingRight: '0.8em',
+          paddingLeft: '0.8em',
+        }
+      }
+      addComponents([mayusculas, boton])
     })
   ],
 };

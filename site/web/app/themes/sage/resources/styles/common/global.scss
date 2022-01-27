@@ -1,14 +1,14 @@
 body {
-  @apply font-sans bg-gray-200;
+  @apply font-sans bg-gray-200 leading-tight;
 }
 
-#main {
-  margin-top: 200px;
+// #main {
+//   margin-top: 200px;
 
-  body.home & {
-    margin-top: 0;
-  }
-}
+//   body.home & {
+//     margin-top: 0;
+//   }
+// }
 
 pre.sf.dump {
   // para que se active el z-index del @dump()
