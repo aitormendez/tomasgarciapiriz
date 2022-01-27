@@ -55,7 +55,7 @@ export class Navegacion
             // esconder icono scroll en front page
             if (body.classList.contains('home') && window.scrollY > 1) {
                 icnScroll.style.opacity = 0
-            } else {
+            } else if (body.classList.contains('home')) {
                 icnScroll.style.opacity = 1
             }
         })

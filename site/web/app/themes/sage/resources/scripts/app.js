@@ -4,6 +4,7 @@
 import 'jquery'
 import Experience from './Experience/Experience.js'
 import { Navegacion } from './header.js'
+import { PostHeader } from './PostHeader.js'
 
 let w = window.innerWidth
 
@@ -17,5 +18,6 @@ $(() => {
 
     // Navegación
     const navegación = new Navegacion;
+    const postHeader = new PostHeader;
 
 });

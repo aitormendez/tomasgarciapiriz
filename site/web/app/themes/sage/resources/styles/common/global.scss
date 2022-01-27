@@ -2,6 +2,20 @@ body {
   @apply font-sans bg-gray-200 leading-tight;
 }
 
+a {
+  color: #6464df;
+  transition: color 0.5s, background-color 0.5s;
+  text-decoration: none;
+
+  .banner & {
+    color: black;
+  }
+
+  &:hover {
+    color: #dc2626;
+  }
+}
+
 // #main {
 //   margin-top: 200px;
 
