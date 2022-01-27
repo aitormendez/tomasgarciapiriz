@@ -1,12 +1,11 @@
-@dump($metadatos)
 @if (is_singular('project'))
 <div class="meta">
   <div class="nav">
     <button id="btn-info" class="info mayusculas boton">Info</button>
   </div>
-  <div class="relative text-xs box">
+  <div class="relative h-0 overflow-hidden text-xs box">
 
-    <div class="marco">
+    <div class="bg-white marco">
   
       @if ($metadatos['has_autores'] || $metadatos['has_colaboradores'])
       <div class="izq">

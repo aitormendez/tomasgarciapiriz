@@ -26,11 +26,9 @@ export class Navegacion
         let
             lastY = window.scrollY,
             body = document.querySelector('body'),
-            icnScroll = document.querySelector('#icn-scroll')
-            
+            icnScroll = document.querySelector('#icn-scroll')      
 
-        // console.log(this.viewportWidth)
-        this.cerrar.addEventListener("mouseenter", () => this.equis.classList.remove('hidden'))
+        this.cerrar.addEventListener('mouseenter', () => this.equis.classList.remove('hidden'))
         this.nombre.addEventListener('mouseenter', () => {
             if (this.nombre.desplegado === false) {
                 this.mostrarLogo()

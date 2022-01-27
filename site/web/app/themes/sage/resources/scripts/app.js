@@ -4,7 +4,7 @@
 import 'jquery'
 import Experience from './Experience/Experience.js'
 import { Navegacion } from './header.js'
-import { PostHeader } from './PostHeader.js'
+import { PostHeader } from './postHeader.js'
 
 let w = window.innerWidth
 
@@ -18,6 +18,9 @@ $(() => {
 
     // Navegación
     const navegación = new Navegacion;
-    const postHeader = new PostHeader;
 
+    // single page
+    if (document.body.classList.contains('single')) {
+      const postHeader = new PostHeader;
+    }
 });

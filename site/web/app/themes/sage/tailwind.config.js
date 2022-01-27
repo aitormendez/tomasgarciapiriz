@@ -46,6 +46,7 @@ module.exports = {
           paddingBottom: '0.5em',
           paddingRight: '0.8em',
           paddingLeft: '0.8em',
+          backgroundColor: '#fff'
         }
       }
       addComponents([mayusculas, boton])

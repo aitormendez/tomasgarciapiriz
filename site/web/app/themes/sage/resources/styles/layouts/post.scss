@@ -6,6 +6,10 @@
     }
 
     .meta {
+        button {
+            transition: color 0.5s, background-color 0.5s;
+        }
+        
         .box {
             top: -5px;
 
