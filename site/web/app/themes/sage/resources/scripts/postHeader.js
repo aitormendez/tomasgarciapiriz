@@ -20,7 +20,6 @@ export class PostHeader
 
             if (!this.btnInfo.isOpen) {
                 this.btnInfo.isOpen = true
-                console.log('abrir');
 
                 gsap.to(this.box, {
                     height: "auto",
@@ -31,7 +30,6 @@ export class PostHeader
                 
             } else {
                 this.btnInfo.isOpen = false
-                console.log('cerrar');
 
                 gsap.to(this.box, {
                     height: 0,

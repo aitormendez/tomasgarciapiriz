@@ -1,16 +1,24 @@
 @if (is_singular('project'))
-<div class="meta">
+<div class="meta num-bloques-{{ $metadatos['num_bloques'] }}">
   <div class="nav">
     <button id="btn-info" class="info mayusculas boton">Info</button>
   </div>
   <div class="relative h-0 overflow-hidden text-xs box">
 
-    <div class="bg-white marco">
+    <div class="flex flex-wrap bg-white marco">
+
+      {{-- 
+        ¿Que significa bloques?
+        bloques[0] = tiene autores
+        bloques[1] = tiene colaboradores
+        bloques[2] = tiene tiene datos
+        bloques[3] = tiene tipos de proyecto
+      --}}
   
-      @if ($metadatos['has_autores'] || $metadatos['has_colaboradores'])
-      <div class="izq">
-        @if ($metadatos['has_autores'])
-        <div class="p-4 autores">
+
+
+        @if ($metadatos['bloques'][0] === 1 )
+        <div class="p-4 bloque autores">
           @if (count($metadatos['autores']) > 1)
             <h3 class="mayusculas">Autores</h3>
           @else
@@ -21,8 +29,8 @@
           @endforeach
         </div>
         @endif
-        @if ($metadatos['has_colaboradores'])
-        <div class="p-4 colaboradores">
+        @if ($metadatos['bloques'][1] === 1)
+        <div class="p-4 bloque colaboradores">
           @if (count($metadatos['colaboradores']) > 1)
             <h3 class="mayusculas">Colaboradores</h3>
           @else
@@ -33,13 +41,10 @@
           @endforeach
         </div>
         @endif
-      </div>
-      @endif
-  
-      @if ($metadatos['has_tipo_de_proyecto'] || $metadatos['has_datos'])
-        <div class="der">
-          @if ($metadatos['has_datos'])
-            <div class="p-4 datos">
+
+
+          @if ($metadatos['bloques'][2] === 1 )
+            <div class="p-4 bloque datos">
               <ul class="table">
                 @if ($metadatos['cliente'])
                   <li class="table-row">
@@ -50,13 +55,13 @@
                 @if ( $metadatos['superficie'] )
                   <li class="table-row">
                     <h3 class="table-cell mayusculas">{{ __('Superficie') }}</h3>
-                    <span class="table-cell">{{ $metadatos['superficie'] }}</span>
+                    <span class="table-cell">{{ $metadatos['superficie'] }} M<sup>2</sup></span>
                   </li>
                 @endif
                 @if ( $metadatos['costo'] )
                   <li class="table-row">
-                    <h3 class="table-cell mayusculas">{{ __('Costo M2') }}</h3>
-                    <span class="table-cell">{{ $metadatos['costo'] }}</span>
+                    <h3 class="table-cell mayusculas">{{ __('Costo') }}/M<sup>2</sup></h3>
+                    <span class="table-cell">{{ $metadatos['costo'] }} €</span>
                   </li>
                 @endif
                 @if ( $metadatos['construido'] )
@@ -74,8 +79,8 @@
               </ul>
             </div>
           @endif
-          @if ($metadatos['has_tipo_de_proyecto'])
-            <div class="p-4 tax">
+          @if ($metadatos['bloques'][3] === 1 )
+            <div class="p-4 bloque tax">
               <ul>
                 @foreach ($metadatos['tipos_de_proyecto'] as $tipo)
                   <li>
@@ -85,8 +90,6 @@
               </ul>
             </div>
           @endif
-        </div>
-      @endif
     </div>
 
 

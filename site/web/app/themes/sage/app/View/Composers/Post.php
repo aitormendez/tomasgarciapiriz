@@ -160,11 +160,15 @@ class Post extends Composer
     {
         global $post;
 
+        // ¿Que significa bloques?
+        // bloques[0] = tiene autores
+        // bloques[1] = tiene colaboradores
+        // bloques[2] = tiene tiene datos
+        // bloques[3] = tiene tipos de proyecto
+
         $out = [
-            'has_autores' => false,
-            'has_colaboradores' => false,
             'has_files' => false,
-            'has_datos' => false,
+            'bloques' => [0, 0, 0, 0]
         ];
 
         $rows_autores = get_field('autores');
@@ -177,47 +181,54 @@ class Post extends Composer
         $tipos_de_proyecto = get_the_terms( $post->ID, 'project_type');
 
         if ($rows_autores) {
-            $out['has_autores'] = true;
             $autores = [];
             foreach( $rows_autores as $autor ) {
                 array_push($autores, $autor);
             };
             $out['autores'] = $autores;
+            $out['bloques'][0] = 1;
         }
 
         if ($rows_colaboradores) {
-            $out['has_colaboradores'] = true;
             $colaboradores = [];
             foreach( $rows_colaboradores as $colaborador ) {
                 array_push($colaboradores, $colaborador);
             };
             $out['colaboradores'] = $colaboradores;
-            $out['has_datos'] = true;
+            $out['bloques'][1] = 1;
         }
 
         if ($cliente) {
             $out['cliente'] = $cliente;
-            $out['has_datos'] = true;
+            $out['bloques'][2] = 1;
         }
 
         if ($superficie) {
-            $out['superficie'] = $superficie;
-            $out['has_datos'] = true;
+            if (ICL_LANGUAGE_CODE === 'es') {
+                $out['superficie'] = number_format($superficie, 0, ',', '.');
+            } else {
+                $out['superficie'] = number_format($superficie, 0);
+            }
+            $out['bloques'][2] = 1;
         }
 
         if ($costo) {
-            $out['costo'] = $costo;
-            $out['has_datos'] = true;
+            if (ICL_LANGUAGE_CODE === 'es') {
+                $out['costo'] = number_format($costo, 2, ',', '.');
+            } else {
+                $out['costo'] = number_format($costo, 0);
+            }
+            $out['bloques'][2] = 1;
         }
 
         if ($fecha) {
             $out['anio'] = $fecha; // ACF 'return format Y' en la declaración del campo
-            $out['has_datos'] = true;
+            $out['bloques'][2] = 1;
         }
 
         if ($construido) {
             $out['construido'] = $construido ? __('Sí', 'sage') : __('No', 'sage');
-            $out['has_datos'] = true;
+            $out['bloques'][2] = 1;
         }
 
         if ($tipos_de_proyecto) {
@@ -230,8 +241,10 @@ class Post extends Composer
 
             }, $tipos_de_proyecto);
 
-            $out['has_tipo_de_proyecto'] = true;
+            $out['bloques'][3] = 1;
         }
+
+        $out['num_bloques'] = array_sum($out['bloques']);
 
 
 

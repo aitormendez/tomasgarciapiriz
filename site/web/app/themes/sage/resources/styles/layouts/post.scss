@@ -16,23 +16,15 @@
             .marco {
                 border: 5px solid black;
 
-                .izq {
-                    H3 {
-                        margin-bottom: 1em;
+                .bloque {
+                    width: 100%;
+                    border-bottom: 5px solid #000;
+
+                    &:last-child {
+                        border-bottom: none;
                     }
 
-                    .autores {
-                        border-bottom: 5px solid black;
-                    }
-                    .colaboradores {
-                        border-bottom: 5px solid black;
-                    }
-                }
-
-                .der {
-                    .datos {
-                        border-bottom: 5px solid black;
-
+                    &.datos {
                         li {
                             h3 {
                                 max-width: 100px;
@@ -42,34 +34,85 @@
                             }
                         } 
                     }
-
-                    .tax {
-                        li a {
-                            text-transform: capitalize; 
-                        }
-                    }
                 }
             }
         }
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 510px) {
         .meta {
             .box .marco {
-                display: flex;
-
-                .izq {
+                .bloque {
                     width: 50%;
-                    border-bottom: none;
-                    border-right: 5px solid black;
 
-                    .colaboradores {
-                        border-bottom: none;
+                    &:nth-child(odd) {
+                        border-right: 5px solid #000;
+                    }
+
+                    &:nth-child(3) {
+                        border-bottom:none;
+                    }
+
+                    &.autores {
+                        order: 1;
+                    }
+
+                    &.colaboradores {
+                        order: 3;
+                    }
+
+                    &.datos {
+                        order: 4;
+                    }
+
+                    &.tax {
+                        order: 5;
                     }
                 }
+            }
 
-                .der {
-                    width: 50%;
+            &.num-bloques-2 {
+                .box .marco .bloque:first-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 900px) {
+        .meta {
+            .box .marco .bloque {
+                width: 33.33%;
+            }
+
+            &.num-bloques-3 {
+                .box .marco .bloque {
+                    border-bottom: none;
+
+                    &:nth-child(2) {
+                        border-right: 5px solid black;
+                    }
+
+                    &:nth-child(3) {
+                        border-right: none;
+                    }
+                }
+            }
+
+            &.num-bloques-4 {
+                .box .marco .bloque {
+                    &:nth-child(2) {
+                        border-right: 5px solid black;
+                    }
+
+                    &:nth-child(3) {
+                        border-bottom: 5px solid black;
+                        border-right: none;
+                    }
+
+                    &:nth-child(3) {
+                        border-bottom: 5px solid black;
+                    }
                 }
             }
         }
@@ -77,24 +120,15 @@
 
     @media (min-width: 1024px) {
         .meta {
-            .box .marco {
-                .izq {
-                    display: flex;
+            .box .marco .bloque {
+                width: 25%;
+                border-bottom: none;
+            }
 
-                    .autores {
-                        width: 50%;
-                        border-bottom: none;
-                        border-right: 5px solid black;
-                    }
-                }
-
-                .der {
-                    display: flex;
-                    .datos {
-                        width: 50%;
-                        border-bottom: none;
-                        border-right: 5px solid black;
-                    }
+            &.num-bloques-4 {
+                .box .marco .bloque:nth-child(3) {
+                    border-bottom: none;
+                    border-right: 5px solid black;
                 }
             }
         }

@@ -46,17 +46,14 @@ class Project extends Field
                 ->addText('client', [
                     'label' => __('Cliente', 'sage')
                 ])
-                ->addText('prueba', [
-                    'label' => __('Prueba', 'sage')
-                ])
                 ->addNumber('superficie', [
                     'label' =>  __('Superficie', 'sage'),
-                    'instructions' => __('En metros cuadrados', 'sage'),
+                    'instructions' => __('En metros cuadrados. No admite decimales. No poner separadores (ni puntos ni comas)', 'sage'),
 
                 ])
                 ->addNumber('costo', [
                     'label' =>  __('Costo/m2', 'sage'),
-                    'instructions' => __('En euros', 'sage'),
+                    'instructions' => __('En euros. Admite dos decimales (separados por un punto)', 'sage'),
                 ])
                 ->addTrueFalse('construido', [
                     'label' => 'Construido',

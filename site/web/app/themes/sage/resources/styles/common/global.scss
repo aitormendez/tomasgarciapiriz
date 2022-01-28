@@ -3,12 +3,15 @@ body {
 }
 
 a {
-  color: #6464df;
-  transition: color 0.5s, background-color 0.5s;
-  text-decoration: none;
-
-  .banner & {
+  .banner &,
+  body.home .banner & {
     color: black;
+  }
+
+  body:not(.home) & {
+    color: #6464df;
+    transition: color 0.5s, background-color 0.5s;
+    text-decoration: none;
   }
 
   &:hover {
@@ -20,7 +23,7 @@ a {
 //   margin-top: 200px;
 
 //   body.home & {
-//     margin-top: 0;
+//     margin-top: 0;          
 //   }
 // }
 
