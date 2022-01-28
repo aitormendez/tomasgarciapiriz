@@ -3,9 +3,8 @@ body {
 }
 
 a {
-  .banner &,
-  body.home .banner & {
-    color: black;
+  .banner & {
+    color: black !important;
   }
 
   body:not(.home) & {
