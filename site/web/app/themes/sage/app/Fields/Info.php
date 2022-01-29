@@ -6,7 +6,7 @@ use Log1x\AcfComposer\Field;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 use App\Fields\Partials\HeroImage;
 
-class Project extends Field
+class Info extends Field
 {
     /**
      * The field group.
@@ -15,12 +15,13 @@ class Project extends Field
      */
     public function fields()
     {
-        $project = new FieldsBuilder('metadatos');
+        $info = new FieldsBuilder('metadatos');
 
-        $project
-            ->setLocation('post_type', '==', 'project');
+        $info
+            ->setLocation('post_type', '==', 'project')
+                ->or('post_type', '==', 'story');
         
-        $project
+        $info
             ->addTab(__('Personas', 'sage'), ['placement' => 'left'])
                 ->addRepeater('autores', [
                     'layout' => 'row',
@@ -82,6 +83,6 @@ class Project extends Field
                     
         ;
     
-        return $project->build();
+        return $info->build();
     }
 }

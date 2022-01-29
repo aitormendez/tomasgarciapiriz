@@ -167,6 +167,7 @@ class Post extends Composer
         // bloques[3] = tiene tipos de proyecto
 
         $out = [
+            'has_metadatos' => false,
             'has_files' => false,
             'bloques' => [0, 0, 0, 0],
             'mostrar_construido' => get_field('construido_mostrar'),
@@ -186,6 +187,7 @@ class Post extends Composer
             foreach( $rows_autores as $autor ) {
                 array_push($autores, $autor);
             };
+            $out['has_metadatos'] = true;
             $out['autores'] = $autores;
             $out['bloques'][0] = 1;
         }
@@ -195,11 +197,13 @@ class Post extends Composer
             foreach( $rows_colaboradores as $colaborador ) {
                 array_push($colaboradores, $colaborador);
             };
+            $out['has_metadatos'] = true;
             $out['colaboradores'] = $colaboradores;
             $out['bloques'][1] = 1;
         }
 
         if ($cliente) {
+            $out['has_metadatos'] = true;
             $out['cliente'] = $cliente;
             $out['bloques'][2] = 1;
         }
@@ -210,6 +214,7 @@ class Post extends Composer
             } else {
                 $out['superficie'] = number_format($superficie, 0);
             }
+            $out['has_metadatos'] = true;
             $out['bloques'][2] = 1;
         }
 
@@ -219,16 +224,19 @@ class Post extends Composer
             } else {
                 $out['costo'] = number_format($costo, 0);
             }
+            $out['has_metadatos'] = true;
             $out['bloques'][2] = 1;
         }
 
         if ($fecha) {
+            $out['has_metadatos'] = true;
             $out['anio'] = $fecha; // ACF 'return format Y' en la declaración del campo
             $out['bloques'][2] = 1;
         }
 
         if ($out['mostrar_construido'] == 1) {
             if ($construido) {
+                $out['has_metadatos'] = true;
                 $out['construido'] = $construido ? __('Sí', 'sage') : __('No', 'sage');
                 $out['bloques'][2] = 1;
             }
@@ -245,13 +253,11 @@ class Post extends Composer
 
             }, $tipos_de_proyecto);
 
+            $out['has_metadatos'] = true;
             $out['bloques'][3] = 1;
         }
 
         $out['num_bloques'] = array_sum($out['bloques']);
-
-
-
 
         return $out;
     }
