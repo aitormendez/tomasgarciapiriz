@@ -80,7 +80,22 @@ class Info extends Field
                 ])
             ->addTab(__('Encabezado', 'sage'), ['placement' => 'left'])
                 ->addFields($this->get(HeroImage::class))
-                    
+            ->addTab(__('Adjuntos', 'sage'), ['placement' => 'left'])
+                ->addRepeater('adjuntos', [
+                    'instructions' => __('Selecciona los archivos que necesites adjuntar al post', 'sage'),
+                    'layout' => 'row',
+                    'label' => __('Archivos adjuntos al post', 'sage'),
+                    'button_label' => __('Añadir línea', 'sage'),
+                    'instructions' => __('Un archivo en cada línea', 'sage'),
+                    ])
+                ->addFile('adjunto', [
+                    'label' => __('Archivo', 'sage'),
+                    'return_format' => 'array',
+                    'library' => 'all',
+                    'min_size' => '',
+                    'max_size' => '',
+                    'mime_types' => '',
+                ])
         ;
     
         return $info->build();

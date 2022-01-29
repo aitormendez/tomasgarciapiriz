@@ -2,26 +2,35 @@ import gsap from 'gsap'
 
 export class PostHeader
 {
-    btnInfo = document.querySelector('#btn-info')
-    box = document.querySelector('.box')
-
     constructor()
     {
-        this.desplegarBox()
+        this.btnInfo = document.querySelector('#btn-info')
+        this.btnAdjuntos = document.querySelector('#btn-adjuntos')
+
+        if (this.btnInfo) {
+            this.metaBox = document.querySelector('.meta .box')
+            this.desplegarBox(this.metaBox, this.btnInfo)
+        }
+
+        if (this.btnAdjuntos) {
+            this.adjuntosBox = document.querySelector('.adjuntos .box')
+            this.desplegarBox(this.adjuntosBox, this.btnAdjuntos)
+        }
+        
     }
 
-    desplegarBox()
+    desplegarBox(box, btn)
     {
-        this.btnInfo.isOpen = false
+        btn.isOpen = false
 
-        this.btnInfo.addEventListener('click', () => {
-            this.btnInfo.classList.toggle("bg-black")
-            this.btnInfo.classList.toggle("text-white")
+        btn.addEventListener('click', () => {
+            btn.classList.toggle("bg-black")
+            btn.classList.toggle("text-white")
 
-            if (!this.btnInfo.isOpen) {
-                this.btnInfo.isOpen = true
+            if (!btn.isOpen) {
+                btn.isOpen = true
 
-                gsap.to(this.box, {
+                gsap.to(box, {
                     height: "auto",
                     duration: 0.5,
                     // ease: "elastic",
@@ -29,9 +38,9 @@ export class PostHeader
 
                 
             } else {
-                this.btnInfo.isOpen = false
+                btn.isOpen = false
 
-                gsap.to(this.box, {
+                gsap.to(box, {
                     height: 0,
                     duration: 0.5,
                     // ease: "elastic",

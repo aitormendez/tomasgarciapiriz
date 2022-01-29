@@ -168,6 +168,7 @@ class Post extends Composer
 
         $out = [
             'has_metadatos' => false,
+            'has_adjuntos' => false,
             'has_files' => false,
             'bloques' => [0, 0, 0, 0],
             'mostrar_construido' => get_field('construido_mostrar'),
@@ -175,6 +176,7 @@ class Post extends Composer
 
         $rows_autores = get_field('autores');
         $rows_colaboradores = get_field('colaboradores');
+        $rows_adjuntos = get_field('adjuntos');
         $cliente = get_field('client');
         $superficie = get_field('superficie');
         $costo = get_field('costo');
@@ -190,6 +192,15 @@ class Post extends Composer
             $out['has_metadatos'] = true;
             $out['autores'] = $autores;
             $out['bloques'][0] = 1;
+        }
+
+        if ($rows_adjuntos) {
+            $adjuntos = [];
+            foreach( $rows_adjuntos as $adjunto ) {
+                array_push($adjuntos, $adjunto);
+            };
+            $out['has_adjuntos'] = true;
+            $out['adjuntos'] = $adjuntos;
         }
 
         if ($rows_colaboradores) {

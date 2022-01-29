@@ -5,6 +5,12 @@
         }
     }
 
+    .botonera {
+        #btn-info ~ #btn-adjuntos {
+            left: -5px;
+        }
+    }
+
     .meta {
         button {
             transition: color 0.5s, background-color 0.5s;
@@ -35,6 +41,30 @@
                         } 
                     }
                 }
+            }
+        }
+    }
+
+    .adjuntos {
+        .box {
+            top: -5px;
+        }
+        
+        .adjunto {
+            max-width: 160px;
+            color: #fff;
+
+            svg path {
+                fill: #fff;
+            }
+
+            &:hover {
+                color: #000;
+
+                svg path {
+                    fill: #000;
+                }
+    
             }
         }
     }
