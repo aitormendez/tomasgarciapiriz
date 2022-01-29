@@ -168,7 +168,8 @@ class Post extends Composer
 
         $out = [
             'has_files' => false,
-            'bloques' => [0, 0, 0, 0]
+            'bloques' => [0, 0, 0, 0],
+            'mostrar_construido' => get_field('construido_mostrar'),
         ];
 
         $rows_autores = get_field('autores');
@@ -226,10 +227,13 @@ class Post extends Composer
             $out['bloques'][2] = 1;
         }
 
-        if ($construido) {
-            $out['construido'] = $construido ? __('Sí', 'sage') : __('No', 'sage');
-            $out['bloques'][2] = 1;
+        if ($out['mostrar_construido'] == 1) {
+            if ($construido) {
+                $out['construido'] = $construido ? __('Sí', 'sage') : __('No', 'sage');
+                $out['bloques'][2] = 1;
+            }
         }
+
 
         if ($tipos_de_proyecto) {
             $out['tipos_de_proyecto'] = array_map(function ($tipo) {

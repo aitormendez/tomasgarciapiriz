@@ -55,13 +55,23 @@ class Project extends Field
                     'label' =>  __('Costo/m2', 'sage'),
                     'instructions' => __('En euros. Admite dos decimales (separados por un punto)', 'sage'),
                 ])
-                ->addTrueFalse('construido', [
-                    'label' => 'Construido',
+                ->addTrueFalse('construido_mostrar', [
+                    'label' => __('Mostrar si está construido', 'sage'),
+                    'instructions' => 'Mostrar si está construido o no. Aquí se decide sólo si se muestra el dato, no si es que "sí" o "no". Si no se activa, no aparecerá este dato en el post',
                     'default_value' => 0,
                     'ui' => 1,
                     'ui_on_text' => __('Sí', 'sage'),
                     'ui_off_text' => __('No', 'sage'),
                 ])
+                ->addTrueFalse('construido', [
+                    'label' => __('Construido', 'sage'),
+                    'instructions' => 'Aquí se decide si está construido o no, no si se muestra el dato en el post.',
+                    'default_value' => 0,
+                    'ui' => 1,
+                    'ui_on_text' => __('Sí', 'sage'),
+                    'ui_off_text' => __('No', 'sage'),
+                ])
+                    ->conditional('construido_mostrar', '==', 1)
                 ->addDateTimePicker('fecha', [
                     'label' => __('Fecha', 'sage'),
                     'instructions' => 'De momento, en el front se usa sólo el año, pero hay que indicar un día del año',
