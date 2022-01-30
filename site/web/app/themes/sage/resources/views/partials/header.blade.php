@@ -20,4 +20,5 @@
     </button>
     @include('partials.navigation')
   </div>
+  @include('components.breadcrumb')
 </header>

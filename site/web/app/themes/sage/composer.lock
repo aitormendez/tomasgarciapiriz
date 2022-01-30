@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53f8b5982466c280720afdfc77a2a261",
+    "content-hash": "8b2868d65669a555e5c918bdd6bbd7e3",
     "packages": [
         {
             "name": "brick/math",
@@ -1369,6 +1369,71 @@
                 }
             ],
             "time": "2021-08-26T16:21:05+00:00"
+        },
+        {
+            "name": "log1x/crumb",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Log1x/crumb.git",
+                "reference": "2c949ffbcb440aa6712f9bfb56dd6516e377a7a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Log1x/crumb/zipball/2c949ffbcb440aa6712f9bfb56dd6516e377a7a3",
+                "reference": "2c949ffbcb440aa6712f9bfb56dd6516e377a7a3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "package",
+            "extra": {
+                "acorn": {
+                    "providers": [
+                        "Log1x\\Crumb\\CrumbServiceProvider"
+                    ],
+                    "aliases": {
+                        "Crumb": "Log1x\\Crumb\\Facades\\Crumb"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Log1x\\Crumb\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brandon Nifong",
+                    "email": "brandon@tendency.me"
+                }
+            ],
+            "description": "A simple WordPress breadcrumb for Sage 10.",
+            "keywords": [
+                "breadcrumb",
+                "roots",
+                "sage",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/log1x/crumb/issues",
+                "source": "https://github.com/Log1x/crumb/tree/v1.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Log1x",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-01-26T16:49:56+00:00"
         },
         {
             "name": "log1x/navi",
