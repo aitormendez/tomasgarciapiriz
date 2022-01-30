@@ -110,6 +110,10 @@
     }
 
     @media (min-width: 900px) {
+        header.no-hero {
+            min-height: 30vh;
+        }
+
         .meta {
             .box .marco .bloque {
                 width: 33.33%;

@@ -4,7 +4,7 @@
   </div>
   @include('partials/entry-meta')
 
-  <h1 class="p-6 font-black lg:px-0 lg:mx-auto lg:max-w-3xl">
+  <h1 class="w-full p-6 font-black lg:px-0 lg:mx-auto lg:max-w-3xl">
     {!! $title !!}
   </h1>
 </header>
