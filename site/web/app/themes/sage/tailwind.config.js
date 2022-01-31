@@ -19,7 +19,7 @@ module.exports = {
       typography: {
         DEFAULT: {
             css: {
-            maxWidth: 'unset',
+            lineHeight: '1.5em',
             },
         },
       },

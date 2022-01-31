@@ -6,7 +6,13 @@
     @include('partials/post-header')
   @endif
 
-  <div class="p-6 prose lg:px-0 lg:mx-auto lg:max-w-3xl">
+  @if (has_excerpt())
+      <div class="p-6 my-12 font-bold tracking-wide prose excerpt">
+        @wpautop(get_the_excerpt())
+      </div>
+  @endif
+
+  <div class="p-6 prose max-w-none lg:px-0 lg:mx-auto lg:max-w-3xl">
     @php(the_content())
   </div>
 
