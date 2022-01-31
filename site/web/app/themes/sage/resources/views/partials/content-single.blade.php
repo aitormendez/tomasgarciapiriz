@@ -1,5 +1,4 @@
 <article @php(post_class())>
-
   @if ($hero_image['has_img'])
     @include('partials/post-header-hero')
   @else
@@ -19,3 +18,4 @@
   @php(comments_template())
   
 </article>
+@include('partials/relacionados')

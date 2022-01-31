@@ -28,6 +28,7 @@ class Post extends Composer
             'title' => $this->title(),
             'hero_image' => $this->heroImage(),
             'metadatos' => $this->metadatos(),
+            'relacionados' => $this->relacionados(),
         ];
     }
 
@@ -272,6 +273,16 @@ class Post extends Composer
         $out['num_bloques'] = array_sum($out['bloques']);
 
         return $out;
+    }
+
+    /**
+     * Returns relacionados.
+     *
+     * @return array
+     */
+    public function relacionados()
+    {
+        return get_field('posts_relacionados');
     }
 
 }
