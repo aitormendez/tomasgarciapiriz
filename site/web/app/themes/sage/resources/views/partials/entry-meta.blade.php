@@ -1,6 +1,6 @@
 @if (is_single())
   
-  <div class="flex botonera">
+  <div class="relative flex botonera">
     @if ($metadatos['has_metadatos'])
       <button id="btn-info" class="info mayusculas boton">Info</button>
     @endif

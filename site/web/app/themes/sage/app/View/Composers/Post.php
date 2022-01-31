@@ -145,7 +145,8 @@ class Post extends Composer
             $out['srcset'] = wp_get_attachment_image_srcset($img['ID']);
             $out['alt'] = $img['alt'];
         } else {
-            $out['has_img'] = false;
+            $out['post-header-bg-color'] = get_field('post-header-bg-color');
+
         }
 
         return $out;

@@ -80,6 +80,11 @@ class Info extends Field
                 ])
             ->addTab(__('Encabezado', 'sage'), ['placement' => 'left'])
                 ->addFields($this->get(HeroImage::class))
+                ->addColorPicker('post-header-bg-color', [
+                    'label' => 'Color de la cabecera',
+                    'instructions' => 'Si el post no tiene una imagen, se podrá elegir aquí el color de fondo',
+                    'default_value' => '#ffffff',
+                ])
             ->addTab(__('Adjuntos', 'sage'), ['placement' => 'left'])
                 ->addRepeater('adjuntos', [
                     'instructions' => __('Selecciona los archivos que necesites adjuntar al post', 'sage'),
