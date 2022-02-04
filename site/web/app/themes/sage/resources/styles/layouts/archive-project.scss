@@ -16,12 +16,15 @@
 
     @media (min-width: 768px) {
         article {
+            padding: 3rem;
             max-width: 50%;
         }
     }
 
     @media (min-width: 1024px) {
         article {
+            padding: 4rem;
+
             &.pequena { 
                 max-width: 33.3%;
             }

@@ -1,4 +1,4 @@
-<article id="post-{{ get_the_ID() }}" @php(post_class('relative post p-4'))>
+<article id="post-{{ get_the_ID() }}" @php(post_class('relative post'))>
   <a href="{{ get_permalink() }}">
     @if (has_post_thumbnail())
       @thumbnail('large')
