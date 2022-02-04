@@ -11,7 +11,7 @@
     <div class="relative max-w-md columna">
       <div id="posts-bg" class="absolute inset-0 transition-opacity bg-white opacity-0"></div>
       @while(have_posts()) @php(the_post())
-        @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
+        @include('partials.content-front-page')
       @endwhile
     </div>
   </section>
