@@ -5,6 +5,7 @@ import 'jquery'
 import Experience from './Experience/Experience.js'
 import { Navegacion } from './header.js'
 import { PostHeader } from './postHeader.js'
+import './infiniteScroll.js'
 
 let w = window.innerWidth
 
