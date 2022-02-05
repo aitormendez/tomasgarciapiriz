@@ -1,0 +1,15 @@
+    // font-size: 128px;
+    // line-height: 1.2em;
+    // font-variation-settings: "wght" 300;
+    // font-variation-settings: "wght" 900, "opsz" 1;
+
+
+    :root {
+        --wght: 400;
+        --opsz: 18;
+    }
+    
+    * {
+        font-variation-settings: "wght" var(--wght),
+                                 "opsz" var(--opsz);
+    }

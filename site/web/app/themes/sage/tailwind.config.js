@@ -14,12 +14,19 @@ module.exports = {
       colors: {},
       lineHeight: '1.0',
       fontFamily: {
-        sans: ['Libre Franklin', 'sans-serif'],
+        sans: ['Libre Franklin VF', 'Libre Franklin', 'sans-serif'],
+        serif: ['Newsreader VF', 'Newsreader', 'serif'],
       },
       typography: {
         DEFAULT: {
             css: {
-            lineHeight: '1.5em',
+              color: '#000',
+              lineHeight: '1.5em',
+              p: {
+                fontFamily: 'Newsreader VF, Newsreader, serif',
+                fontSize: '1.5rem',
+                lineHeight: '1.2em',
+              }
             },
         },
       },
