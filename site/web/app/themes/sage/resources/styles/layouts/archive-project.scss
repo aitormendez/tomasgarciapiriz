@@ -11,6 +11,10 @@
                     filter: grayscale(100) contrast(50);
                 }
             }
+
+            h2 {
+                @apply font-serif;
+            }
         }
     }
 
