@@ -11,7 +11,7 @@
     <i class="block bg-black"></i>
   </button>
 
-  <div id="solapa" class="fixed top-0 z-30 flex flex-col p-6 pt-24 bg-white">
+  <div id="solapa" class="fixed top-0 z-30 flex flex-col w-full p-6 pt-24 bg-white sm:w-auto">
     <div id="x" class="absolute hidden">
       @svg('images/interface/x-grande.svg', 'rotate-180', ['aria-label' => 'close-navigation-icon'])
     </div>
