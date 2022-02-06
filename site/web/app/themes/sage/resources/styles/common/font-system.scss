@@ -5,11 +5,12 @@
 
 
     :root {
-        --wght: 400;
+        // --wght: 400;
         --opsz: 18;
     }
     
     * {
-        font-variation-settings: "wght" var(--wght),
-                                 "opsz" var(--opsz);
+        // font-variation-settings: "wght" var(--wght),
+        //                          "opsz" var(--opsz);
+        font-variation-settings: "opsz" var(--opsz);
     }
