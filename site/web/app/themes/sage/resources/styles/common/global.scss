@@ -2,10 +2,6 @@ body {
   @apply font-sans leading-tight;
 }
 
-.boton {
-  --wght: 700;
-}
-
 a {
   .banner & {
     color: black !important;

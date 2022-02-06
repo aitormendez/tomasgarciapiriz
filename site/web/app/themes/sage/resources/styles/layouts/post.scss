@@ -2,7 +2,6 @@
     header {
         h1 {
             font-size: max(4vw, 2rem);
-            --wght: 900;
         }
     }
 
@@ -12,11 +11,7 @@
         }
     }
 
-    .meta {
-        h3 {
-            --wght: 800;
-        }
-        
+    .meta {        
         button {
             transition: color 0.5s, background-color 0.5s;
         }
