@@ -1,0 +1,352 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-11 21:03+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: app/filters.php:15
+msgid "Continued"
+msgstr ""
+
+#: app/filters.php:60
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: app/View/Composers/Post.php:107
+msgid "Latest Posts"
+msgstr ""
+
+#: app/View/Composers/Post.php:111
+msgid "Proyectos"
+msgstr ""
+
+#: app/View/Composers/Post.php:115 config/poet.php:35
+msgid "Noticias"
+msgstr ""
+
+#: app/View/Composers/Post.php:119
+msgid "Publicaciones"
+msgstr ""
+
+#: app/View/Composers/Post.php:123
+msgid "Atlas"
+msgstr ""
+
+#: app/View/Composers/Post.php:127
+msgid "Académico"
+msgstr ""
+
+#: app/View/Composers/Post.php:137
+#, php-format
+msgid "Resultados de búsqueda para %s"
+msgstr ""
+
+#: app/View/Composers/Post.php:143
+msgid "Not Found"
+msgstr ""
+
+#: app/View/Composers/Post.php:273 app/Fields/Info.php:64
+#: app/Fields/Info.php:72
+msgid "Sí"
+msgstr ""
+
+#: app/View/Composers/Post.php:273 app/Fields/Info.php:65
+#: app/Fields/Info.php:73
+msgid "No"
+msgstr ""
+
+#: app/setup.php:84
+msgid "Navegación primaria"
+msgstr ""
+
+#: app/setup.php:85
+msgid "Navegación secundaria"
+msgstr ""
+
+#: app/setup.php:207
+msgid "Primaria"
+msgstr ""
+
+#: app/setup.php:212
+msgid "Pie de página"
+msgstr ""
+
+#: app/Fields/Info.php:25
+msgid "Personas"
+msgstr ""
+
+#: app/Fields/Info.php:28
+msgid "Autores"
+msgstr ""
+
+#: app/Fields/Info.php:29
+msgid "Añadir autor"
+msgstr ""
+
+#: app/Fields/Info.php:30
+msgid "Un autor en cada línea"
+msgstr ""
+
+#: app/Fields/Info.php:33
+msgid "Autor"
+msgstr ""
+
+#: app/Fields/Info.php:38
+msgid "Colaboradores"
+msgstr ""
+
+#: app/Fields/Info.php:39
+msgid "Añadir colaborador"
+msgstr ""
+
+#: app/Fields/Info.php:40
+msgid "Un colaborador en cada línea"
+msgstr ""
+
+#: app/Fields/Info.php:43
+msgid "Colaborador"
+msgstr ""
+
+#: app/Fields/Info.php:46
+msgid "Datos proyecto"
+msgstr ""
+
+#: app/Fields/Info.php:48 resources/views/partials/entry-meta.blade.php:58
+msgid "Cliente"
+msgstr ""
+
+#: app/Fields/Info.php:51 resources/views/partials/entry-meta.blade.php:65
+msgid "Superficie"
+msgstr ""
+
+#: app/Fields/Info.php:52
+msgid ""
+"En metros cuadrados. No admite decimales. No poner separadores (ni puntos ni "
+"comas)"
+msgstr ""
+
+#: app/Fields/Info.php:56
+msgid "Costo/m2"
+msgstr ""
+
+#: app/Fields/Info.php:57
+msgid "En euros. Admite dos decimales (separados por un punto)"
+msgstr ""
+
+#: app/Fields/Info.php:60
+msgid "Mostrar si está construido"
+msgstr ""
+
+#: app/Fields/Info.php:68 resources/views/partials/entry-meta.blade.php:80
+msgid "Construido"
+msgstr ""
+
+#: app/Fields/Info.php:77
+msgid "Fecha"
+msgstr ""
+
+#: app/Fields/Info.php:81
+msgid "Encabezado"
+msgstr ""
+
+#: app/Fields/Info.php:88
+msgid "Adjuntos"
+msgstr ""
+
+#: app/Fields/Info.php:90
+msgid "Selecciona los archivos que necesites adjuntar al post"
+msgstr ""
+
+#: app/Fields/Info.php:92
+msgid "Archivos adjuntos al post"
+msgstr ""
+
+#: app/Fields/Info.php:93
+msgid "Añadir línea"
+msgstr ""
+
+#: app/Fields/Info.php:94
+msgid "Un archivo en cada línea"
+msgstr ""
+
+#: app/Fields/Info.php:97
+msgid "Archivo"
+msgstr ""
+
+#: app/Fields/Destacados.php:29
+msgid "Activar para que esta entrada aparezca en el escenario 3D en portada"
+msgstr ""
+
+#: app/Fields/Destacados.php:37
+msgid ""
+"Elige si el destacado estará representado por una imagen o por un modelo 3D. "
+"Si es imagen se mapeará en un cubo 3D. Si es un modelo aparecerá el modelo "
+"tal cual"
+msgstr ""
+
+#: app/Fields/Destacados.php:40
+msgid "Imagen"
+msgstr ""
+
+#: app/Fields/Destacados.php:41
+msgid "Modelo 3D"
+msgstr ""
+
+#: app/Fields/Destacados.php:62
+msgid "Formato de imagen: cuadrado, horizontal o vertical"
+msgstr ""
+
+#: app/Fields/Destacados.php:65
+msgid "Vertical"
+msgstr ""
+
+#: app/Fields/Destacados.php:66
+msgid "Horizontal"
+msgstr ""
+
+#: app/Fields/Destacados.php:67
+msgid "Cuadrado"
+msgstr ""
+
+#: app/Fields/ArchiveProject.php:20
+msgid "Tamaño de la imagen"
+msgstr ""
+
+#: app/Fields/ArchiveProject.php:21
+msgid ""
+"La imagen que aparece en la portada de sección puede tener tamaños "
+"distintos. Se elige aquí"
+msgstr ""
+
+#: app/Fields/ArchiveProject.php:23
+msgid "Grande"
+msgstr ""
+
+#: app/Fields/ArchiveProject.php:24
+msgid "Mediana"
+msgstr ""
+
+#: app/Fields/ArchiveProject.php:25
+msgid "Pequeña"
+msgstr ""
+
+#: app/Fields/Relacionados.php:20
+msgid "Posts relacionados"
+msgstr ""
+
+#: app/Fields/Relacionados.php:21
+msgid ""
+"Elige las entradas que aparecerán en la sección \"Otras entradas "
+"relacionadas con esta entrada\""
+msgstr ""
+
+#: app/Fields/Partials/HeroImage.php:21
+msgid "Imagen Hero"
+msgstr ""
+
+#: app/Fields/Partials/HeroImage.php:22
+msgid ""
+"La imagen aparecerá en la cabecera del post. Debe tener una ancho de 2000px. "
+"Se recomienda que no pase de 900px de alto para que se vea bien y no se coma "
+"toda la pantalla."
+msgstr ""
+
+#: config/poet.php:5
+msgid "Imagen destacada"
+msgstr ""
+
+#: config/poet.php:9
+msgid "Entrada destacada"
+msgstr ""
+
+#: config/poet.php:28
+msgid "Título de noticia"
+msgstr ""
+
+#: config/poet.php:34
+msgid "Noticia"
+msgstr ""
+
+#: config/poet.php:40
+msgid "Título de proyecto"
+msgstr ""
+
+#: config/poet.php:53
+msgid "Título de referencia"
+msgstr ""
+
+#: config/poet.php:65
+msgid "Título de académico"
+msgstr ""
+
+#: config/poet.php:94
+msgid "Tipo de proyecto"
+msgstr ""
+
+#: config/poet.php:95
+msgid "Tipos de proyecto"
+msgstr ""
+
+#: resources/views/index.blade.php:8 resources/views/search.blade.php:8
+#: resources/views/archive-project.blade.php:8
+msgid "Sorry, no results were found."
+msgstr ""
+
+#: resources/views/404.blade.php:8
+msgid "Sorry, but the page you are trying to view does not exist."
+msgstr ""
+
+#: resources/views/forms/search.blade.php:4
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: resources/views/front-page.blade.php:24
+msgid "Scroll o click en un objeto"
+msgstr ""
+
+#: resources/views/layouts/app.blade.php:2
+msgid "Skip to content"
+msgstr ""
+
+#: resources/views/partials/comments.blade.php:17
+msgid "&larr; Older comments"
+msgstr ""
+
+#: resources/views/partials/comments.blade.php:23
+msgid "Newer comments &rarr;"
+msgstr ""
+
+#: resources/views/partials/comments.blade.php:33
+msgid "Comments are closed."
+msgstr ""
+
+#: resources/views/partials/relacionados.blade.php:4
+msgid "Contenido relacionado"
+msgstr ""
+
+#: resources/views/partials/entry-meta.blade.php:8
+msgid "Archivos"
+msgstr ""
+
+#: resources/views/partials/entry-meta.blade.php:72
+msgid "Costo"
+msgstr ""
+
+#: resources/views/partials/entry-meta.blade.php:88
+msgid "Año"
+msgstr ""

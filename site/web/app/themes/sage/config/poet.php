@@ -2,11 +2,11 @@
 
 $post_columns = [
     'featured_image' => [
-        'title'          => __('Featured img', 'sage'),
+        'title'          => __('Imagen destacada', 'sage'),
         'featured_image' => 'medium'
     ],
     'featured_post' => [
-        'title'       => __('Featured post', 'sage'),
+        'title'       => __('Entrada destacada', 'sage'),
         'meta_key'    => 'destacados_destacar',
     ],
 ];
@@ -25,51 +25,52 @@ return [
 
     'post' => [
         'story' => [
-            'enter_title_here' => __('Story title', 'sage'),
+            'enter_title_here' => __('Título de noticia', 'sage'),
             'menu_icon' => 'dashicons-megaphone',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'has_archive' => true,
             'show_in_rest' => true,
             'labels' => [
-                'singular' => __('Story', 'sage'),
-                'plural' => __('Stories', 'sage'),
+                'singular' => __('Noticia', 'sage'),
+                'plural' => __('Noticias', 'sage'),
             ],
             'admin_cols' => $post_columns,
         ],
         'project' => [
-            'enter_title_here' => __('Project title', 'sage'),
+            'enter_title_here' => __('Título de proyecto', 'sage'),
             'menu_icon' => 'dashicons-portfolio',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'has_archive' => true,
             'show_in_rest' => true,
-            'labels' => [
-                'singular' => __('Project', 'sage'),
-                'plural' => __('Projects', 'sage'),
-            ],
+            // 'labels' => [
+            //     'name' => 'project',
+            //     'singular' => __('Proyecto', 'sage'),
+            //     'plural' => __('Proyectos', 'sage'),
+            // ],
             'admin_cols' => $post_columns,
         ],
         'reference' => [
-            'enter_title_here' => __('Reference title', 'sage'),
+            'enter_title_here' => __('Título de referencia', 'sage'),
             'menu_icon' => 'dashicons-admin-site-alt',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'has_archive' => true,
             'show_in_rest' => true,
-            'labels' => [
-                'singular' => __('Reference', 'sage'),
-                'plural' => __('References', 'sage'),
-            ],
+            // 'labels' => [
+            //     'singular' => __('Referencia', 'sage'),
+            //     'plural' => __('Referencias', 'sage'),
+            // ],
             'admin_cols' => $post_columns,
         ],
         'academic' => [
-            'enter_title_here' => __('Academic title', 'sage'),
+            'enter_title_here' => __('Título de académico', 'sage'),
             'menu_icon' => 'dashicons-welcome-learn-more',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
             'has_archive' => true,
             'show_in_rest' => true,
-            'labels' => [
-                'singular' => __('Academic post', 'sage'),
-                'plural' => __('Academic posts', 'sage'),
-            ],
+            // 'labels' => [
+            //     'singular' => __('Académico', 'sage'),
+            //     'plural' => __('Académicos', 'sage'),
+            // ],
             'admin_cols' => $post_columns,
         ],
     ],
@@ -88,7 +89,11 @@ return [
         'project_type' => [
             'links' => ['project'],
             'meta_box' => 'simple',
-            'hierarchical' => false, 
+            'hierarchical' => false,
+            'labels' => [
+                'singular' => __('Tipo de proyecto', 'sage'),
+                'plural' => __('Tipos de proyecto', 'sage'),
+            ],
         ],
     ],
 

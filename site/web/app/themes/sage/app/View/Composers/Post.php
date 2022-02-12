@@ -104,7 +104,27 @@ class Post extends Composer
                 return get_the_title($home);
             }
 
-            return __('Latest Posts', 'sage');
+            return __('Últimas entradas', 'sage');
+        }
+
+        if (is_post_type_archive('project')) {
+            return __('Proyectos', 'sage');
+        }
+
+        if (is_post_type_archive('story')) {
+            return __('Noticias', 'sage');
+        }
+
+        if (is_post_type_archive('publications')) {
+            return __('Publicaciones', 'sage');
+        }
+
+        if (is_post_type_archive('atlas')) {
+            return __('Atlas', 'sage');
+        }
+
+        if (is_post_type_archive('academic')) {
+            return __('Académico', 'sage');
         }
 
         if (is_archive()) {
@@ -114,13 +134,13 @@ class Post extends Composer
         if (is_search()) {
             return sprintf(
                 /* translators: %s is replaced with the search query */
-                __('Search Results for %s', 'sage'),
+                __('Resultados de búsqueda para %s', 'sage'),
                 get_search_query()
             );
         }
 
         if (is_404()) {
-            return __('Not Found', 'sage');
+            return __('No encontrado', 'sage');
         }
 
         return get_the_title();
@@ -138,7 +158,7 @@ class Post extends Composer
             'has_img' => false,
         ];
 
-        $img = get_field ('hero_image', $post->ID);
+        $img = get_field('hero_image', $post->ID);
 
         if ($img) {
             $out['has_img'] = true;

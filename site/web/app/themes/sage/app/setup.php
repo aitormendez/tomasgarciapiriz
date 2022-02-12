@@ -24,6 +24,14 @@ add_action('wp_enqueue_scripts', function () {
     }
 
     wp_enqueue_style('sage/app.css', asset('styles/app.css')->uri(), false, null);
+
+    $tgp_data = array(
+        // 'homeUrl' => get_bloginfo( 'url' ),
+        'lang' => ICL_LANGUAGE_CODE,
+    );
+
+    wp_localize_script('sage/app.js', 'tgp', $tgp_data);
+
 }, 100);
 
 /**
@@ -73,8 +81,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
-        'secondary_navigation' => __('Secondary Navigation', 'sage')
+        'primary_navigation' => __('Navegación primaria', 'sage'),
+        'secondary_navigation' => __('Navegación secundaria', 'sage')
     ]);
 
     /**
@@ -196,12 +204,21 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-        'name' => __('Primary', 'sage'),
+        'name' => __('Primaria', 'sage'),
         'id' => 'sidebar-primary'
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'sage'),
+        'name' => __('Pie de página', 'sage'),
         'id' => 'sidebar-footer'
     ] + $config);
+});
+
+/**
+ * Load language files.
+ *
+ * @return void
+ */
+add_action('after_setup_theme', function () {
+    load_theme_textdomain('sage', get_theme_file_path('/resources/lang'));
 });

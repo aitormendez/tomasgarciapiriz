@@ -2,6 +2,8 @@ import gsap from 'gsap'
 import { TextPlugin } from "gsap/dist/TextPlugin.min.js";
 gsap.registerPlugin(TextPlugin);
 
+console.log(tgp);
+
 
 export class Navegacion
 {
@@ -10,7 +12,16 @@ export class Navegacion
     cerrar = document.querySelector('#cerrar')
     equis = document.querySelector('#x')
     nombre = document.querySelector('#logo')
+    inicialNombreSeccion = ''
     // viewportWidth = document.documentElement.clientWidth
+
+    esconderLogo = gsap.to(logo, {
+        duration: 0.5, 
+        text: "T", 
+        ease: "none",
+        paused: true
+    })
+
 
     constructor()
     {
@@ -18,6 +29,10 @@ export class Navegacion
         this.createMenu()
         this.solapa()
         this.scroll()
+
+        if (condition) {
+            
+        }
     }
 
     scroll()
@@ -26,9 +41,14 @@ export class Navegacion
         let
             lastY = window.scrollY,
             body = document.querySelector('body'),
-            icnScroll = document.querySelector('#icn-scroll')      
+            icnScroll = document.querySelector('#icn-scroll')
+
+        if (body.classList.contains('post-type-archive-story')) {
+            
+        }
 
         this.cerrar.addEventListener('mouseenter', () => this.equis.classList.remove('hidden'))
+
         this.nombre.addEventListener('mouseenter', () => {
             if (this.nombre.desplegado === false) {
                 this.mostrarLogo()
@@ -44,9 +64,11 @@ export class Navegacion
             }
 
             if (window.scrollY > 1 && this.nombre.desplegado === true) {
-                this.esconderLogo()
+                this.esconderLogo.play()
+                this.nombre.desplegado = false
             } else if (window.scrollY < 2 && this.nombre.desplegado === false) {
-                this.mostrarLogo()    
+                this.esconderLogo.reverse()
+                this.nombre.desplegado = true
             }
             lastY = currY;
 
@@ -56,28 +78,33 @@ export class Navegacion
             } else if (body.classList.contains('home')) {
                 icnScroll.style.opacity = 1
             }
+
+            // esconder nombre de sección
+            if (body.classList.contains('post-type-archive-story')) {
+                
+            }
         })
     }
 
-    esconderLogo()
-    {
-        gsap.to(logo, {
-            duration: 0.5, 
-            text: "T", 
-            ease: "none",
-        })
-        this.nombre.desplegado = false
-    }
+    // esconderLogo()
+    // {
+    //     gsap.to(logo, {
+    //         duration: 0.5, 
+    //         text: "T", 
+    //         ease: "none",
+    //     })
+    //     this.nombre.desplegado = false
+    // }
 
-    mostrarLogo()
-    {
-        gsap.to(logo, {
-            duration: 0.5, 
-            text: "Tomás García Píriz", 
-            ease: "none",
-        })
-        this.nombre.desplegado = true
-    }
+    // mostrarLogo()
+    // {
+    //     gsap.to(logo, {
+    //         duration: 0.5, 
+    //         text: "Tomás García Píriz", 
+    //         ease: "none",
+    //     })
+    //     this.nombre.desplegado = true
+    // }
 
     solapa()
     {

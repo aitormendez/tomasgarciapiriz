@@ -37,8 +37,8 @@ class Destacados extends Field
                 'instructions' => __('Elige si el destacado estará representado por una imagen o por un modelo 3D. Si es imagen se mapeará en un cubo 3D. Si es un modelo aparecerá el modelo tal cual', 'sage'),
                 'required' => 0,
                 'choices' => [
-                    'image' => __('Image', 'sage'),
-                    'model' => __('3D model', 'sage'),
+                    'image' => __('Imagen', 'sage'),
+                    'model' => __('Modelo 3D', 'sage'),
                 ],
                 'allow_null' => 0,
                 'default_value' => '',
@@ -64,7 +64,7 @@ class Destacados extends Field
                 'choices' => [
                     'vertical' => __('Vertical', 'sage'),
                     'horizontal' => __('Horizontal', 'sage'),
-                    'cuadrado' => __('cuadrado', 'sage'),
+                    'cuadrado' => __('Cuadrado', 'sage'),
                 ],
                 'allow_null' => 0,
                 'default_value' => '',

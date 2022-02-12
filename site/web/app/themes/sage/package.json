@@ -19,7 +19,8 @@
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
     "translate": "npm run translate:pot && npm run translate:js",
     "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --ignore-domain --include=\"app,resources\"",
-    "translate:js": "wp i18n make-json ./resources/lang --pretty-print"
+    "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
+    "pot": "mkdir -p ./resources/lang && find ./resources ./app ./config -iname '*.php' | xargs xgettext --add-comments=TRANSLATORS --force-po --from-code=UTF-8 --default-domain=es_ES -k__ -k_e -k_n:1,2 -k_x:1,2c -k_ex:1,2c -k_nx:4c,12 -kesc_attr__ -kesc_attr_e -kesc_attr_x:1,2c -kesc_html__ -kesc_html_e -kesc_html_x:1,2c -k_n_noop:1,2 -k_nx_noop:3c,1,2, -k__ngettext_noop:1,2 -o resources/lang/sage.pot && find ./resources -iname '*.blade.php' | xargs xgettext --language=Python --add-comments=TRANSLATORS --force-po --from-code=UTF-8 --default-domain=es_ES -k__ -k_e -k_n:1,2 -k_x:1,2c -k_ex:1,2c -k_nx:4c,12 -kesc_attr__ -kesc_attr_e -kesc_attr_x:1,2c -kesc_html__ -kesc_html_e -kesc_html_x:1,2c -k_n_noop:1,2 -k_nx_noop:3c,1,2, -k__ngettext_noop:1,2 -j -o resources/lang/sage.pot"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.1",

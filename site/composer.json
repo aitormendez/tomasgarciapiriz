@@ -97,9 +97,10 @@
     "wpackagist-plugin/complianz-gdpr": "*",
     "wpackagist-plugin/file-upload-types": "*",
     "soberwp/intervention": "dev-main",
-    "satispress/sitepress-multilingual-cms": "*",
+    "satispress/sitepress-multilingual-cms": "4.5.2",
     "satispress/wpml-wpforms": "*",
     "satispress/acfml": "*",
+    "satispress/wpml-string-translation": "*",
     "mpdf/mpdf": "^8.0"
   },
   "require-dev": {
@@ -108,7 +109,12 @@
   },
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "composer/installers": true,
+      "ffraenz/private-composer-installer": true,
+      "roots/wordpress-core-installer": true
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
