@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d65011ca42cca2de599e8f68e0de145b",
+    "content-hash": "f228b9b759bc2de05b7bd2c312ad5052",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -1417,6 +1417,25 @@
                 "homepage": "http://www.onthegosystems.com/"
             },
             "description": "WPML Multilingual CMS | <a href=\"https://wpml.org\">Documentation</a> | <a href=\"https://wpml.org/version/wpml-4-4-6/\">WPML 4.4.6 release notes</a>",
+            "homepage": "https://wpml.org/"
+        },
+        {
+            "name": "satispress/wpml-string-translation",
+            "version": "3.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://plugins.e451.net/satispress/wpml-string-translation/3.2.0",
+                "shasum": "b131b6274e6ba4f0afe3378757525cebf032524d"
+            },
+            "require": {
+                "composer/installers": "^1.0"
+            },
+            "type": "wordpress-plugin",
+            "authors": {
+                "name": "OnTheGoSystems",
+                "homepage": "http://www.onthegosystems.com/"
+            },
+            "description": "Adds theme and plugins localization capabilities to WPML | <a href=\"https://wpml.org\">Documentation</a> | <a href=\"https://wpml.org/version/string-translation-3-1-10/\">WPML String Translation 3.1.10 release notes</a>",
             "homepage": "https://wpml.org/"
         },
         {
