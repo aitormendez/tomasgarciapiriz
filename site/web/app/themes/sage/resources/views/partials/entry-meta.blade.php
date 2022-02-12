@@ -26,9 +26,9 @@
             @if ($metadatos['bloques'][0] === 1 )
             <div class="p-4 bloque autores">
               @if (count($metadatos['autores']) > 1)
-                <h3 class="mayusculas">Autores</h3>
+                <h3 class="mayusculas">{{ __('Autores', 'sage') }}</h3>
               @else
-                <h3 class="mayusculas">Autor</h3>
+                <h3 class="mayusculas">{{ __('Autor', 'sage') }}</h3>
               @endif
               @foreach ($metadatos['autores'] as $autor)
                 <p>{{ $autor['autor'] }}</p>
@@ -38,9 +38,9 @@
             @if ($metadatos['bloques'][1] === 1)
             <div class="p-4 bloque colaboradores">
               @if (count($metadatos['colaboradores']) > 1)
-                <h3 class="mayusculas">Colaboradores</h3>
+                <h3 class="mayusculas">{{ __('Colaboradores', 'sage') }}</h3>
               @else
-                <h3 class="mayusculas">Colaborador</h3>
+                <h3 class="mayusculas">{{ __('Colaborador', 'sage') }}</h3>
               @endif
               @foreach ($metadatos['colaboradores'] as $colaborador)
                 <p>{{ $colaborador['colaborador'] }}</p>
@@ -55,21 +55,21 @@
 
                     @if ($metadatos['cliente'])
                       <li class="table-row">
-                        <h3 class="table-cell mayusculas">{{ __('Cliente') }}</h3>
+                        <h3 class="table-cell mayusculas">{{ __('Cliente', 'sage') }}</h3>
                         <span class="table-cell">{{ $metadatos['cliente'] }}</span>
                       </li>
                     @endif
 
                     @if ( $metadatos['superficie'] )
                       <li class="table-row">
-                        <h3 class="table-cell mayusculas">{{ __('Superficie') }}</h3>
+                        <h3 class="table-cell mayusculas">{{ __('Superficie', 'sage') }}</h3>
                         <span class="table-cell">{{ $metadatos['superficie'] }} M<sup>2</sup></span>
                       </li>
                     @endif
 
                     @if ( $metadatos['costo'] )
                       <li class="table-row">
-                        <h3 class="table-cell mayusculas">{{ __('Costo') }}/M<sup>2</sup></h3>
+                        <h3 class="table-cell mayusculas">{{ __('Costo', 'sage') }}/M<sup>2</sup></h3>
                         <span class="table-cell">{{ $metadatos['costo'] }} €</span>
                       </li>
                     @endif
@@ -77,7 +77,7 @@
                     @if ($metadatos['mostrar_construido'] )
                       @if ( $metadatos['construido'] )
                         <li class="table-row">
-                          <h3 class="table-cell mayusculas">{{ __('Construido') }}</h3>
+                          <h3 class="table-cell mayusculas">{{ __('Construido', 'sage') }}</h3>
                           <span class="table-cell">{{ $metadatos['construido'] }}</span>
                         </li>
                       @endif
@@ -85,7 +85,7 @@
 
                     @if ( $metadatos['anio'] )
                       <li class="table-row">
-                        <h3 class="table-cell mayusculas">{{ __('Año') }}</h3>
+                        <h3 class="table-cell mayusculas">{{ __('Año', 'sage') }}</h3>
                         <span class="table-cell">{{ $metadatos['anio'] }}</span>
                       </li>
                     @endif

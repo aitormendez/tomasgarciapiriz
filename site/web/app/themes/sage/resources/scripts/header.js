@@ -29,10 +29,6 @@ export class Navegacion
         this.createMenu()
         this.solapa()
         this.scroll()
-
-        if (condition) {
-            
-        }
     }
 
     scroll()
