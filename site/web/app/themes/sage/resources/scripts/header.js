@@ -47,7 +47,7 @@ export class Navegacion
 
         this.nombre.addEventListener('mouseenter', () => {
             if (this.nombre.desplegado === false) {
-                this.mostrarLogo()
+                this.esconderLogo.reverse()
             }
         })
 
