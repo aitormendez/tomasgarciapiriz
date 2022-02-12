@@ -5,7 +5,6 @@
         
         <ul class="flex flex-wrap">
             @foreach ($relacionados as $relacionado)
-                @php setup_postdata($relacionado) @endphp
                 <li class="w-1/2 mb-6 md:w-2/6 lg:w-1/4 xl:w-1/5 2xl:w-1/6">
                     <a href="{{ get_permalink($relacionado) }}">
                         @thumbnail($relacionado->ID,'large')
