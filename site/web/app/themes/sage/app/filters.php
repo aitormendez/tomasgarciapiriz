@@ -63,3 +63,13 @@ add_filter( 'get_the_archive_title', function ($title) {
         }
     return $title;    
 });
+
+/**
+ * Eliminar el enlace del excerp portada noticias
+ */
+
+add_filter( 'excerpt_more', function ($more) {  
+    if (is_archive('story')) {
+        return '';
+    }
+});
