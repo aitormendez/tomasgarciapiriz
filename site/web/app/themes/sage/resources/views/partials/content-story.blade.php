@@ -1,4 +1,4 @@
-<a href="{{ get_permalink() }}" role="article" class="justify-start block px-6 mb-24 text-black md:flex">
+<a href="{{ get_permalink() }}" role="article" class="justify-start block w-full px-6 mb-24 text-black md:flex article">
 
 
   <div class="justify-start col-1 md:pr-6 lg:flex md:w-1/2 lg:w-2/3">
@@ -12,9 +12,11 @@
     </div>
   </div>
 
-  <div class="md:borde thumb md:w-1/2">
+  
     @if (has_post_thumbnail())
-      @thumbnail('large')
+      <div class="md:borde thumb md:w-1/2 lg:ml-12">
+        @thumbnail('large')
+      </div>
     @endif
-  </div>
+
 </a>
