@@ -5,7 +5,7 @@
 
     #solapa {
         .no-link {
-            a {
+            & > div > a {
                 pointer-events: none;
             }
         }
