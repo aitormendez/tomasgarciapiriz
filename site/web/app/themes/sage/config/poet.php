@@ -24,6 +24,14 @@ return [
     */
 
     'post' => [
+        'prize' => [
+            'enter_title_here' => __('Título de noticia', 'sage'),
+            'menu_icon' => 'dashicons-awards',
+            'supports' => ['title', 'revisions'],
+            'has_archive' => true,
+            'show_in_rest' => true,
+            'admin_cols' => $post_columns,
+        ],
         'story' => [
             'enter_title_here' => __('Título de noticia', 'sage'),
             'menu_icon' => 'dashicons-megaphone',
