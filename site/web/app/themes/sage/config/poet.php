@@ -25,7 +25,7 @@ return [
 
     'post' => [
         'prize' => [
-            'enter_title_here' => __('Título de noticia', 'sage'),
+            'enter_title_here' => __('Nombre del premio', 'sage'),
             'menu_icon' => 'dashicons-awards',
             'supports' => ['title', 'revisions'],
             'has_archive' => true,

@@ -4,6 +4,11 @@
     }
 
     #solapa {
+        .no-link {
+            a {
+                pointer-events: none;
+            }
+        }
         .my-child-menu a {
             --wght: 800;
         }
