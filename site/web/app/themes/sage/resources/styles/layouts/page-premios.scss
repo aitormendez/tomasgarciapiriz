@@ -1,0 +1,31 @@
+body.premios-otorgados {
+    .listado-premios
+    {
+        .premio {
+            ul {
+                display: table;
+
+                li {
+                    b {
+                        display: table-cell;
+                        width: 11rem;
+                    }
+
+                    span {
+                        display: table-cell;
+                        width: 11rem;
+                    }
+                }
+            }
+
+            &:not(:last-child)::after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 10px;
+                background-color: #fff;
+                margin-top: 4rem;
+              }
+        }
+    }
+}
