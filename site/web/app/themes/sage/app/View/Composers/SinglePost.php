@@ -189,6 +189,7 @@ class SinglePost extends Composer
             'has_metadatos' => false,
             'has_adjuntos' => false,
             'has_files' => false,
+            'has_prizes' => false,
             'bloques' => [0, 0, 0, 0],
             'mostrar_construido' => get_field('construido_mostrar'),
         ];
@@ -202,6 +203,22 @@ class SinglePost extends Composer
         $construido = get_field('construido');
         $fecha = get_field('fecha');
         $tipos_de_proyecto = get_the_terms( $post->ID, 'project_type');
+        $prizes = get_field('premios_asociados');
+
+        if ($prizes) {
+            $out['has_prizes'] = true;
+            $pr = [];
+            foreach ($prizes as $prize) {
+               $pr[] = [
+                   'nombre_premio' => $prize['premio_asociado']->post_title,
+                   'edicion_premio' => $prize['edicion_premio'],
+                   'premio_otorgado' => $prize['premio_otorgado'],
+                   'ambito_premio' => get_field('prize_ambito', $prize['premio_asociado']->ID),
+                   'entidad_premio' => get_field('prize_entidad', $prize['premio_asociado']->ID),
+               ];
+            }
+            $out['prizes'] = $pr;
+        }
 
         if ($rows_autores) {
             $autores = [];

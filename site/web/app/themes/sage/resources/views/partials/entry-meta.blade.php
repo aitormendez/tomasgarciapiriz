@@ -1,5 +1,4 @@
 @if (is_single())
-  
   <div class="relative flex botonera">
     @if ($metadatos['has_metadatos'])
       <button id="btn-info" class="info mayusculas boton">Info</button>
@@ -105,8 +104,22 @@
                 </div>
               @endif
         </div>
-
-
+        @if ($metadatos['has_prizes'])
+          <div class="text-white bg-black premios-otorgados marco">
+            <ul class="flex flex-wrap">
+              @foreach ($metadatos['prizes'] as $premio)
+                <li class="p-4">
+                  <h3 class="mb-4 text-lg font-bold">{{ $premio['nombre_premio'] }}, {{ $premio['edicion_premio'] }}</h3>
+                  <ul>
+                    <li><b>{{ __('Ambito', 'sage') }}</b>: <span>{{ $premio['ambito_premio'] }}</span></li>
+                    <li><b>{{ __('Entidad', 'sage') }}</b>: <span>{{ $premio['entidad_premio'] }}</span></li>
+                    <li><b>{{ __('Premio', 'sage') }}</b>: <span>{{ $premio['premio_otorgado'] }}</span></li>
+                  </ul>
+                </li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
       </div>
     </div>
   @endif
