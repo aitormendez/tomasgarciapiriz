@@ -24,7 +24,8 @@ a {
 
 #main {
   body.archive &,
-  body.premios-otorgados & {
+  body.page-template-premios &,
+  body.page-template-exposiciones & {
     margin-top: 200px;         
   }
 }

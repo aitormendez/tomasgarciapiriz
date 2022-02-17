@@ -24,13 +24,21 @@ return [
     */
 
     'post' => [
+        'exhibition' => [
+            'enter_title_here' => __('Nombre de la exposición', 'sage'),
+            'menu_icon' => 'dashicons-visibility',
+            'supports' => ['title'],
+            'has_archive' => true,
+            'show_in_rest' => true,
+            // 'admin_cols' => $post_columns,
+        ],
         'prize' => [
             'enter_title_here' => __('Nombre del premio', 'sage'),
             'menu_icon' => 'dashicons-awards',
-            'supports' => ['title', 'revisions'],
+            'supports' => ['title'],
             'has_archive' => true,
             'show_in_rest' => true,
-            'admin_cols' => $post_columns,
+            // 'admin_cols' => $post_columns,
         ],
         'story' => [
             'enter_title_here' => __('Título de noticia', 'sage'),

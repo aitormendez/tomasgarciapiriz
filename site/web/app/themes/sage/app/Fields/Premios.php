@@ -25,7 +25,7 @@ class Premios extends Field
                 'maxlength' => '',
             ])
             ->addText('prize_ambito', [
-                'label' => 'Entidad',
+                'label' => 'Ámbito',
                 'instructions' => __('Ámbito del premio', 'sage'),
                 'default_value' => '',
                 'placeholder' =>  __('Ámbito', 'sage'),
