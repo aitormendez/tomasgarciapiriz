@@ -25,12 +25,6 @@ class Proyectos extends Field
                 'label' => __('Premio asociados', 'sage'),
                 'instructions' => '',
                 'required' => 0,
-                'conditional_logic' => [],
-                'wrapper' => [
-                    'width' => '',
-                    'class' => '',
-                    'id' => '',
-                ],
                 'post_type' => ['prize'],
                 'taxonomy' => [],
                 'allow_null' => 0,

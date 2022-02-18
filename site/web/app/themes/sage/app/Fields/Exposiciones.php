@@ -9,7 +9,7 @@ class Exposiciones extends Field
 {
     public function fields()
     {
-        $builder = new FieldsBuilder('datos_del_premio');
+        $builder = new FieldsBuilder('datos_expo');
 
         $builder
             ->setLocation('post_type', '==', 'exhibition');
@@ -17,7 +17,7 @@ class Exposiciones extends Field
         $builder
             ->addText('exhibition_entidad', [
                 'label' => __('Entidad', 'sage'),
-                'instructions' => __('Nombre de la entidad que emite el premio', 'sage'),
+                'instructions' => __('Nombre de la entidad que hace la exposición', 'sage'),
                 'required' => 1,
                 'default_value' => '',
                 'placeholder' =>  __('Entidad', 'sage'),

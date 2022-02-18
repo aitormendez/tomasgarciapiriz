@@ -103,6 +103,6 @@ class PagePremios extends Composer
         });
 
 
-        return '$premios';
+        return $premios;
     }
 }

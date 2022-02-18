@@ -7,7 +7,8 @@ a {
     color: black;
   }
 
-  body.premios-otorgados .brand & {
+  body.page-template-premios .brand &,
+  body.page-template-exposiciones .brand & {
     color: #fff;
   }
 
@@ -30,7 +31,8 @@ a {
   }
 }
 
-body.premios-otorgados {
+body.page-template-premios,
+body.page-template-exposiciones {
   background-color: #000;
   color: #fff;
 

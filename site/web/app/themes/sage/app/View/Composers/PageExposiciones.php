@@ -50,6 +50,7 @@ class PageExposiciones extends Composer
 
         foreach ($exposiciones_raw as $exposicion_raw) {
             $exposicion = [
+                'raw' => $exposicion_raw,
                 'expo_title' => $exposicion_raw->post_title,
                 'expo_fecha_inicio' => get_field('exhibition__fecha_inicio', $exposicion_raw->ID),
                 'expo_fecha_fin' => get_field('exhibition__fecha_fin', $exposicion_raw->ID),
@@ -59,6 +60,7 @@ class PageExposiciones extends Composer
             ];
 
             $proyectos_raw = get_field('exhibition__projects', $exposicion_raw->ID);
+            $exposicion['projects_raw'] = $proyectos_raw;
 
             if ($proyectos_raw) {
                 $exposicion['tiene_proyectos'] = true;
