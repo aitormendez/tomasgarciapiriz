@@ -4,10 +4,17 @@ body.page-template-exposiciones {
     ul.exposiciones {
         > li {
             width: 100%;
+            border-bottom: 5px solid #fff;
+            padding-top: var(--pad);
+            padding-bottom: var(--pad);
 
             p,
             li {
                 margin-bottom: 5px;
+            }
+
+            &:first-child {
+                border-top: 5px solid #fff;
             }
         }
     }
@@ -22,6 +29,10 @@ body.page-template-exposiciones {
 
                 &:nth-child(even) {
                     padding-right: 0;
+                }
+
+                &:nth-child(2) {
+                    border-top: 5px solid #fff;
                 }
             }
         }
@@ -39,8 +50,12 @@ body.page-template-exposiciones {
                     padding-right: var(--pad);
                 }
 
-                &:nth-child(3) {
+                &:nth-child(3n) {
                     padding-right: 0;
+                }
+
+                &:nth-child(3) {
+                    border-top: 5px solid #fff;
                 }
             }
         }
@@ -53,12 +68,16 @@ body.page-template-exposiciones {
 
                 padding-right: var(--pad);
 
-                &:nth-child(3) {
+                &:nth-child(3n) {
                     padding-right: var(--pad);
                 }
 
-                &:nth-child(4) {
+                &:nth-child(4n) {
                     padding-right: 0;
+                }
+
+                &:nth-child(4) {
+                    border-top: 5px solid #fff;
                 }
             }
         }
@@ -72,18 +91,40 @@ body.page-template-exposiciones {
 
                 padding-right: var(--pad);
 
-                &:nth-child(4) {
+                &:nth-child(4n) {
                     padding-right: var(--pad);
                 }
 
-                &:nth-child(5) {
+                &:nth-child(5n) {
                     padding-right: 0;
+                }
+
+                &:nth-child(5) {
+                    border-top: 5px solid #fff;
                 }
             }
         }
     }
 
     @media (min-width: 1536px) {
-        
+        ul.exposiciones {
+            > li {
+                width: 16.66%;
+
+                padding-right: var(--pad);
+
+                &:nth-child(5n) {
+                    padding-right: var(--pad);
+                }
+
+                &:nth-child(6n) {
+                    padding-right: 0;
+                }
+
+                &:nth-child(6) {
+                    border-top: 5px solid #fff;
+                }
+            }
+        }
     }
 }

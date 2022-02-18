@@ -11,7 +11,7 @@
 
 <ul class="flex flex-wrap px-6 exposiciones">
   @forelse ($listado_exposiciones as $expo)
-  <li class="mb-20">
+  <li>
     <h3 class="mb-6 text-lg font-bold leading-5">{{ $expo['expo_title'] }}</h3>
     <p>{{ $expo['expo_fecha_inicio'] }} - {{ $expo['expo_fecha_fin'] }}</p>
     <p>{{ $expo['expo_lugar'] }}</p>
