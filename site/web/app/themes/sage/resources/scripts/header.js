@@ -1,6 +1,6 @@
 import gsap from 'gsap'
-import { TextPlugin } from "gsap/dist/TextPlugin.min.js";
-gsap.registerPlugin(TextPlugin);
+import { TextPlugin } from "gsap/dist/TextPlugin.min.js"
+gsap.registerPlugin(TextPlugin)
 
 
 export class Navegacion
@@ -23,8 +23,10 @@ export class Navegacion
         if (this.body.classList.contains('archive') || this.body.classList.contains('page')) {
             this.seccion = document.querySelector('.page-header h1')
             this.esconderSeccion = gsap.to(this.seccion, {
-                speed: 15,
-                text: this.seccion.innerHTML[0], 
+                text: {
+                    speed: 3,
+                    value: this.seccion.innerHTML[0],
+                },
                 ease: "none",
                 paused: true
             })
@@ -32,8 +34,10 @@ export class Navegacion
     }
 
     esconderLogo = gsap.to(this.nombre, {
-        speed: 15,
-        text: "T", 
+        text: {
+            speed: 3,
+            value: "T"
+        }, 
         ease: "none",
         paused: true
     })
@@ -65,7 +69,6 @@ export class Navegacion
             if (window.scrollY > 1 && this.nombre.desplegado === true) {
                 this.esconderLogo.play()
                 if (this.body.classList.contains('archive') || this.body.classList.contains('page') ) {
-                    console.log(this.esconderSeccion);
                     this.esconderSeccion.play()
                 }
                 this.nombre.desplegado = false
