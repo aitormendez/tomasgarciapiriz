@@ -1,6 +1,7 @@
 @if ($primary_navigation)
   <ul class="text-2xl my-menu" id="nav-principal">
     @foreach ($primary_navigation as $item)
+    
       <li class="my-menu-item {{ $item->classes ?? '' }} {{ $item->active ? 'active' : '' }} lowercase">
 
         <div class="flex justify-between">
@@ -8,9 +9,10 @@
           @if ($item->children)
             <button class="boton-flecha">@svg('images/interface/flecha.svg', 'self-center', ['aria-label' => 'toggle-submenu-icon'])</button>
           @endif
-        </div>        
+        </div>
 
         @if ($item->children)
+
           <ul class="h-0 overflow-hidden my-child-menu">
             @foreach ($item->children as $child)
               <li class="my-child-item {{ $child->classes ?? '' }} {{ $child->active ? 'active' : '' }} mayusculas text-sm hover:text-red-600">
@@ -19,6 +21,13 @@
                 </a>
               </li>
             @endforeach
+            @if ($item->slug === "estudio" || $item->slug === "studio")
+              <li class="text-sm my-child-item mayusculas hover:text-red-600">
+                <a href="{{ $portfolio['url'] }}" class="block py-0.5">
+                  {{ __('portfolio', 'sage') }}
+                </a>
+              </li>
+            @endif
           </ul>
         @endif
       </li>

@@ -26,6 +26,7 @@ class Navigation extends Composer
         return [
             'primary_navigation' => $this->primaryNavigation(),
             'secondary_navigation' => $this->SecondaryNavigation(),
+            'portfolio' => $this->portfolioFile(),
         ];
     }
 
@@ -55,5 +56,15 @@ class Navigation extends Composer
         }
 
         return Navi::build('secondary_navigation')->toArray();
+    }
+
+    /**
+     * Portfolio.
+     *
+     * @return array
+     */
+    public function portfolioFile()
+    {
+        return get_field("portfolio", 'option');
     }
 }
