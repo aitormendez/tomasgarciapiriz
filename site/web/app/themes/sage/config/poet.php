@@ -111,6 +111,15 @@ return [
                 'plural' => __('Tipos de proyecto', 'sage'),
             ],
         ],
+        'academic_type' => [
+            'links' => ['academic'],
+            'meta_box' => 'simple',
+            'hierarchical' => false,
+            'labels' => [
+                'singular' => __('Tipo de académico', 'sage'),
+                'plural' => __('Tipos de académico', 'sage'),
+            ],
+        ],
     ],
 
     /*
