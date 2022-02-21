@@ -45,7 +45,6 @@ export class PostHeader
                     duration: 0.5,
                     // ease: "elastic",
                 });
-
             }
         })
     }

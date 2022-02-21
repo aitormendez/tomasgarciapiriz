@@ -222,3 +222,12 @@ add_action('widgets_init', function () {
 add_action('after_setup_theme', function () {
     load_theme_textdomain('sage', get_theme_file_path('/resources/lang'));
 });
+
+/**
+ * Image size xl.
+ *
+ * @return void
+ */
+add_action('after_setup_theme', function () {	
+    add_image_size( 'extra-large', 1500 );
+});

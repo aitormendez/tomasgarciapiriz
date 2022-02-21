@@ -1,13 +1,18 @@
 const InfiniteScroll = require('infinite-scroll');
+import app from './app';
 
-let body = document.querySelector('body')
+export class Infescrol{
+    constructor()
+    {
+        this.infScroll = new InfiniteScroll( '.posts', {
+            path: '.nav-previous a',
+            append: '.article',
+            hideNav: '.nav-links'
+        })
 
-if (body.classList.contains('post-type-archive-project') || body.classList.contains('post-type-archive-story')) {
-    let infScroll = new InfiniteScroll( '.posts', {
-        path: '.nav-previous a',
-        append: '.article',
-        hideNav: '.nav-links'
-    });
+        this.infScroll.on( 'append', function( event, body, path, items, response ) {
+            console.log(this.app);
+            app.rollThumb()
+        });
+    }
 }
-
-
