@@ -21,7 +21,7 @@
                 </a>
               </li>
             @endforeach
-            @if ($item->slug === "estudio" || $item->slug === "studio")
+            @if ($item->slug === "estudio-2" || $item->slug === "studio" && $portfolio)
               <li class="text-sm my-child-item mayusculas hover:text-red-600">
                 <a href="{{ $portfolio['url'] }}" class="block py-0.5">
                   {{ __('portfolio', 'sage') }}

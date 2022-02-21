@@ -82,7 +82,8 @@ add_action('after_setup_theme', function () {
      */
     register_nav_menus([
         'primary_navigation' => __('Navegación primaria', 'sage'),
-        'secondary_navigation' => __('Navegación secundaria', 'sage')
+        'secondary_navigation' => __('Navegación secundaria', 'sage'),
+        'submenu_estudio_navigation' => __('Navegación submenú estudio', 'sage')
     ]);
 
     /**
@@ -175,8 +176,8 @@ add_action('after_setup_theme', function () {
      */
     add_theme_support('html5', [
         'caption',
-        'comment-form',
-        'comment-list',
+        // 'comment-form',
+        // 'comment-list',
         'gallery',
         'search-form',
         'script',

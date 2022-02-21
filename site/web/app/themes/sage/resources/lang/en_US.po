@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-11 20:45+0100\n"
-"PO-Revision-Date: 2022-02-11 21:12+0100\n"
+"POT-Creation-Date: 2022-02-21 19:13+0100\n"
+"PO-Revision-Date: 2022-02-21 19:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
+
+#: app/Options/Options.php:34
+msgid "Portfolio"
+msgstr ""
 
 #: app/filters.php:15
 msgid "Continued"
@@ -27,45 +31,47 @@ msgstr "Leer más"
 msgid "%1$s"
 msgstr ""
 
-#: app/View/Composers/Post.php:107
-msgid "Latest Posts"
+#: app/View/Composers/Post.php:104 app/View/Composers/SinglePost.php:104
+msgid "Últimas entradas"
 msgstr ""
 
-#: app/View/Composers/Post.php:111
+#: app/View/Composers/Post.php:108 app/View/Composers/SinglePost.php:108
+#: app/Fields/Exposiciones.php:55 resources/views/exposiciones.blade.php:22
 msgid "Proyectos"
 msgstr "Projects"
 
-#: app/View/Composers/Post.php:115 config/poet.php:35
+#: app/View/Composers/Post.php:112 app/View/Composers/SinglePost.php:112
+#: config/poet.php:51
 msgid "Noticias"
 msgstr "Stories"
 
-#: app/View/Composers/Post.php:119
+#: app/View/Composers/Post.php:116 app/View/Composers/SinglePost.php:116
 msgid "Publicaciones"
 msgstr "Publications"
 
-#: app/View/Composers/Post.php:123
+#: app/View/Composers/Post.php:120 app/View/Composers/SinglePost.php:120
 msgid "Atlas"
 msgstr "Atlas"
 
-#: app/View/Composers/Post.php:127
+#: app/View/Composers/Post.php:124 app/View/Composers/SinglePost.php:124
 msgid "Académico"
 msgstr "Academic"
 
-#: app/View/Composers/Post.php:137
+#: app/View/Composers/Post.php:134 app/View/Composers/SinglePost.php:134
 #, php-format
 msgid "Resultados de búsqueda para %s"
 msgstr "Search results for %s"
 
-#: app/View/Composers/Post.php:143
-msgid "Not Found"
-msgstr ""
+#: app/View/Composers/Post.php:140 app/View/Composers/SinglePost.php:140
+msgid "No encontrado"
+msgstr "Not found"
 
-#: app/View/Composers/Post.php:273 app/Fields/Info.php:64
+#: app/View/Composers/SinglePost.php:287 app/Fields/Info.php:64
 #: app/Fields/Info.php:72
 msgid "Sí"
 msgstr "Yes"
 
-#: app/View/Composers/Post.php:273 app/Fields/Info.php:65
+#: app/View/Composers/SinglePost.php:287 app/Fields/Info.php:65
 #: app/Fields/Info.php:73
 msgid "No"
 msgstr "No"
@@ -78,11 +84,17 @@ msgstr "Primary Navigation"
 msgid "Navegación secundaria"
 msgstr "Secondary navigation"
 
-#: app/setup.php:207
+#: app/setup.php:86
+#, fuzzy
+#| msgid "Navegación secundaria"
+msgid "Navegación submenú estudio"
+msgstr "Secondary navigation"
+
+#: app/setup.php:208
 msgid "Primaria"
 msgstr "Primary"
 
-#: app/setup.php:212
+#: app/setup.php:213
 msgid "Pie de página"
 msgstr "Footer"
 
@@ -90,7 +102,7 @@ msgstr "Footer"
 msgid "Personas"
 msgstr "Persons"
 
-#: app/Fields/Info.php:28
+#: app/Fields/Info.php:28 resources/views/partials/entry-meta.blade.php:28
 msgid "Autores"
 msgstr "Authors"
 
@@ -102,11 +114,11 @@ msgstr "Add author"
 msgid "Un autor en cada línea"
 msgstr "One author in each line"
 
-#: app/Fields/Info.php:33
+#: app/Fields/Info.php:33 resources/views/partials/entry-meta.blade.php:30
 msgid "Autor"
 msgstr "Author"
 
-#: app/Fields/Info.php:38
+#: app/Fields/Info.php:38 resources/views/partials/entry-meta.blade.php:40
 msgid "Colaboradores"
 msgstr "Collaborators"
 
@@ -118,7 +130,7 @@ msgstr "Add collaborator"
 msgid "Un colaborador en cada línea"
 msgstr "One collaborator each line"
 
-#: app/Fields/Info.php:43
+#: app/Fields/Info.php:43 resources/views/partials/entry-meta.blade.php:42
 msgid "Colaborador"
 msgstr "Collaborator"
 
@@ -126,11 +138,11 @@ msgstr "Collaborator"
 msgid "Datos proyecto"
 msgstr "Project data"
 
-#: app/Fields/Info.php:48 resources/views/partials/entry-meta.blade.php:58
+#: app/Fields/Info.php:48 resources/views/partials/entry-meta.blade.php:57
 msgid "Cliente"
 msgstr "Customer"
 
-#: app/Fields/Info.php:51 resources/views/partials/entry-meta.blade.php:65
+#: app/Fields/Info.php:51 resources/views/partials/entry-meta.blade.php:64
 msgid "Superficie"
 msgstr "Surface"
 
@@ -154,7 +166,7 @@ msgstr "In euros. Supports two decimals (separated by a point)"
 msgid "Mostrar si está construido"
 msgstr "Show if built"
 
-#: app/Fields/Info.php:68 resources/views/partials/entry-meta.blade.php:80
+#: app/Fields/Info.php:68 resources/views/partials/entry-meta.blade.php:79
 msgid "Construido"
 msgstr "Built"
 
@@ -252,6 +264,61 @@ msgstr "Medium"
 msgid "Pequeña"
 msgstr "Small"
 
+#: app/Fields/Exposiciones.php:19 app/Fields/Exposiciones.php:23
+#: resources/views/premios.blade.php:29 resources/views/premios.blade.php:39
+#: resources/views/premios.blade.php:54
+#: resources/views/partials/entry-meta.blade.php:115
+msgid "Entidad"
+msgstr "Entity"
+
+#: app/Fields/Exposiciones.php:20
+msgid "Nombre de la entidad que hace la exposición"
+msgstr "Name of the entity that schedules the exhibition"
+
+#: app/Fields/Exposiciones.php:29 app/Fields/Exposiciones.php:33
+msgid "Lugar"
+msgstr "Place"
+
+#: app/Fields/Exposiciones.php:39
+msgid "Fecha de inicio"
+msgstr "Start date"
+
+#: app/Fields/Exposiciones.php:47
+msgid "Fecha de finalización"
+msgstr "Finish date"
+
+#: app/Fields/Exposiciones.php:56
+msgid "Elige los proyectos que se muestran en esta exposición"
+msgstr "Choose the projects shown in this exhibition"
+
+#: app/Fields/Proyectos.php:20
+msgid "Premios asociados al proyecto"
+msgstr "Awards associated with the project"
+
+#: app/Fields/Proyectos.php:21
+msgid "Añadir premio"
+msgstr "add prize"
+
+#: app/Fields/Proyectos.php:22
+msgid "Un premio en cada línea"
+msgstr "One file on each line"
+
+#: app/Fields/Proyectos.php:25
+msgid "Premio asociados"
+msgstr "Associates Award"
+
+#: app/Fields/Proyectos.php:36
+msgid "Año de la edición del premio"
+msgstr "Year of the award edition"
+
+#: app/Fields/Proyectos.php:43
+msgid "Premio otrorgado"
+msgstr "prize awarded"
+
+#: app/Fields/Proyectos.php:44
+msgid "Primer premio, segundo premio, premio de honor, etc…"
+msgstr "First prize, second prize, honor prize, etc…"
+
 #: app/Fields/Relacionados.php:20
 msgid "Posts relacionados"
 msgstr "Related posts"
@@ -263,6 +330,23 @@ msgid ""
 msgstr ""
 "Choose the posts that will appear in the “Other posts related to this post” "
 "section"
+
+#: app/Fields/Premios.php:20
+msgid "Nombre de la entidad que emite el premio"
+msgstr "Name of the entity issuing the award"
+
+#: app/Fields/Premios.php:22
+msgid "Nombre"
+msgstr "Name"
+
+#: app/Fields/Premios.php:29
+msgid "Ámbito del premio"
+msgstr "Ambit of the award"
+
+#: app/Fields/Premios.php:31 resources/views/premios.blade.php:28
+#: resources/views/premios.blade.php:38 resources/views/premios.blade.php:53
+msgid "Ámbito"
+msgstr "Ambit"
 
 #: app/Fields/Partials/HeroImage.php:21
 msgid "Imagen Hero"
@@ -287,55 +371,86 @@ msgid "Entrada destacada"
 msgstr "Featured post"
 
 #: config/poet.php:28
+msgid "Nombre de la exposición"
+msgstr "Exhibition Name"
+
+#: config/poet.php:36
+msgid "Nombre del premio"
+msgstr "award name"
+
+#: config/poet.php:44
 msgid "Título de noticia"
 msgstr "Story tittle"
 
-#: config/poet.php:34
+#: config/poet.php:50
 msgid "Noticia"
 msgstr "Story"
 
-#: config/poet.php:40
+#: config/poet.php:56
 msgid "Título de proyecto"
 msgstr "Project tittle"
 
-#: config/poet.php:53
+#: config/poet.php:69
 msgid "Título de referencia"
 msgstr "Reference tittle"
 
-#: config/poet.php:65
+#: config/poet.php:81
 msgid "Título de académico"
 msgstr "Academic tittle"
 
-#: config/poet.php:94
+#: config/poet.php:110
 msgid "Tipo de proyecto"
 msgstr "Project type"
 
-#: config/poet.php:95
-#, fuzzy
-#| msgid "Datos proyecto"
+#: config/poet.php:111
 msgid "Tipos de proyecto"
-msgstr "Project data"
+msgstr "project types"
 
-#: resources/views/index.blade.php:8 resources/views/search.blade.php:8
-#: resources/views/archive-project.blade.php:8
+#: config/poet.php:119
+msgid "Tipo de académico"
+msgstr "Academic types"
+
+#: config/poet.php:120
+#, fuzzy
+#| msgid "Título de académico"
+msgid "Tipos de académico"
+msgstr "Academic tittle"
+
+#: resources/views/index.blade.php:8 resources/views/archive.blade.php:8
+#: resources/views/search.blade.php:8 resources/views/archive-story.blade.php:8
 msgid "Sorry, no results were found."
-msgstr ""
+msgstr "Sorry, no results were found."
 
 #: resources/views/404.blade.php:8
 msgid "Sorry, but the page you are trying to view does not exist."
-msgstr ""
+msgstr "Sorry, but the page you are trying to view does not exist."
 
 #: resources/views/forms/search.blade.php:4
 msgctxt "label"
 msgid "Search for:"
-msgstr ""
+msgstr "Búsqueda para:"
 
 #: resources/views/front-page.blade.php:24
 msgid "Scroll o click en un objeto"
-msgstr "Scroll or click in an object"
+msgstr "Scroll or click on an object"
 
 #: resources/views/layouts/app.blade.php:2
 msgid "Skip to content"
+msgstr ""
+
+#: resources/views/premios.blade.php:30 resources/views/premios.blade.php:40
+#: resources/views/premios.blade.php:55
+#: resources/views/partials/entry-meta.blade.php:116
+msgid "Premio"
+msgstr "Award"
+
+#: resources/views/premios.blade.php:31 resources/views/premios.blade.php:41
+#: resources/views/premios.blade.php:56
+msgid "Proyecto premiado"
+msgstr "Award-winning project"
+
+#: resources/views/partials/navigation.blade.php:27
+msgid "portfolio"
 msgstr ""
 
 #: resources/views/partials/comments.blade.php:17
@@ -354,20 +469,25 @@ msgstr ""
 msgid "Contenido relacionado"
 msgstr "Related content"
 
-#: resources/views/partials/entry-meta.blade.php:8
+#: resources/views/partials/submenu-estudio.blade.php:3
+msgid "estudio"
+msgstr "Studio"
+
+#: resources/views/partials/entry-meta.blade.php:7
 msgid "Archivos"
 msgstr "Archives"
 
-#: resources/views/partials/entry-meta.blade.php:72
+#: resources/views/partials/entry-meta.blade.php:71
 msgid "Costo"
 msgstr "Cost"
 
-#: resources/views/partials/entry-meta.blade.php:88
+#: resources/views/partials/entry-meta.blade.php:87
 msgid "Año"
 msgstr "Year"
 
-#~ msgid "Proyecto"
-#~ msgstr "Project"
+#: resources/views/partials/entry-meta.blade.php:114
+msgid "Ambito"
+msgstr "Ambit"
 
 #~ msgid "Referencia"
 #~ msgstr "Reference"
