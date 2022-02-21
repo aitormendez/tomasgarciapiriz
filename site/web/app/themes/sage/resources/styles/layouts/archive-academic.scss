@@ -2,14 +2,15 @@
     @media (min-width: 1024px) {
         .article {
             .thumb {
-                max-width: 33vw;
+                max-width: 40vw;
                 max-height: 66vh;
                 left: 0; 
                 right: 0;
                 top: 0;
                 bottom: 0;
                 margin: auto; 
-                margin: auto; 
+                margin: auto;
+                z-index: 0;
             }
 
             &:hover {
@@ -17,6 +18,11 @@
                 h2 {
                     color: #fff;
                 }
+            }
+
+            h2 {
+                font-size: 3rem;
+                z-index: 10;
             }
         }
     }
