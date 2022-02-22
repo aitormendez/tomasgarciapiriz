@@ -29,6 +29,31 @@ a {
   body.page-template-exposiciones & {
     margin-top: 200px;         
   }
+
+  #content {
+    p,
+    ul,
+    ol,
+    blockquote,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    > .wp-block-image,
+    .wp-block-gallery {
+      @apply px-6 lg:mx-auto lg:max-w-3xl md:px-0;
+
+      &.sangre {
+        @apply max-w-full;
+        height: auto;
+
+        img {
+          @apply w-full;
+        }
+      }
+    }
+  }
 }
 
 body.page-template-premios,
@@ -82,5 +107,9 @@ pre.sf.dump {
       margin-bottom: 1rem;
     }
    }
+}
+
+.caja {
+
 }
 

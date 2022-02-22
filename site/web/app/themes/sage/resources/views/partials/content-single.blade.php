@@ -11,7 +11,7 @@
       </div>
   @endif
 
-  <div class="p-6 prose max-w-none lg:px-0 lg:mx-auto lg:max-w-3xl">
+  <div id="content" class="prose max-w-none">
     @php(the_content())
   </div>
 
