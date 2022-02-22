@@ -39,7 +39,7 @@ let instance = null
 const app = {
   infescrol: () => {
 
-    if (document.body.classList.contains('post-type-archive-project') || document.body.classList.contains('post-type-archive-story') || document.body.classList.contains('post-type-archive-academic')) {
+    if (document.body.classList.contains('post-type-archive-project') || document.body.classList.contains('post-type-archive-story') || document.body.classList.contains('post-type-archive-academic') || document.body.classList.contains('tax-project_type')) {
       return new Infescrol()
     }
   },

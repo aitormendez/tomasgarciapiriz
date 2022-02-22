@@ -1,11 +1,8 @@
 .post-type-archive-project,
-.post-type-archive-atlas {
+.post-type-archive-atlas,
+.tax-project_type {
     article {
         a {
-            img {
-                // transition: filter 0.5s;
-            }
-
             &:hover {
                 img {
                     filter: grayscale(100) contrast(50);
