@@ -15,6 +15,7 @@
       @endwhile
     </div>
   </section>
+  
   <div class="navig">
     {!! get_the_posts_navigation() !!}
   </div>

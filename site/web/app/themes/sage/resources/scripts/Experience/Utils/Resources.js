@@ -56,6 +56,8 @@ export default class Resources extends EventEmitter
             let type
             let hiddenElement = post.getElementsByClassName('thumb-path');
 
+            console.log(hiddenElement);
+
             if (hiddenElement) {
                 let path = hiddenElement[0].dataset.path.match('\/app(.*)')[0]
                 let format = hiddenElement[0].dataset.format
