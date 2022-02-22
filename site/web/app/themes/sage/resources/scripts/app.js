@@ -7,6 +7,7 @@ import { Navegacion } from './header.js'
 import { PostHeader } from './postHeader.js'
 import {Infescrol} from './infiniteScroll.js'
 import { RollThumb } from './academic.js'
+import { LightGal } from './lightGallery'
 
 let w = window.innerWidth
 
@@ -48,10 +49,17 @@ const app = {
     if (document.body.classList.contains('post-type-archive-academic')) {
       return new RollThumb()
     }
+  },
+
+  lightGal: () => {
+    if (document.body.classList.contains('single')) {
+      return new LightGal()
+    }
   }
 }
 
 app.infescrol()
 app.rollThumb()
+app.lightGal()
 
 export default app
