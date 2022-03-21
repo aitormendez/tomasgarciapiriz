@@ -41,7 +41,32 @@ class Options extends Field
                     'min_size' => '',
                     'max_size' => '',
                     'mime_types' => 'pdf',
-                ]);
+                ])
+            ->addTab(__('Footer', 'sage'), ['placement' => 'left'])
+                ->addWysiwyg('footer_texto', [
+                    'label' => 'Texto',
+                    'instructions' => 'Bloque de texto para el nombre, dirección, etc.',
+                    'required' => 0,
+                    'conditional_logic' => [],
+                    'tabs' => 'all',
+                    'toolbar' => 'basic',
+                    'media_upload' => 0,
+                    'delay' => 0,
+                ])
+                ->addRepeater('footer_enlaces')
+                    ->addLink('footer_enlace', [
+                        'label' => 'Enlace',
+                        'instructions' => 'Se utiliza para redes social principalmente, pero se puede poner el enlace que se quiera',
+                        'return_format' => 'array',
+                    ])
+                ->endRepeater()
+                ->addRepeater('footer_enlaces_2')
+                    ->addLink('footer_enlace_2', [
+                        'label' => 'Enlace',
+                        'instructions' => 'Eestos enlaces aparecerán en el menú secundario',
+                        'return_format' => 'array',
+                    ])
+                ->endRepeater();
 
         return $builder->build();
     }

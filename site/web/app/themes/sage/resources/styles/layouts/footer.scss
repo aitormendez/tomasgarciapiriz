@@ -1,0 +1,32 @@
+.content-info {
+    background-color: #000;
+    color: #fff;
+
+    #T {
+        font-size: 150pt;
+    }
+
+    .menu-footer {
+        background-color: #fff;
+        color: #000;
+    }
+
+    body.page-template-premios &,
+    body.page-template-exposiciones & {
+        background-color: #fff;
+        color: #000;
+
+        .menu-footer {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        height: 400px;
+
+        #T {
+            line-height: 125pt;
+        }
+    }
+}
