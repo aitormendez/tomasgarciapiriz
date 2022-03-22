@@ -39,9 +39,9 @@ class Info extends Field
                     'button_label' => __('Añadir colaborador', 'sage'),
                     'instructions' => __('Un colaborador en cada línea', 'sage'),
                     ])
-                ->addText('colaborador', [
-                    'label' => __('Colaborador', 'sage'),
-                ])
+                    ->addText('colaborador', [
+                        'label' => __('Colaborador', 'sage'),
+                    ])
                 ->endRepeater()
             ->addTab(__('Datos proyecto', 'sage'), ['placement' => 'left'])
                 ->addText('client', [

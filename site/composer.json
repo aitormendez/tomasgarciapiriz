@@ -96,7 +96,6 @@
     "wpackagist-plugin/fakerpress": "*",
     "wpackagist-plugin/complianz-gdpr": "*",
     "wpackagist-plugin/file-upload-types": "*",
-    "wpackagist-plugin/schema-and-structured-data-for-wp": "*",
     "soberwp/intervention": "dev-main",
     "satispress/sitepress-multilingual-cms": "4.5.2",
     "satispress/wpml-wpforms": "*",

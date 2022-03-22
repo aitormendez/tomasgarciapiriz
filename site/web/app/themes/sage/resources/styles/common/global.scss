@@ -7,6 +7,8 @@ a {
     color: black;
   }
 
+  body.colaboradores .brand &,
+  body.colaborators .brand &,
   body.page-template-premios .brand &,
   body.page-template-exposiciones .brand & {
     color: #fff;
@@ -24,6 +26,8 @@ a {
 }
 
 #main {
+  body.colaboradores &,
+  body.colaborators &,
   body.archive &,
   body.page-template-premios &,
   body.page-template-exposiciones & {
@@ -56,6 +60,8 @@ a {
   }
 }
 
+body.colaboradores,
+body.colaborators,
 body.page-template-premios,
 body.page-template-exposiciones {
   background-color: #000;
