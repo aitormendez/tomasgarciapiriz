@@ -7,6 +7,8 @@ a {
     color: black;
   }
 
+  body.clientes .brand &,
+  body.customers .brand &,
   body.colaboradores .brand &,
   body.colaborators .brand &,
   body.page-template-premios .brand &,
@@ -26,6 +28,8 @@ a {
 }
 
 #main {
+  body.clientes &,
+  body.customers &,
   body.colaboradores &,
   body.colaborators &,
   body.archive &,
@@ -60,6 +64,8 @@ a {
   }
 }
 
+body.clientes,
+body.cuestomers,
 body.colaboradores,
 body.colaborators,
 body.page-template-premios,
