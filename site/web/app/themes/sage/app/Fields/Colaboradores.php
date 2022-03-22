@@ -28,9 +28,24 @@ class Colaboradores extends Field
             'button_label' => __('Añadir colaborador', 'sage'),
             'instructions' => __('Un colaborador en cada línea', 'sage'),
             ])
+            ->addTrueFalse('page_colaboradores_tiene_enlace', [
+                'label' => __('Tiene o no enlace', 'sage'),
+                'instructions' => __('Decide si el nombre enlaza a algún sitio', 'sage'),
+                'default_value' => 0,
+                'ui' => 1,
+                'ui_on_text' => __('con enlace', 'sage'),
+                'ui_off_text' => __('sin enlace', 'sage'),
+            ])
             ->addText('page_colaboradores_nombre', [
                 'label' => __('Nombre del colaborador', 'sage'),
             ])
+                ->conditional('page_colaboradores_tiene_enlace', '==', 0)
+            ->addLink('page_colaboradores_enlace', [
+                'label' => __('Enlace', 'sage'),
+                'instructions' => __('Hay que poner aquí el nombre del colaborador y la URL a donde enlaza', 'sage'),
+                'return_format' => 'array',
+            ])
+                ->conditional('page_colaboradores_tiene_enlace', '==', 1)
             ->addText('page_colaboradores_rol', [
                 'label' => __('Rol del colaborador', 'sage'),
             ])
