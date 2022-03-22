@@ -89,6 +89,18 @@ return [
             // ],
             'admin_cols' => $post_columns,
         ],
+        'publication' => [
+            'enter_title_here' => __('Nombre de la publicación', 'sage'),
+            'menu_icon' => 'dashicons-book',
+            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
+            'has_archive' => true,
+            'show_in_rest' => true,
+            // 'labels' => [
+            //     'singular' => __('Académico', 'sage'),
+            //     'plural' => __('Académicos', 'sage'),
+            // ],
+            // 'admin_cols' => $post_columns,
+        ],
     ],
 
     /*
