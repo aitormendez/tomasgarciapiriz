@@ -12,7 +12,8 @@ class SinglePost extends Composer
      * @var array
      */
     protected static $views = [
-        'partials.content-single'
+        'partials.content-single',
+        'partials.content-single-academic',
     ];
 
     /**

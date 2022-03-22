@@ -1,4 +1,4 @@
-<footer class="lg:gap-6 lg:grid lg:grid-cols-12 lg:grid-rows-6 content-info">
+<footer class="mt-24 lg:gap-6 lg:grid lg:grid-cols-12 lg:grid-rows-6 content-info">
 
   <b id="T" class="w-full p-6 font-black lg:col-span-2 lg:row-span-6">T</b>
 

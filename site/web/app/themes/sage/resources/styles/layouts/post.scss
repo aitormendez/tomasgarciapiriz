@@ -69,6 +69,20 @@
         }
     }
 
+    .hero-excerpt {
+        p {
+            margin-bottom: 1em;
+        }
+
+        @media (min-width: 1024px) {
+            column-count: 2;
+        }
+
+        @media (min-width: 1800px) {
+            column-count: 3;
+        }
+    }
+
     .excerpt {
         border-top: 5px solid black;
         border-bottom: 5px solid black;
