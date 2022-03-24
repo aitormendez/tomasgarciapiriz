@@ -11,7 +11,7 @@
     {!! get_search_form(false) !!}
   @endif
 
-  <div class="flex flex-wrap items-end justify-start posts">
+  <div class="flex flex-wrap p-6">
     @while(have_posts()) @php(the_post())
       @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
     @endwhile

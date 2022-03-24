@@ -7,6 +7,7 @@ a {
     color: black;
   }
 
+  body.post-type-archive-publication .brand &,
   body.clientes .brand &,
   body.customers .brand &,
   body.colaboradores .brand &,
@@ -28,6 +29,7 @@ a {
 }
 
 #main {
+  body.post-type-archive-publication &,
   body.clientes &,
   body.customers &,
   body.colaboradores &,
@@ -64,6 +66,7 @@ a {
   }
 }
 
+body.post-type-archive-publication,
 body.clientes,
 body.cuestomers,
 body.colaboradores,
