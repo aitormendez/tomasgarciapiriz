@@ -19,15 +19,15 @@ module.exports = {
       },
       typography: {
         DEFAULT: {
-            css: {
-              color: '#000',
-              lineHeight: '1.5em',
-              p: {
-                fontFamily: 'Newsreader VF, Newsreader, serif',
-                fontSize: '1.5rem',
-                lineHeight: '1.2em',
-              }
-            },
+          css: {
+            color: '#000',
+            lineHeight: '1.5em',
+            p: {
+              fontFamily: 'Newsreader VF, Newsreader, serif',
+              fontSize: '1.5rem',
+              lineHeight: '1.2em',
+            }
+          },
         },
       },
     },

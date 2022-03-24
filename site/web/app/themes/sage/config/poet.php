@@ -90,9 +90,9 @@ return [
             'admin_cols' => $post_columns,
         ],
         'publication' => [
-            'enter_title_here' => __('Nombre de la publicación', 'sage'),
+            'enter_title_here' => __('Nombre de la publicación (nombre de la revista o título del libro)', 'sage'),
             'menu_icon' => 'dashicons-book',
-            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt'],
+            'supports' => ['title', 'author', 'thumbnail'],
             'has_archive' => true,
             'show_in_rest' => true,
             // 'labels' => [
