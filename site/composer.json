@@ -37,7 +37,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.11.4",
+        "version": "5.12.1",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
@@ -89,6 +89,7 @@
     "wpackagist-plugin/wp-mail-smtp": "*",
     "wpackagist-plugin/autodescription": "*",
     "wpackagist-plugin/wpforms-lite": "*",
+    "wpackagist-plugin/bunnycdn": "*",
     "advanced-custom-fields/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/favicon-by-realfavicongenerator": "*",
     "wpackagist-plugin/query-monitor": "*",

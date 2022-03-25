@@ -8,6 +8,8 @@ a {
   }
 
   body.post-type-archive-publication .brand &,
+  body.single-video .brand &,
+  body.post-type-archive-video .brand &,
   body.clientes .brand &,
   body.customers .brand &,
   body.colaboradores .brand &,
@@ -29,7 +31,6 @@ a {
 }
 
 #main {
-  body.post-type-archive-publication &,
   body.clientes &,
   body.customers &,
   body.colaboradores &,
@@ -67,6 +68,8 @@ a {
 }
 
 body.post-type-archive-publication,
+body.post-type-archive-video,
+body.single-video,
 body.clientes,
 body.cuestomers,
 body.colaboradores,
