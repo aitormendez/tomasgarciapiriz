@@ -17,6 +17,4 @@
     </ul>
     @endhasfields
 
-
-
 </div>

@@ -1,0 +1,26 @@
+.contacto,
+.contact {
+    main {
+        input[type="text"],
+        input[type="email"],
+        textarea
+        {
+            background-color: #000;
+            padding: 1em;
+            width: 100%;
+            // max-width: none;
+            border-top: 10px solid white;
+        }
+    
+        .wpforms-error {
+            margin-top: 5px;
+        }
+    
+        button {
+            padding: 1em 1.2em;
+            background-color: #fff;
+            color: #000;
+        }
+    }
+
+}

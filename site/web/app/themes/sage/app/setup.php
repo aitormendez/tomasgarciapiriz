@@ -232,3 +232,17 @@ add_action('after_setup_theme', function () {
 add_action('after_setup_theme', function () {	
     add_image_size( 'extra-large', 1500 );
 });
+
+
+/**
+ * Eliminar estilos globales.
+ * https://github.com/WordPress/gutenberg/issues/36834#issuecomment-1048923664
+ *
+ * @return void
+ *
+ */
+
+ add_action( 'init', function () {
+    remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+    remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+ });

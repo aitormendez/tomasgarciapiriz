@@ -7,6 +7,8 @@ a {
     color: black;
   }
 
+  body.contacto .brand &,
+  body.contact .brand &,
   body.post-type-archive-publication .brand &,
   body.single-video .brand &,
   body.post-type-archive-video .brand &,
@@ -31,6 +33,8 @@ a {
 }
 
 #main {
+  body.contacto &,
+  body.contact &,
   body.clientes &,
   body.customers &,
   body.colaboradores &,
@@ -67,6 +71,8 @@ a {
   }
 }
 
+body.contacto,
+body.contact,
 body.post-type-archive-publication,
 body.post-type-archive-video,
 body.single-video,
@@ -125,9 +131,5 @@ pre.sf.dump {
       margin-bottom: 1rem;
     }
    }
-}
-
-.caja {
-
 }
 
