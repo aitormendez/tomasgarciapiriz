@@ -7,6 +7,7 @@
 @section('content')
   @while(have_posts()) @php(the_post())
     @include('partials.page-header')
+    @include('partials.submenu-estudio')
     @include('partials.content-page-clientes')
   @endwhile
 @endsection

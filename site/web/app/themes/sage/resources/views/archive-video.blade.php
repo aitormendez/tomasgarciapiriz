@@ -2,6 +2,7 @@
 
 @section('content')
   @include('partials.page-header')
+  @include('partials.submenu-estudio')
 
   @if (! have_posts())
     <x-alert type="warning">
@@ -11,7 +12,7 @@
     {!! get_search_form(false) !!}
   @endif
 
-  <div class="flex flex-wrap pl-6">
+  <div class="flex flex-wrap pl-6 mt-24">
     @while(have_posts()) @php(the_post())
       @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
     @endwhile

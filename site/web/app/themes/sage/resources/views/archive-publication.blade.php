@@ -2,6 +2,7 @@
 
 @section('content')
   @include('partials.page-header')
+  @include('partials.submenu-estudio')
 
   @if (! have_posts())
     <x-alert type="warning">

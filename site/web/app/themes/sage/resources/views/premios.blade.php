@@ -15,7 +15,7 @@
   @php $anio = '' @endphp
 
   @if (count($listado_premios) > 0)
-    <ul class="flex flex-wrap listado-premios">
+    <ul class="flex flex-col listado-premios">
       @foreach ($listado_premios as $premio)
 
         @if ($anio === '')

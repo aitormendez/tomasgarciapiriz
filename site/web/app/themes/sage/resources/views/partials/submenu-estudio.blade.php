@@ -1,9 +1,9 @@
 @if ($submenu_estudio_navigation)
-  <div class="flex justify-center submenu md:mt-6 mt-36">
+  <div class="mb-6 ml-6 submenu md:mt-6 mt-36">
     <b class="mayusculas" >{{ __('estudio', 'sage') }}</b>
-    <ul role="nav" class="flex flex-wrap justify-center max-w-xs md:max-w-sm lg:max-w-md">
+    <ul role="nav" class="">
       @foreach ($submenu_estudio_navigation as $item)
-        <li class="mx-3">
+        <li class="inline-block mr-2">
           <a class="uppercase" href="{{ $item->url }}">
             {{ $item->label }}
           </a>

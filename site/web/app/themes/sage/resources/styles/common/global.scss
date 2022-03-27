@@ -33,16 +33,23 @@ a {
 }
 
 #main {
-  body.contacto &,
-  body.contact &,
+  body.archive &,
+  body.page-template-exposiciones & {
+    margin-top: 200px;         
+  }
+
   body.clientes &,
   body.customers &,
   body.colaboradores &,
   body.colaborators &,
-  body.archive &,
+  body.post-type-archive-video &,
+  body.post-type-archive-publication &,
+  body.contacto &,
+  body.contact &,
   body.page-template-premios &,
-  body.page-template-exposiciones & {
-    margin-top: 200px;         
+  body.bio-eng &,
+  body.bio & {
+    margin-top: 135px;
   }
 
   #content {
