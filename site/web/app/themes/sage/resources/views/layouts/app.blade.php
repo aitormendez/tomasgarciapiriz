@@ -14,4 +14,6 @@
     </aside>
   @endif
 
-@include('partials.footer')
+  @if (!is_front_page())
+    @include('partials.footer')
+  @endif
